@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --first-color: #a8dadb;
+            --sec-color: #457b9d;
+            --third-color: #e23847;
+            --fourth-color: #1d3557;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            background: #f9f9f9;
+        }
+
+        .input {
+            margin-right: 40px;
+            border: 1px solid #efefef;
+            border-radius: 20px;
+            padding: 20px;
+            height: 550px;
+            box-shadow: 0px 0px 12px 0px #d8d8d89e;
+            background: white;
+        }
+
+        .file-wrapper {
+            margin-bottom: 20px;
+            width: 100%;
+            height: 40px;  
+            position: relative;
+        }
+
+        .label-file {
+            border-radius: 10px;
+            padding: 4px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-weight: 600;
+            transition: 0.08s;
+            box-shadow: 0 1px 5px #d8d8d8;
+            cursor: pointer;
+            position: absolute;
+            background-image: linear-gradient(45deg, var(--first-color), var(--sec-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .label-file:hover {
+            transform: scale(1.01);
+        }
+
+        #myCanvas {
+            border: 1px solid #ececec;
+            border-radius: 15px;
+            box-shadow: 0px 0px 12px 0px #d8d8d89e;
+            background: white;
+        }
+
+        #download button {
+            cursor: pointer;
+            background: var(--sec-color);
+            color: white;
+            font-size: 14px;
+            border: 0px;
+            border-radius: 10px;
+            height: 40px;
+            width: 110px;
+            box-shadow: 0 1px 5px #d8d8d8;
+            transition: 0.08s;
+        }
+
+        #download button:hover {
+            transform: scale(1.01);
+        }
+
+        #text, #number {
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid #67676757;
+            padding: 2px 8px;
+            box-sizing: border-box;
+            transition: 0.1s;
+        }
+
+        #text:focus-visible, #number:focus-visible {
+            outline: none;
+            border: 1px solid var(--first-color);
+            box-shadow: 0 0 4px var(--first-color);
+        }
+
+        @media (min-width: 360px) {
+            body {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            body {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="input">
+        <div class="file-wrapper">
+            <input type="file" id="inputFile" style="opacity: 0;">
+            <label class="label-file" for="inputFile">Choose file</label>
+            <p id="error"></p>
+        </div>
+        
+        <div style="margin: 20px 0px;">
+            <label>Text Watermark:</label>
+            <input id="text" type="text">
+        </div>
+
+        <div style="margin: 20px 0px;">
+            <label>Font Size:</label>
+            <input id="number" type="number">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+                <div>
+                    <input type="radio" id="top-left" name="positions" checked>
+                    <label for="top-left">Top - left</label>
+                </div>
+                <div>
+                    <input type="radio" id="top-center" name="positions">
+                    <label for="top-center">Top - center</label>
+                </div>
+                <div>
+                    <input type="radio" id="top-right" name="positions">
+                    <label for="top-right">Top - right</label>
+                </div>
+                <div>
+                    <input type="radio" id="bottom-left" name="positions">
+                    <label for="bottom-left">Bottom - left</label>
+                </div>
+                <div>
+                    <input type="radio" id="bottom-center" name="positions">
+                    <label for="bottom-center">Bottom - center</label>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <input type="radio" id="bottom-right" name="positions">
+                    <label for="bottom-right">Bottom - right</label>
+                </div>
+                
+                <div>
+                    <input type="color" id="colorPicker">
+                    <label for="colorPicker">Choose a color</label>
+                </div>
+        </div>
+
+        <div>
+            <a id="download" download="watermark.png"><button onclick="download()">Download!</button></a>
+        </div>
+    </div>
+
+    <div class="output">
+        <canvas id="myCanvas" width="800" height="550">Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </div>
+    <script>
+        var val = "";
+        var inputFile = document.getElementById("inputFile");
+            inputFile.addEventListener("change", handleImage, false)
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext('2d');
+
+        function automate(img) {
+            var vertical = "";
+            var horizontal = "";
+            var align = "";
+
+            document.getElementById("text").addEventListener("keyup", function() {
+                if (document.getElementById("top-left").checked) {
+                    align = "start";
+                    vertical = "40";
+                    horizontal = "30";
+                }
+
+                if (document.getElementById("top-center").checked) {
+                    var align = "center";
+                    var vertical = "40";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("top-right").checked) {
+                    var align = "end";
+                    var vertical = "40";
+                    var horizontal = "770";
+                }
+
+                if (document.getElementById("bottom-left").checked) {
+                    var align = "start";
+                    var vertical = "530";
+                    var horizontal = "30";
+                }
+
+                if (document.getElementById("bottom-center").checked) {
+                    var align = "center";
+                    var vertical = "530";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("bottom-right").checked) {
+                    var align = "end";
+                    var vertical = "530";
+                    var horizontal = "770";
+                }
+
+                var color = document.getElementById("colorPicker").value;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                theimg(img);
+                thetext();
+                val = document.getElementById("text").value;
+                ctx.font = "30px Arial";
+                ctx.textAlign = align;
+                ctx.fillStyle = color;
+                ctx.fillText(val, horizontal, vertical);
+            });
+
+            document.addEventListener("click", function() {
+                if (document.getElementById("top-left").checked) {
+                    align = "start";
+                    vertical = "40";
+                    horizontal = "30";
+                }
+
+                if (document.getElementById("top-center").checked) {
+                    var align = "center";
+                    var vertical = "40";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("top-right").checked) {
+                    var align = "end";
+                    var vertical = "40";
+                    var horizontal = "770";
+                }
+
+                if (document.getElementById("bottom-left").checked) {
+                    var align = "start";
+                    var vertical = "530";
+                    var horizontal = "30";
+                }
+
+                if (document.getElementById("bottom-center").checked) {
+                    var align = "center";
+                    var vertical = "530";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("bottom-right").checked) {
+                    var align = "end";
+                    var vertical = "530";
+                    var horizontal = "770";
+                }
+
+                var color = document.getElementById("colorPicker").value;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                theimg(img);
+                thetext();
+                val = document.getElementById("text").value;
+                ctx.font = "30px Arial";
+                ctx.textAlign = align;
+                ctx.fillStyle = color;
+                ctx.fillText(val, horizontal, vertical);
+            })
+
+            document.getElementById("colorPicker").addEventListener("change", function() {
+                if (document.getElementById("top-left").checked) {
+                    align = "start";
+                    vertical = "40";
+                    horizontal = "30";
+                }
+
+                if (document.getElementById("top-center").checked) {
+                    var align = "center";
+                    var vertical = "40";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("top-right").checked) {
+                    var align = "end";
+                    var vertical = "40";
+                    var horizontal = "770";
+                }
+
+                if (document.getElementById("bottom-left").checked) {
+                    var align = "start";
+                    var vertical = "530";
+                    var horizontal = "30";
+                }
+
+                if (document.getElementById("bottom-center").checked) {
+                    var align = "center";
+                    var vertical = "530";
+                    var horizontal = "400";
+                }
+
+                if (document.getElementById("bottom-right").checked) {
+                    var align = "end";
+                    var vertical = "530";
+                    var horizontal = "770";
+                }
+
+                var color = document.getElementById("colorPicker").value;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                theimg(img);
+                thetext();
+                val = document.getElementById("text").value;
+                ctx.font = "30px Arial";
+                ctx.textAlign = align;
+                ctx.fillStyle = color;
+                ctx.fillText(val, horizontal, vertical);
+            })
+        }
+        
+        function thetext() {
+            ctx.fillStyle = "white";
+            ctx.font = "0px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText(val, 0, 0)
+        }
+
+        function theimg(img) {
+            ctx.drawImage(img, 0, 0);
+            ctx.fillStyle = '#ffffff00';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function handleImage(e) {
+            var reader = new FileReader();
+            var img = "";
+            var src = "";
+
+            reader.onload = function(event) {
+                img = new Image();
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                }
+
+                img.src = event.target.result;
+                src= event.target.result;
+                canvas.classList.add("show");
+                theimg(img);
+                thetext();
+                automate(img);
+            }
+
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        function download() {
+            var download = document.getElementById("download");
+            var image = document.getElementById("myCanvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
+            download.setAttribute("href", image);
+        }
+
+        $("#inputFile").on("change", function() {
+            var filename = $(this).val().split("\\").pop();
+            $(this).siblings(".label-file").html(filename);
+
+            if (document.getElementsByClassName("label-file")[0].innerHTML == "") {
+                document.getElementsByClassName("label-file")[0].innerHTML = "Choose file"
+            }
+        })
+    </script>
+</body>
+</html>
