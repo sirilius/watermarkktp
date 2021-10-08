@@ -34,7 +34,6 @@ function handleMouseDown(e) {
     e.preventDefault();
     startX = parseInt(e.clientX - offsetX);
     startY = parseInt(e.clientY - offsetY);
-    // Put your mousedown stuff here
     for (var i = 0; i < texts.length; i++) {
         if (textHittest(startX, startY, i)) {
             selectedText = i;
@@ -85,31 +84,7 @@ $("#canvas").mouseout(function (e) {
 
 function automate(img) {
     document.getElementById("text").addEventListener("keyup", function () {
-    var y = 90;
-    var x = 400;
-    var color = document.getElementById("colorPicker").value
-
-    for (var i = 0; i < texts.length; i++) {
-        var text = texts[i];
-        var y = text.y;
-        var x = text.x;
-    }
-
-    var text = {
-        text: $("#text").val(),
-        x: x,
-        y: y
-    };
-
-    ctx.font = "30px verdana";
-    ctx.fillStyle = color;
-    ctx.textAlign = "center";
-    text.width = ctx.measureText(text.text).width;
-    text.height = 30;
-
-    texts.push(text);
-
-    theimg(img)
+        draggable(img)
     })
 
     $("#canvas").mousemove(function (i) {
@@ -117,7 +92,16 @@ function automate(img) {
     })
 
     document.getElementById("colorPicker").addEventListener("change", function () {
-        var y = 90;
+        draggable(img)
+    })
+    
+    $("#canvas").mousemove(function (i) {
+        handleMouseMove(i, img)
+    })
+};
+
+function draggable(img) {
+    var y = 90;
         var x = 400;
         var color = document.getElementById("colorPicker").value
         
@@ -142,12 +126,7 @@ function automate(img) {
         texts.push(text);
 
         theimg(img)
-        })
-    
-        $("#canvas").mousemove(function (i) {
-            handleMouseMove(i, img)
-        })
-};
+}
 
 function theimg(img) {
     for (var i = 0; i < texts.length; i++) {
