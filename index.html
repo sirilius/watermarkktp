@@ -26,45 +26,21 @@
             <input id="text" type="text">
         </div>
 
-        <div style="margin-bottom: 20px;">
-                <div>
-                    <input type="radio" id="top-left" name="positions" checked>
-                    <label for="top-left">Atas - Kiri</label>
-                </div>
-                <div>
-                    <input type="radio" id="top-center" name="positions">
-                    <label for="top-center">Atas - Tengah</label>
-                </div>
-                <div>
-                    <input type="radio" id="top-right" name="positions">
-                    <label for="top-right">Atas - Kanan</label>
-                </div>
-                <div>
-                    <input type="radio" id="bottom-left" name="positions">
-                    <label for="bottom-left">Bawah - Kiri</label>
-                </div>
-                <div>
-                    <input type="radio" id="bottom-center" name="positions">
-                    <label for="bottom-center">Bawah - Tengah</label>
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <input type="radio" id="bottom-right" name="positions">
-                    <label for="bottom-right">Bawah - Kanan</label>
-                </div>
-                
-                <div style="display: flex; align-items: center;">
-                    <label for="colorPicker">Warna Watermark:</label>
-                    <input type="color" id="colorPicker">
-                </div>
+        <div style="display: flex; align-items: center; margin: 20px 0px;">
+            <label for="colorPicker">Warna Watermark:</label>
+            <input type="color" id="colorPicker">
         </div>
 
         <div>
-            <a id="download" download="watermark.png"><button onclick="download()">Download!</button></a>
+            <a id="download" download="watermark.png"><button onclick="download()">
+                <i class="fas fa-arrow-circle-down" style="margin-right: 8px;" aria-hidden="true"></i>
+                Download
+            </button></a>
         </div>
     </div>
 
     <div class="output">
-        <canvas id="myCanvas" width="800" height="550">Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
+        <canvas id="canvas" width="800" height="550">Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
         </canvas>
     </div>
     <script src="script.js"></script>
