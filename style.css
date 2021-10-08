@@ -64,7 +64,7 @@ body {
     transform: scale(1.01);
 }
 
-#myCanvas {
+#canvas {
     border: 1px solid #ececec;
     border-radius: 15px;
     box-shadow: 0px 0px 12px 0px #d8d8d89e;
@@ -112,6 +112,7 @@ body {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    border: 1px solid #e5e5e5;
     outline: none;
     -webkit-appearance: none;
 }
