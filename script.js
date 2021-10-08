@@ -17,14 +17,6 @@ var texts = [];
 
 var selectedText = -1;
 
-function draw() {
-    for (var i = 0; i < texts.length; i++) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var text = texts[i];
-        ctx.fillText(text.text, text.x, text.y);
-    }
-}
-
 function textHittest(x, y, textIndex) {
     var text = texts[textIndex];
     return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
@@ -51,13 +43,13 @@ function handleMouseOut(e) {
     selectedText = -1;
 }
 
-function handleMouseMove(i, img) {
+function handleMouseMove(e, img) {
     if (selectedText < 0) {
         return;
     }
-    i.preventDefault();
-    mouseX = parseInt(i.clientX - offsetX);
-    mouseY = parseInt(i.clientY - offsetY);
+    e.preventDefault();
+    mouseX = parseInt(e.clientX - offsetX);
+    mouseY = parseInt(e.clientY - offsetY);
 
     var dx = mouseX - startX;
     var dy = mouseY - startY;
@@ -95,37 +87,37 @@ function automate(img) {
         draggable(img)
     })
     
-    $("#canvas").mousemove(function (i) {
-        handleMouseMove(i, img)
+    $("#canvas").mousemove(function (e) {
+        handleMouseMove(e, img)
     })
 };
 
 function draggable(img) {
     var y = 90;
-        var x = 400;
-        var color = document.getElementById("colorPicker").value
+    var x = 400;
+    var color = document.getElementById("colorPicker").value
         
-        for (var i = 0; i < texts.length; i++) {
-            var text = texts[i];
-            var y = text.y;
-            var x = text.x;
-        }
+    for (var i = 0; i < texts.length; i++) {
+        var text = texts[i];
+        var y = text.y;
+        var x = text.x;
+    }
 
-        var text = {
-            text: $("#text").val(),
-            x: x,
-            y: y
-        };
+    var text = {
+        text: $("#text").val(),
+        x: x,
+        y: y
+    };
 
-        ctx.font = "30px verdana";
-        ctx.fillStyle = color;
-        ctx.textAlign = "center";
-        text.width = ctx.measureText(text.text).width;
-        text.height = 30;
+    ctx.font = "30px verdana";
+    ctx.fillStyle = color;
+    ctx.textAlign = "center";
+    text.width = ctx.measureText(text.text).width;
+    text.height = 30;
 
-        texts.push(text);
+    texts.push(text);
 
-        theimg(img)
+    theimg(img)
 }
 
 function theimg(img) {
