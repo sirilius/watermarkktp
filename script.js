@@ -62,34 +62,54 @@ function handleMouseMove(e, img) {
     theimg(img);
 }
 
-$("#canvas").mousedown(function (e) {
-    handleMouseDown(e);
-});
-
-$("#canvas").mouseup(function (e) {
-    handleMouseUp(e);
-});
-
-$("#canvas").mouseout(function (e) {
-    handleMouseOut(e);
-});
-
 function automate(img) {
     document.getElementById("text").addEventListener("keyup", function () {
         draggable(img)
     })
 
-    $("#canvas").mousemove(function (i) {
-        handleMouseMove(i, img)
+    $("#canvas").mousemove(function (e) {
+        handleMouseMove(e, img)
     })
 
     document.getElementById("colorPicker").addEventListener("change", function () {
         draggable(img)
     })
-    
+
+    document.addEventListener("click", function () {
+        draggable(img)
+    })
+
+    $("#canvas").mousedown(function (e) {
+        handleMouseDown(e);
+    });
+        
     $("#canvas").mousemove(function (e) {
         handleMouseMove(e, img)
     })
+    
+    $("#canvas").mouseup(function (e) {
+        handleMouseUp(e);
+    });
+    
+    $("#canvas").mouseout(function (e) {
+        handleMouseOut(e);
+    });
+
+    canvas.addEventListener("pointerdown", function (e) {
+        handleMouseDown(e);
+    });
+
+    canvas.addEventListener("pointermove", function (e) {
+        handleMouseMove(e, img);
+    });
+
+    canvas.addEventListener("pointerup", function (e) {
+        handleMouseUp(e);
+    });
+
+    canvas.addEventListener("pointerout", function (e) {
+        handleMouseOut(e)
+    });
 };
 
 function draggable(img) {
