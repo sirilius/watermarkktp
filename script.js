@@ -1,6 +1,6 @@
 var val = "";
 var inputFile = document.getElementById("inputFile");
-    inputFile.addEventListener("change", handleImage, false)
+inputFile.addEventListener("change", handleImage, false)
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext('2d');
 
@@ -82,15 +82,15 @@ function automate(img) {
     $("#canvas").mousedown(function (e) {
         handleMouseDown(e);
     });
-        
+
     $("#canvas").mousemove(function (e) {
         handleMouseMove(e, img)
     })
-    
+
     $("#canvas").mouseup(function (e) {
         handleMouseUp(e);
     });
-    
+
     $("#canvas").mouseout(function (e) {
         handleMouseOut(e);
     });
@@ -116,7 +116,10 @@ function draggable(img) {
     var y = 90;
     var x = 400;
     var color = document.getElementById("colorPicker").value
-        
+
+// Font Selection
+    var font = document.getElementById("select-font").value
+
     for (var i = 0; i < texts.length; i++) {
         var text = texts[i];
         var y = text.y;
@@ -129,7 +132,7 @@ function draggable(img) {
         y: y
     };
 
-    ctx.font = "30px verdana";
+    ctx.font = `30px ${font}`;
     ctx.fillStyle = color;
     ctx.textAlign = "center";
     text.width = ctx.measureText(text.text).width;
@@ -142,15 +145,15 @@ function draggable(img) {
 
 function theimg(img) {
     for (var i = 0; i < texts.length; i++) {
-        var acanvas = ctx.canvas ;
+        var acanvas = ctx.canvas;
         var hRatio = acanvas.width / img.width;
         var vRatio = acanvas.height / img.height;
         var ratio = Math.min(hRatio, vRatio);
-        var centerShift_x = (acanvas.width - img.width*ratio) / 2;
-        var centerShift_y = (acanvas.height - img.height*ratio) / 2;
-            
+        var centerShift_x = (acanvas.width - img.width * ratio) / 2;
+        var centerShift_y = (acanvas.height - img.height * ratio) / 2;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width*ratio, img.height*ratio);
+        ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
         var text = texts[i];
         ctx.fillText(text.text, text.x, text.y);
     }
@@ -161,24 +164,24 @@ function handleImage(e) {
     var img = "";
     var src = "";
 
-    reader.onload = function(event) {
+    reader.onload = function (event) {
         img = new Image();
-        img.onload = function() {
-            var canvas = ctx.canvas ;
+        img.onload = function () {
+            var canvas = ctx.canvas;
             var hRatio = canvas.width / img.width;
             var vRatio = canvas.height / img.height;
             var ratio = Math.min(hRatio, vRatio);
-            var centerShift_x = (canvas.width - img.width*ratio) / 2;
-            var centerShift_y = (canvas.height - img.height*ratio) / 2;
-        
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width*ratio, img.height*ratio);
+            var centerShift_x = (canvas.width - img.width * ratio) / 2;
+            var centerShift_y = (canvas.height - img.height * ratio) / 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
             ctx.fillStyle = '#ffffff00';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
         img.src = event.target.result;
-        src= event.target.result;
+        src = event.target.result;
         canvas.classList.add("show");
         theimg(img);
         automate(img);
@@ -193,11 +196,11 @@ function download() {
     download.setAttribute("href", image);
 }
 
-$("#inputFile").change(function() {
+$("#inputFile").change(function () {
     var filename = $(this).val().split("\\").pop();
     $(this).siblings(".label-file").html(filename);
 
-if (document.getElementsByClassName("label-file")[0].innerHTML == "") {
-    document.getElementsByClassName("label-file")[0].innerHTML = "Pilih Gambar"
-}
+    if (document.getElementsByClassName("label-file")[0].innerHTML == "") {
+        document.getElementsByClassName("label-file")[0].innerHTML = "Pilih Gambar"
+    }
 })
