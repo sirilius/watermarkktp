@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/d6e78495c8.js" crossorigin="anonymous"></script>
-    <script async defer data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23" src="https://anila.statically.io/umami.js"></script>
+    <script async defer data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23"
+        src="https://anila.statically.io/umami.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logo.svg">
     <title>Watermark KTP</title>
 </head>
+
 <body>
     <div class="input">
         <div class="file-wrapper">
@@ -21,11 +24,22 @@
             </label>
             <p id="error"></p>
         </div>
-        
+
         <div style="margin: 20px 0px;">
             <label>Watermark:</label>
             <input id="text" type="text">
         </div>
+
+
+<!-- Font Selection -->
+        <label for="">Font:</label>
+        <select id="select-font" class="select" onchange="changeFontStyle (this)">
+            <option value="times New Roman" selected="selected">
+                Times New Roman
+            </option>
+            <option value="arial">Arial</option>
+            <option value="sans">PT Sans</option>
+        </select>
 
         <div style="display: flex; align-items: center; margin: 20px 0px;">
             <label for="colorPicker">Warna Watermark:</label>
@@ -35,16 +49,18 @@
 
         <div>
             <a id="download" download="watermark.png"><button onclick="download()">
-                <i class="fas fa-arrow-circle-down" style="margin-right: 8px;" aria-hidden="true"></i>
-                Download
-            </button></a>
+                    <i class="fas fa-arrow-circle-down" style="margin-right: 8px;" aria-hidden="true"></i>
+                    Download
+                </button></a>
         </div>
     </div>
 
     <div class="output">
-        <canvas id="canvas" width="800" height="550">Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
+        <canvas id="canvas" width="800" height="550">Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan
+            browser lainnya!
         </canvas>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
