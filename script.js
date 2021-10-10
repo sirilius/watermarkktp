@@ -72,7 +72,7 @@ function automate(img) {
     })
 
     document.getElementById("opacity").addEventListener("change", function () {
-        draggable(img)
+        draggable(img);
     })
 
     document.addEventListener("click", function () {
@@ -115,7 +115,6 @@ function automate(img) {
 function draggable(img) {
     var y = 90;
     var x = 400;
-    var color = document.getElementById("colorPicker").value
         
     for (var i = 0; i < texts.length; i++) {
         var text = texts[i];
@@ -129,8 +128,13 @@ function draggable(img) {
         y: y
     };
 
+    var opacity = $("#opacity").val();
+    var color = $("#colorPicker").val();
+
+    var rgbaCol = 'rgba(' + parseInt(color.slice(-6, -4), 16) + ',' + parseInt(color.slice(-4, -2), 16) + ',' + parseInt(color.slice(-2), 16) + ',' + opacity + ')';
+
     ctx.font = "30px verdana";
-    ctx.fillStyle = color;
+    ctx.fillStyle = rgbaCol;
     ctx.textAlign = "center";
     text.width = ctx.measureText(text.text).width;
     text.height = 30;
