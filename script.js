@@ -67,10 +67,6 @@ function automate(img) {
         draggable(img)
     })
 
-    $("#canvas").mousemove(function (e) {
-        handleMouseMove(e, img)
-    })
-
     document.getElementById("colorPicker").addEventListener("change", function () {
         draggable(img)
     })
