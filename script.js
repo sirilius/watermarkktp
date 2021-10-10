@@ -71,6 +71,10 @@ function automate(img) {
         draggable(img)
     })
 
+    document.getElementById("opacity").addEventListener("change", function () {
+        draggable(img)
+    })
+
     document.addEventListener("click", function () {
         draggable(img)
     })
