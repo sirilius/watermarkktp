@@ -71,6 +71,52 @@ function automate(img) {
         draggable(img)
     })
 
+    document.getElementById("select-poistion").addEventListener("change", function () {
+        var position = document.getElementById("select-poistion").value
+        var x = 0;
+        var y = 0;
+        switch(position) {
+            case 'top':
+                y = 90;
+                x = 400;
+            break;
+            case 'top-left':
+                y = 90;
+                x = 100;
+            break;
+            case 'top-right':
+                y = 90;
+                x = 700;
+            break;
+            case 'center':
+                y = 300;
+                x = 400;
+            break;
+            case 'center-left':
+                y = 300;
+                x = 100;
+            break;
+            case 'center-right':
+                y = 300;
+                x = 700;
+            break;
+            case 'bottom':
+                y = 500;
+                x = 400;
+            break;
+            case 'bottom-left':
+                y = 500;
+                x = 100;
+            break;
+            case 'bottom-right':
+                y = 500;
+                x = 700;
+            break;
+        }
+        draggable(img, x, y)
+
+    })
+
     document.getElementById("opacity").addEventListener("change", function () {
         draggable(img);
     })
@@ -112,9 +158,9 @@ function automate(img) {
     });
 };
 
-function draggable(img) {
-    var y = 90;
-    var x = 400;
+function draggable(img, text_x, text_y) {
+    var y = (text_x > 0) ? text_x : 90;
+    var x = (text_y > 0) ? text_y : 400;
     var color = document.getElementById("colorPicker").value
 
 // Font Selection
@@ -122,9 +168,10 @@ function draggable(img) {
 
     for (var i = 0; i < texts.length; i++) {
         var text = texts[i];
-        var y = text.y;
-        var x = text.x;
+        var y = (text_y > 0) ? text_y : text.y;
+        var x = (text_x > 0) ? text_x : text.x;
     }
+
 
     var text = {
         text: $("#text").val(),

@@ -71,6 +71,8 @@ body {
 }
 
 #canvas {
+    width: 100%;
+    object-fit: contain;
     border: 1px solid #ececec;
     border-radius: 15px;
     box-shadow: 0px 0px 12px 0px #d8d8d89e;
@@ -131,7 +133,7 @@ body {
     border-radius: 50%;
 }
 
-@media (min-width: 360px) {
+@media (min-width: 320px) {
     body {
         flex-direction: column;
     }
