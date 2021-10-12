@@ -129,9 +129,9 @@ function automate(img) {
   document.getElementById('opacity').addEventListener('change', function () {
     draggable(img);
   });
-      
-  document.getElementById("rotate").addEventListener("change", function () {
-      draggable(img);
+
+  document.getElementById('rotate').addEventListener('change', function () {
+    draggable(img);
   });
 
   document.addEventListener('click', function () {
@@ -191,7 +191,7 @@ function draggable(img, text_x, text_y) {
     y: y,
   };
 
-  angle = $("#rotate").val();
+  angle = $('#rotate').val();
   var opacity = $('#opacity').val();
   var color = $('#colorPicker').val();
 
