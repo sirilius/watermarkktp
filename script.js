@@ -69,19 +69,19 @@ function handleMouseMove(e, img) {
 }
 
 function automate(img) {
-  document.getElementById('text').addEventListener('keyup', function () {
+  document.getElementById('text').oninput = function () {
     draggable(img);
-  });
+  }
 
   document
     .getElementById('colorPicker')
-    .addEventListener('change', function () {
+    .oninput = function () {
       draggable(img);
-    });
+    }
 
   document
     .getElementById('select-position')
-    .addEventListener('change', function () {
+    .oninput = function () {
       var position = document.getElementById('select-position').value;
       var x = 0;
       var y = 0;
@@ -124,15 +124,15 @@ function automate(img) {
           break;
       }
       draggable(img, x, y);
-    });
+    }
 
-  document.getElementById('opacity').addEventListener('input', function () {
+  document.getElementById('opacity').oninput = function () {
     draggable(img);
-  });
+  }
 
-  document.getElementById('rotate').addEventListener('input', function () {
+  document.getElementById('rotate').oninput = function () {
     draggable(img);
-  });
+  }
 
   document.addEventListener('click', function () {
     draggable(img);
