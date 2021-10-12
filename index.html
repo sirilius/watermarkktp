@@ -1,94 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/d6e78495c8.js" crossorigin="anonymous"></script>
-    <script async defer data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23"
-        src="https://anila.statically.io/umami.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.svg">
+    <script async defer data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23" src="https://anila.statically.io/umami.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="logo.svg" />
     <title>Watermark KTP</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="input">
-        <div class="file-wrapper">
-            <input type="file" id="inputFile" style="opacity: 0;">
-            <label class="label-file" for="inputFile">
-                <i class="fas fa-arrow-circle-up" style="margin-right: 8px;"></i>
-                Pilih Gambar
-            </label>
-            <p id="error"></p>
-        </div>
+      <div class="file-wrapper">
+        <input type="file" id="inputFile" style="opacity: 0" />
+        <label class="label-file" for="inputFile">
+          <i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i>
+          Pilih Gambar
+        </label>
+        <p id="error"></p>
+      </div>
 
-        <div style="margin: 20px 0px;">
-            <label>Watermark:</label>
-            <input id="text" type="text">
-        </div>
+      <div style="margin: 20px 0px">
+        <label>Watermark:</label>
+        <input id="text" type="text" />
+      </div>
 
-        
-        <!-- Font Selection -->
-        <div style="margin: 20px 0px;">
+      <!-- Font Selection -->
+      <div style="margin: 20px 0px">
         <label for="">Font:</label>
         <select id="select-font" class="select">
-            <option value="times New Roman" selected="selected">
-                Times New Roman
-            </option>
-            <option value="arial">Arial</option>
-            <option value="sans">PT Sans</option>
+          <option value="times New Roman" selected="selected">
+            Times New Roman
+          </option>
+          <option value="arial">Arial</option>
+          <option value="sans">PT Sans</option>
         </select>
-        </div>
+      </div>
 
-        <!-- Position Selection -->
-        <div style="margin: 20px 0px;">
+      <!-- Position Selection -->
+      <div style="margin: 20px 0px">
         <label for="select-poistion">Posisi Teks:</label>
         <select id="select-poistion" class="select">
-            <option value="top" selected="selected">Atas</option>
-            <option value="top-left">Atas kiri</option>
-            <option value="top-right">Atas kanan</option>
-            <option value="center">Tengah</option>
-            <option value="center-left">Tengah kiri</option>
-            <option value="center-right">Tengah kanan</option>
-            <option value="bottom">Bawah</option>
-            <option value="bottom-left">Bawah kiri</option>
-            <option value="bottom-right">Bawah kanan</option>
+          <option value="top" selected="selected">Atas</option>
+          <option value="top-left">Atas kiri</option>
+          <option value="top-right">Atas kanan</option>
+          <option value="center">Tengah</option>
+          <option value="center-left">Tengah kiri</option>
+          <option value="center-right">Tengah kanan</option>
+          <option value="bottom">Bawah</option>
+          <option value="bottom-left">Bawah kiri</option>
+          <option value="bottom-right">Bawah kanan</option>
         </select>
-        </div>
+      </div>
 
-        <div style="display: flex; align-items: center; margin: 20px 0px;">
-            <label for="colorPicker">Warna Teks :</label>
-            <input type="color" id="colorPicker">
-        </div>
+      <div style="display: flex; align-items: center; margin: 20px 0px">
+        <label for="colorPicker">Warna Teks :</label>
+        <input type="color" id="colorPicker" />
+      </div>
 
-        <div style="display: flex; align-items: center; margin: 20px 0px;">
-            <label for="rotate">Rotate Teks :</label>
-            <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
-            <output>0°</output>
-        </div>
+      <div style="display: flex; align-items: center; margin: 20px 0px;">
+        <label for="rotate">Rotate Teks :</label>
+        <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
+        <output>0°</output>
+      </div>
 
-        <div style="display: flex; align-items: center; margin: 20px 0px;">
-            <label for="opacity">Opacity Teks :</label>
-            <input type="range" min="0" max="1" step="0.1" id="opacity">
-        </div>
+      <div style="display: flex; align-items: center; margin: 20px 0px">
+        <label for="colorPicker">Opacity Teks :</label>
+        <input type="range" min="0" max="1" step="0.1" id="opacity" />
+      </div>
 
-        <div>
-            <a id="download" download="watermark.png"><button onclick="download()">
-                    <i class="fas fa-arrow-circle-down" style="margin-right: 8px;" aria-hidden="true"></i>
-                    Download
-                </button></a>
-        </div>
+      <div>
+        <a id="download" download="watermark.png">
+          <button onclick="download()">
+            <i class="fas fa-arrow-circle-down" style="margin-right: 8px" aria-hidden="true"></i>
+            Download
+          </button>
+        </a>
+      </div>
     </div>
 
     <div class="output">
-        <canvas id="canvas" width="800" height="550">Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan
-            browser lainnya!
-        </canvas>
+      <canvas id="canvas" width="800" height="550">
+        Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
+      </canvas>
     </div>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
