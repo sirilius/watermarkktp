@@ -80,9 +80,9 @@ function automate(img) {
     });
 
   document
-    .getElementById('select-poistion')
+    .getElementById('select-position')
     .addEventListener('change', function () {
-      var position = document.getElementById('select-poistion').value;
+      var position = document.getElementById('select-position').value;
       var x = 0;
       var y = 0;
       switch (position) {
@@ -130,7 +130,7 @@ function automate(img) {
     draggable(img);
   });
 
-  document.getElementById('rotate').addEventListener('change', function () {
+  document.getElementById('rotate').addEventListener('input', function () {
     draggable(img);
   });
 
@@ -295,6 +295,15 @@ function download() {
   download.setAttribute('href', image);
 }
 
+function reset(){
+  $("#rotate").val(0)
+  $("#rotate + output").val("0°")
+  $("#opacity").val(0.5)
+  $("#colorPicker").val("#000000")
+  $("#select-position").val("top")
+  $("#select-position").trigger('change');
+  $("#select-font").val('times New Roman')
+}
 $('#inputFile').change(function () {
   var filename = $(this).val().split('\\').pop();
   $(this)

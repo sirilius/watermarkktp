@@ -5,6 +5,7 @@
   --sec-color: #457b9d;
   --third-color: #e23847;
   --fourth-color: #1d3557;
+  --reset-color:red;
 }
 
 * {
@@ -100,6 +101,23 @@ body {
 }
 
 #download button:hover {
+  transform: scale(1.01);
+}
+
+#reset button {
+  cursor: pointer;
+  background: var(--reset-color);
+  color: white;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 10px;
+  height: 40px;
+  width: 110px;
+  box-shadow: 0 1px 5px #d8d8d8;
+  transition: 0.08s;
+}
+
+#reset button:hover {
   transform: scale(1.01);
 }
 

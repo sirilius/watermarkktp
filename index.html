@@ -25,7 +25,7 @@
 
       <div style="margin: 20px 0px">
         <label>Watermark:</label>
-        <input id="text" type="text" />
+        <input id="text" type="text" placeholder="Contoh : Watermark Pinjol" />
       </div>
 
       <!-- Font Selection -->
@@ -42,8 +42,8 @@
 
       <!-- Position Selection -->
       <div style="margin: 20px 0px">
-        <label for="select-poistion">Posisi Teks:</label>
-        <select id="select-poistion" class="select">
+        <label for="select-position">Posisi Teks:</label>
+        <select id="select-position" class="select">
           <option value="top" selected="selected">Atas</option>
           <option value="top-left">Atas kiri</option>
           <option value="top-right">Atas kanan</option>
@@ -77,6 +77,12 @@
           <button onclick="download()">
             <i class="fas fa-arrow-circle-down" style="margin-right: 8px" aria-hidden="true"></i>
             Download
+          </button>
+        </a>
+        <a id="reset">
+          <button onclick="reset()">
+            <i class="fas fa-redo-alt" style="margin-right: 8px" aria-hidden="true"></i>
+            Reset
           </button>
         </a>
       </div>
