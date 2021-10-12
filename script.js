@@ -275,8 +275,6 @@ function handleImage(e) {
         img.width * ratio,
         img.height * ratio,
       );
-      ctx.fillStyle = '#ffffff00';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
     img.src = event.target.result;
