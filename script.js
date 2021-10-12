@@ -126,7 +126,7 @@ function automate(img) {
       draggable(img, x, y);
     });
 
-  document.getElementById('opacity').addEventListener('change', function () {
+  document.getElementById('opacity').addEventListener('input', function () {
     draggable(img);
   });
 
@@ -301,9 +301,10 @@ function reset(){
   $("#opacity").val(0.5)
   $("#colorPicker").val("#000000")
   $("#select-position").val("top")
-  $("#select-position").trigger('change');
+  dispatchEvent("#select-position", 'change');
   $("#select-font").val('times New Roman')
 }
+
 $('#inputFile').change(function () {
   var filename = $(this).val().split('\\').pop();
   $(this)
@@ -314,3 +315,13 @@ $('#inputFile').change(function () {
     document.getElementsByClassName('label-file')[0].innerHTML = 'Pilih Gambar';
   }
 });
+
+var dispatchEvent = function(element, eventName) {
+    if ('createEvent' in document) {
+        var event = document.createEvent('HTMLEvents');
+        event.initEvent(eventName, false, true);
+        document.querySelector(element).dispatchEvent(event);
+    } else {
+        document.querySelector(element).fireEvent(eventName); // only for backward compatibility (older browsers)
+    }
+};
