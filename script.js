@@ -295,14 +295,14 @@ function download() {
   download.setAttribute('href', image);
 }
 
-function reset(){
-  $("#rotate").val(0)
-  $("#rotate + output").val("0°")
-  $("#opacity").val(0.5)
-  $("#colorPicker").val("#000000")
-  $("#select-position").val("top")
-  dispatchEvent("#select-position", 'change');
-  $("#select-font").val('times New Roman')
+function reset() {
+  $('#rotate').val(0);
+  $('#rotate + output').val('0°');
+  $('#opacity').val(0.5);
+  $('#colorPicker').val('#000000');
+  $('#select-position').val('top');
+  dispatchEvent('#select-position', 'change');
+  $('#select-font').val('times New Roman');
 }
 
 $('#inputFile').change(function () {
@@ -316,12 +316,12 @@ $('#inputFile').change(function () {
   }
 });
 
-var dispatchEvent = function(element, eventName) {
-    if ('createEvent' in document) {
-        var event = document.createEvent('HTMLEvents');
-        event.initEvent(eventName, false, true);
-        document.querySelector(element).dispatchEvent(event);
-    } else {
-        document.querySelector(element).fireEvent(eventName); // only for backward compatibility (older browsers)
-    }
+var dispatchEvent = function (element, eventName) {
+  if ('createEvent' in document) {
+    var event = document.createEvent('HTMLEvents');
+    event.initEvent(eventName, false, true);
+    document.querySelector(element).dispatchEvent(event);
+  } else {
+    document.querySelector(element).fireEvent(eventName); // only for backward compatibility (older browsers)
+  }
 };
