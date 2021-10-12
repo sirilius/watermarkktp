@@ -1,0 +1,10 @@
+{
+  "name": "watermarkktp",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write '**/*.{css,js,md}'"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
+  }
+}
