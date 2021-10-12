@@ -16,6 +16,7 @@ var startY;
 var texts = [];
 
 var selectedText = -1;
+var angle = 0;
 
 function textHittest(x, y, textIndex) {
     var text = texts[textIndex];
@@ -121,6 +122,10 @@ function automate(img) {
         draggable(img);
     })
 
+    document.getElementById("rotate").addEventListener("change", function () {
+        draggable(img);
+    })
+
     document.addEventListener("click", function () {
         draggable(img)
     })
@@ -179,6 +184,7 @@ function draggable(img, text_x, text_y) {
         y: y
     };
 
+    angle = $("#rotate").val();
     var opacity = $("#opacity").val();
     var color = $("#colorPicker").val();
 
@@ -206,8 +212,13 @@ function theimg(img) {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+        ctx.save();
         var text = texts[i];
-        ctx.fillText(text.text, text.x, text.y);
+        ctx.textAlign = 'center';
+        ctx.translate(text.x, text.y);
+        ctx.rotate(angle * (Math.PI / 180));
+        ctx.fillText(text.text, 0, text.height / 2);
+        ctx.restore();
     }
 }
 
