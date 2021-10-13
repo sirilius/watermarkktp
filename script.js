@@ -171,9 +171,9 @@ function automate(img) {
   });
 }
 
-function draggable(img, text_x, text_y) {
-  var y = text_x > 0 ? text_x : 90;
-  var x = text_y > 0 ? text_y : 400;
+function draggable(img) {
+  var y = canvas.height/3;
+  var x = canvas.width/2;
   var color = document.getElementById('colorPicker').value;
 
   // Font Selection
@@ -181,8 +181,8 @@ function draggable(img, text_x, text_y) {
 
   for (var i = 0; i < texts.length; i++) {
     var text = texts[i];
-    var y = text_y > 0 ? text_y : text.y;
-    var x = text_x > 0 ? text_x : text.x;
+    var y = text.y;
+    var x = text.x;
   }
 
   var text = {
