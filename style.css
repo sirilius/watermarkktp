@@ -128,9 +128,10 @@ body {
   height: 40px;
   border-radius: 10px;
   border: 1px solid #67676757;
-  padding: 2px 8px;
+  padding: 9px 8px;
   box-sizing: border-box;
-  transition: 0.1s;
+  font-family: 'Heebo', sans-serif;
+  resize: vertical;
 }
 
 #text:focus-visible,
