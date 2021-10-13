@@ -122,7 +122,8 @@ body {
 }
 
 #text,
-#number {
+#select-font,
+#select-position {
   margin-top: 5px;
   width: 100%;
   height: 40px;
@@ -132,10 +133,32 @@ body {
   box-sizing: border-box;
   font-family: 'Heebo', sans-serif;
   resize: vertical;
+  color: #676767;
+}
+
+#text::-webkit-input-placeholder {
+  color: #676767;
+}
+
+#text:-moz-placeholder { /* Firefox 18- */
+  color: #676767;  
+}
+
+#text::-moz-placeholder {  /* Firefox 19+ */
+  color: #676767;  
+}
+
+#text:-ms-input-placeholder {
+  color: #676767;  
+}
+
+#text::placeholder {
+  color: #676767;  
 }
 
 #text:focus-visible,
-#number:focus-visible {
+#select-font:focus-visible,
+#select-position:focus-visible {
   outline: none;
   border: 1px solid var(--first-color);
   box-shadow: 0 0 4px var(--first-color);
