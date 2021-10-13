@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --first-color: #a8dadb;
+  --main-color: #a8dadb;
   --sec-color: #457b9d;
-  --third-color: #e23847;
+  --reset-color: #e23847;
   --fourth-color: #1d3557;
-  --reset-color: #ff0000;
 }
 
 * {
@@ -53,7 +52,7 @@ body {
   position: absolute;
   background-image: linear-gradient(
     45deg,
-    var(--first-color),
+    var(--main-color),
     var(--sec-color)
   );
   color: white;
@@ -160,8 +159,8 @@ body {
 #select-font:focus-visible,
 #select-position:focus-visible {
   outline: none;
-  border: 1px solid var(--first-color);
-  box-shadow: 0 0 4px var(--first-color);
+  border: 1px solid var(--main-color);
+  box-shadow: 0 0 4px var(--main-color);
 }
 
 #colorPicker {
