@@ -122,7 +122,8 @@ body {
 
 #text,
 #select-font,
-#select-position {
+#select-position,
+#font-style {
   margin-top: 5px;
   width: 100%;
   height: 40px;
@@ -133,6 +134,7 @@ body {
   font-family: 'Heebo', sans-serif;
   resize: vertical;
   color: #676767;
+  background: white;
 }
 
 #text::-webkit-input-placeholder {
@@ -157,7 +159,8 @@ body {
 
 #text:focus-visible,
 #select-font:focus-visible,
-#select-position:focus-visible {
+#select-position:focus-visible,
+#font-style:focus-visible {
   outline: none;
   border: 1px solid var(--main-color);
   box-shadow: 0 0 4px var(--main-color);
