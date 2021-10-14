@@ -188,16 +188,6 @@ body {
   border-radius: 50%;
 }
 
-.boldText {
-  font-weight: bold;
-}
-.italicText {
-  font-style: italic;
-}
-.underlineText {
-  text-decoration: underline;
-}
-
 @media (min-width: 320px) {
   body {
     flex-direction: column;
