@@ -61,6 +61,13 @@
         <input type="color" id="colorPicker" />
       </div>
 
+      <div style="display: flex; align-items: center; margin: 20px 0px">
+        <label for="fontWeight">Jenis Teks :</label>
+        <input type="button" class="boldText" value="Bold" />
+        <input type="button" class="italicText" value="Italic" />
+        <input type="button" class="underlineText" value="Underline" />
+      </div>
+
       <div style="display: flex; align-items: center; margin: 20px 0px;">
         <label for="rotate">Rotate Teks :</label>
         <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
