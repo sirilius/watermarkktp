@@ -294,6 +294,7 @@ function download() {
 }
 
 function reset() {
+  $('#text').val('');
   $('#rotate').val(0);
   $('#rotate + output').val('0°');
   $('#opacity').val(0.5);
