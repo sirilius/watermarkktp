@@ -305,8 +305,8 @@ $('#inputFile').change(function () {
     .siblings('.label-file')
     .html(`<span class="truncate-text">${filename}</span>`);
 
-  if (document.getElementsByClassName('label-file')[0].innerHTML == '') {
-    document.getElementsByClassName('label-file')[0].innerHTML = 'Pilih Gambar';
+  if (document.getElementsByClassName('truncate-text')[0].innerHTML == '') {
+    document.getElementsByClassName('label-file')[0].innerHTML = '<i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i> Pilih Gambar';
   }
 });
 
