@@ -296,7 +296,7 @@ function reset() {
   document.getElementById("opacity").value = "0.5";
   document.getElementById("colorPicker").value = "#000000";
   document.getElementById("select-position").value = "top";
-  dispatchEvent('#select-position', 'change');
+  dispatchEvent('#select-position', 'input');
   document.getElementById("select-font").value = "times New Roman";
 }
 
