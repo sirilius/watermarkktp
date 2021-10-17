@@ -298,8 +298,6 @@ function reset() {
   document.getElementById("select-position").value = "top";
   dispatchEvent('#select-position', 'change');
   document.getElementById("select-font").value = "times New Roman";
-  dispatchEvent('#select-position', 'change');
-  document.getElementById("select-font").value = "times New Roman";
 }
 
 $('#inputFile').change(function () {
