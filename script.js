@@ -71,88 +71,84 @@ function handleMouseMove(e, img) {
 function automate(img) {
   document.getElementById('text').oninput = function () {
     draggable(img);
-  }
+  };
 
-  document
-    .getElementById('colorPicker')
-    .oninput = function () {
-      draggable(img);
-    }
+  document.getElementById('colorPicker').oninput = function () {
+    draggable(img);
+  };
 
-  document
-    .getElementById('select-position')
-    .oninput = function () {
-      var position = document.getElementById('select-position').value;
-      var x = 0;
-      var y = 0;
-      switch (position) {
-        case 'top':
-          y = 90;
-          x = 400;
-          break;
-        case 'top-left':
-          y = 90;
-          x = 100;
-          break;
-        case 'top-right':
-          y = 90;
-          x = 700;
-          break;
-        case 'center':
-          y = 300;
-          x = 400;
-          break;
-        case 'center-left':
-          y = 300;
-          x = 100;
-          break;
-        case 'center-right':
-          y = 300;
-          x = 700;
-          break;
-        case 'bottom':
-          y = 500;
-          x = 400;
-          break;
-        case 'bottom-left':
-          y = 500;
-          x = 100;
-          break;
-        case 'bottom-right':
-          y = 500;
-          x = 700;
-          break;
-      }
-      draggable(img, x, y);
+  document.getElementById('select-position').oninput = function () {
+    var position = document.getElementById('select-position').value;
+    var x = 0;
+    var y = 0;
+    switch (position) {
+      case 'top':
+        y = 90;
+        x = 400;
+        break;
+      case 'top-left':
+        y = 90;
+        x = 100;
+        break;
+      case 'top-right':
+        y = 90;
+        x = 700;
+        break;
+      case 'center':
+        y = 300;
+        x = 400;
+        break;
+      case 'center-left':
+        y = 300;
+        x = 100;
+        break;
+      case 'center-right':
+        y = 300;
+        x = 700;
+        break;
+      case 'bottom':
+        y = 500;
+        x = 400;
+        break;
+      case 'bottom-left':
+        y = 500;
+        x = 100;
+        break;
+      case 'bottom-right':
+        y = 500;
+        x = 700;
+        break;
     }
+    draggable(img, x, y);
+  };
 
   document.getElementById('opacity').oninput = function () {
     draggable(img);
-  }
+  };
 
   document.getElementById('rotate').oninput = function () {
     draggable(img);
-  }
+  };
 
   document.addEventListener('click', function () {
     draggable(img);
   });
 
-  $('#canvas').mousedown(function (e) {
+  canvas.onmousedown = function (e) {
     handleMouseDown(e);
-  });
+  };
 
-  $('#canvas').mousemove(function (e) {
+  canvas.onmousemove = function (e) {
     handleMouseMove(e, img);
-  });
+  };
 
-  $('#canvas').mouseup(function (e) {
+  canvas.mouseup = function (e) {
     handleMouseUp(e);
-  });
+  };
 
-  $('#canvas').mouseout(function (e) {
+  canvas.mouseout = function (e) {
     handleMouseOut(e);
-  });
+  };
 
   canvas.addEventListener('pointerdown', function (e) {
     handleMouseDown(e);
@@ -172,8 +168,8 @@ function automate(img) {
 }
 
 function draggable(img, text_x, text_y) {
-  var y = (text_x > 0) ? text_x : canvas.height/3;
-  var x = (text_y > 0) ? text_y : canvas.width/2;
+  var y = text_x > 0 ? text_x : canvas.height / 3;
+  var x = text_y > 0 ? text_y : canvas.width / 2;
   var color = document.getElementById('colorPicker').value;
 
   // Font Selection
@@ -181,19 +177,19 @@ function draggable(img, text_x, text_y) {
 
   for (var i = 0; i < texts.length; i++) {
     var text = texts[i];
-    var y = (text_y > 0) ? text_y : text.y;
-    var x = (text_x > 0) ? text_x : text.x;
+    var y = text_y > 0 ? text_y : text.y;
+    var x = text_x > 0 ? text_x : text.x;
   }
 
   var text = {
-    text: $('#text').val(),
+    text: document.getElementById("text").value,
     x: x,
     y: y,
   };
 
-  angle = $('#rotate').val();
-  var opacity = $('#opacity').val();
-  var color = $('#colorPicker').val();
+  angle = document.getElementById("rotate").value;
+  var opacity = document.getElementById("opacity").value;
+  var color = document.getElementById("colorPicker").value;
 
   var rgbaCol =
     'rgba(' +
@@ -294,14 +290,9 @@ function download() {
 }
 
 function reset() {
-  $('#text').val('');
-  $('#rotate').val(0);
-  $('#rotate + output').val('0°');
-  $('#opacity').val(0.5);
-  $('#colorPicker').val('#000000');
-  $('#select-position').val('top');
+
   dispatchEvent('#select-position', 'change');
-  $('#select-font').val('times New Roman');
+  document.getElementById("select-font").value = "times New Roman";
 }
 
 $('#inputFile').change(function () {
@@ -310,8 +301,8 @@ $('#inputFile').change(function () {
     .siblings('.label-file')
     .html(`<span class="truncate-text">${filename}</span>`);
 
-  if (document.getElementsByClassName('label-file')[0].innerHTML == '') {
-    document.getElementsByClassName('label-file')[0].innerHTML = 'Pilih Gambar';
+  if (document.getElementsByClassName('truncate-text')[0].innerHTML == '') {
+    document.getElementsByClassName('label-file')[0].innerHTML = '<i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i> Pilih Gambar';
   }
 });
 
