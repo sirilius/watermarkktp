@@ -290,7 +290,14 @@ function download() {
 }
 
 function reset() {
-
+  document.getElementById("text").value = "";
+  document.getElementById("rotate").value = "0";
+  document.getElementById("rotate").value = "0°";
+  document.getElementById("opacity").value = "0.5";
+  document.getElementById("colorPicker").value = "#000000";
+  document.getElementById("select-position").value = "top";
+  dispatchEvent('#select-position', 'change');
+  document.getElementById("select-font").value = "times New Roman";
   dispatchEvent('#select-position', 'change');
   document.getElementById("select-font").value = "times New Roman";
 }
