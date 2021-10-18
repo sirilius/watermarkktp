@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Heebo', sans-serif;
   background: #f9f9f9;
@@ -238,6 +242,21 @@ header {
 #colorPicker::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
+}
+
+.thanks-to {
+  color: #999;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+footer {
+  padding: 30px 0 20px;
+  text-align: center;
+}
+
+.copyright, .copyright a {
+  color: #555;
 }
 
 @media (min-width: 320px) {
