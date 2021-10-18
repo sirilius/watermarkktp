@@ -66,11 +66,12 @@ header {
 }
 
 .donate {
-  background: var(--reset-color);
-  color: white;
+  background: #f8e2e2;
+  color: #515151;
   text-decoration: none;
   padding: 8px 15px;
   border-radius: 20px;
+  font-size: 14px;
 }
 
 .wrapper {
