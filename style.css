@@ -23,6 +23,8 @@ body {
 
 header {
   padding: 0px 15px;
+  max-width: 1225px;
+  margin: auto;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
