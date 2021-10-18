@@ -13,86 +13,100 @@
   </head>
 
   <body>
-    <div class="input">
-      <div class="file-wrapper">
-        <input type="file" id="inputFile" style="opacity: 0" />
-        <label class="label-file" for="inputFile">
-          <i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i>
-          Pilih Gambar
-        </label>
-        <p id="error"></p>
+    <header>
+      <div class="header-left">
+        <a href="" class="logo-text">Watermark KTP</a>
+        <a href="index.html" class="nav-link" style="color: black;">Beranda</a>
+        <a href="privasi.html" class="nav-link">Privasi</a>
+      </div>
+      <div class="header-right">
+        <a class="donate" href="https://karyakarsa.com/siriliuskevin" target="_blank">Donasi</a>
+      </div>
+    </header>
+    
+
+    <div class="wrapper">
+      <div class="input">
+        <div class="file-wrapper">
+          <input type="file" id="inputFile" style="opacity: 0" />
+          <label class="label-file" for="inputFile">
+            <i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i>
+            Pilih Gambar
+          </label>
+          <p id="error"></p>
+        </div>
+
+        <div style="margin: 20px 0px">
+          <label>Watermark:</label>
+          <textarea id="text" placeholder="01-07-2021 Verifikasi E-Wallet"></textarea>
+        </div>
+
+        <!-- Font Selection -->
+        <div style="margin: 20px 0px">
+          <label for="">Font:</label>
+          <select id="select-font" class="select">
+            <option value="times New Roman" selected="selected">
+              Times New Roman
+            </option>
+            <option value="arial">Arial</option>
+            <option value="sans">PT Sans</option>
+          </select>
+        </div>
+
+        <!-- Position Selection -->
+        <div style="margin: 20px 0px">
+          <label for="select-position">Posisi Teks:</label>
+          <select id="select-position" class="select">
+            <option value="top" selected="selected">Atas</option>
+            <option value="top-left">Atas kiri</option>
+            <option value="top-right">Atas kanan</option>
+            <option value="center">Tengah</option>
+            <option value="center-left">Tengah kiri</option>
+            <option value="center-right">Tengah kanan</option>
+            <option value="bottom">Bawah</option>
+            <option value="bottom-left">Bawah kiri</option>
+            <option value="bottom-right">Bawah kanan</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center; margin: 20px 0px">
+          <label for="colorPicker">Warna Teks :</label>
+          <input type="color" id="colorPicker" />
+        </div>
+
+        <div style="display: flex; align-items: center; margin: 20px 0px;">
+          <label for="rotate">Rotate Teks :</label>
+          <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
+          <output>0°</output>
+        </div>
+
+        <div style="display: flex; align-items: center; margin: 20px 0px">
+          <label for="colorPicker">Opacity Teks :</label>
+          <input type="range" min="0" max="1" step="0.01" id="opacity" />
+        </div>
+
+        <div>
+          <a id="download" download="watermark.png">
+            <button onclick="download()">
+              <i class="fas fa-arrow-circle-down" style="margin-right: 8px" aria-hidden="true"></i>
+              Download
+            </button>
+          </a>
+          <a id="reset">
+            <button onclick="reset()">
+              <i class="fas fa-redo-alt" style="margin-right: 8px" aria-hidden="true"></i>
+              Reset
+            </button>
+          </a>
+        </div>
       </div>
 
-      <div style="margin: 20px 0px">
-        <label>Watermark:</label>
-        <textarea id="text" placeholder="01-07-2021 Verifikasi E-Wallet"></textarea>
+      <div class="output">
+        <canvas id="canvas" width="800" height="550">
+          Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
+        </canvas>
       </div>
-
-      <!-- Font Selection -->
-      <div style="margin: 20px 0px">
-        <label for="">Font:</label>
-        <select id="select-font" class="select">
-          <option value="times New Roman" selected="selected">
-            Times New Roman
-          </option>
-          <option value="arial">Arial</option>
-          <option value="sans">PT Sans</option>
-        </select>
-      </div>
-
-      <!-- Position Selection -->
-      <div style="margin: 20px 0px">
-        <label for="select-position">Posisi Teks:</label>
-        <select id="select-position" class="select">
-          <option value="top" selected="selected">Atas</option>
-          <option value="top-left">Atas kiri</option>
-          <option value="top-right">Atas kanan</option>
-          <option value="center">Tengah</option>
-          <option value="center-left">Tengah kiri</option>
-          <option value="center-right">Tengah kanan</option>
-          <option value="bottom">Bawah</option>
-          <option value="bottom-left">Bawah kiri</option>
-          <option value="bottom-right">Bawah kanan</option>
-        </select>
-      </div>
-
-      <div style="display: flex; align-items: center; margin: 20px 0px">
-        <label for="colorPicker">Warna Teks :</label>
-        <input type="color" id="colorPicker" />
-      </div>
-
-      <div style="display: flex; align-items: center; margin: 20px 0px;">
-        <label for="rotate">Rotate Teks :</label>
-        <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
-        <output>0°</output>
-      </div>
-
-      <div style="display: flex; align-items: center; margin: 20px 0px">
-        <label for="colorPicker">Opacity Teks :</label>
-        <input type="range" min="0" max="1" step="0.01" id="opacity" />
-      </div>
-
-      <div>
-        <a id="download" download="watermark.png">
-          <button onclick="download()">
-            <i class="fas fa-arrow-circle-down" style="margin-right: 8px" aria-hidden="true"></i>
-            Download
-          </button>
-        </a>
-        <a id="reset">
-          <button onclick="reset()">
-            <i class="fas fa-redo-alt" style="margin-right: 8px" aria-hidden="true"></i>
-            Reset
-          </button>
-        </a>
-      </div>
+      <script src="script.js"></script>
     </div>
-
-    <div class="output">
-      <canvas id="canvas" width="800" height="550">
-        Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser lainnya!
-      </canvas>
-    </div>
-    <script src="script.js"></script>
   </body>
 </html>
