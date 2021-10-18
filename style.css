@@ -13,13 +13,66 @@
 
 body {
   font-family: 'Heebo', sans-serif;
+  background: #f9f9f9;
+  margin: 20px;
+}
+
+header {
+  padding: 0px 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.privacy {
+  font-size: 24px;
+}
+
+.logo-text {
+  margin-right: 50px;
+  font-size: 30px;
+  font-weight: 600; 
+  color: var(--fourth-color);
+  text-decoration: none;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #717171;
+  transition: 0.2s;
+  margin-right: 25px;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.donate {
+  background: var(--reset-color);
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: -webkit-fill-available;
-  margin: 20px;
-  background: #f9f9f9;
 }
 
 .input {
@@ -188,7 +241,7 @@ body {
 }
 
 @media (min-width: 320px) {
-  body {
+  .wrapper {
     flex-direction: column;
   }
 
@@ -199,7 +252,7 @@ body {
 }
 
 @media (min-width: 1025px) {
-  body {
+  .wrapper {
     flex-direction: row;
   }
 
