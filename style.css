@@ -74,6 +74,41 @@ header {
   font-size: 14px;
 }
 
+.nav-bar {
+  display: none;
+  cursor: pointer;
+}
+
+#pop-up {
+  position: fixed;
+  inset: 0px;
+  z-index: 20;
+  justify-content: flex-end;
+  display: none;
+  background: #00000099;
+}
+
+.mobile-menu {
+  background: #f9f9f9;
+  width: 187px;
+  display: flex;
+  padding: 0px 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.mobile-menu a {
+  margin-bottom: 15px;
+  transition: 0.2s;
+  color: #717171;
+}
+
+.mobile-menu a:hover {
+  color: black;
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -273,7 +308,43 @@ footer {
   }
 }
 
-@media (min-width: 1025px) {
+@media (max-width: 320px) {
+  .logo-text {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .donate {
+    display: none;
+  }
+
+  .nav-bar {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-text {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .donate {
+    display: none;
+  }
+
+  .nav-bar {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
   .wrapper {
     flex-direction: row;
   }
