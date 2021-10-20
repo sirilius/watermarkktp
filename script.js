@@ -320,3 +320,13 @@ var dispatchEvent = function (element, eventName) {
     document.querySelector(element).fireEvent(eventName); // only for backward compatibility (older browsers)
   }
 };
+
+window.onclick = function(event) {
+  if (event.target == document.getElementById("pop-up")) {
+    document.getElementById("pop-up").style.display = "none";
+  }
+}
+
+document.getElementsByClassName("nav-bar")[0].onclick = function () {
+  document.getElementById("pop-up").style.display = "flex";
+}
