@@ -25,6 +25,7 @@
 
   <div id="pop-up">
     <div class="mobile-menu">
+      <i class="fas fa-times close-btn"></i>
       <a href="index.html">Beranda</a>
       <a href="privasi.html" style="color: black;">Privasi</a>
       <a href="https://github.com/sirilius/watermarkktp">GitHub</a>
@@ -67,6 +68,10 @@
 
   document.getElementsByClassName("nav-bar")[0].onclick = function () {
     document.getElementById("pop-up").style.display = "flex";
+  }
+
+  document.getElementsByClassName("close-btn")[0].onclick = function () {
+    document.getElementById("pop-up").style.display = "none";
   }
 </script>
 
