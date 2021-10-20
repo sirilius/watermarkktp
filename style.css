@@ -368,7 +368,7 @@ footer {
   }
 
   .input {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     width: 100%;
   }
 }
@@ -434,6 +434,6 @@ footer {
 
   .input {
     width: 350px;
-    margin: 0px 50px 0px 0px;
+    margin: 0px 30px 0px 0px;
   }
 }
