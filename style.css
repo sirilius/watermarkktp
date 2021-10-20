@@ -81,7 +81,7 @@ header {
   transition: 0.2s;
 }
 
-.nav-bar:hover {
+.nav-bar:hover, .close-btn:hover {
   transform: scale(1.1);
 }
 
@@ -92,6 +92,15 @@ header {
   justify-content: flex-end;
   display: none;
   background: #00000099;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  transition: 0.2s;
+  font-size: 23px;
 }
 
 .mobile-menu {
