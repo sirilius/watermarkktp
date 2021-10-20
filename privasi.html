@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/d6e78495c8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="logo.svg" />
   <title>Privasi - Watermark KTP</title>
@@ -17,12 +18,23 @@
       <a href="https://github.com/sirilius/watermarkktp" class="nav-link">GitHub</a>
     </div>
     <div class="header-right">
-      <a class="donate" href="https://karyakarsa.com/siriliuskevin" target="_blank">Donasi</a>
+      <a class="donate" href="https://karyakarsa.com/siriliuskevin" target="_blank">❤️ Donasi</a>
+      <i class="fas fa-bars nav-bar"></i>
     </div>
   </header>
+
+  <div id="pop-up">
+    <div class="mobile-menu">
+      <a href="index.html">Beranda</a>
+      <a href="privasi.html" style="color: black;">Privasi</a>
+      <a href="https://github.com/sirilius/watermarkktp">GitHub</a>
+      <a class="donate" style="display: block" href="https://karyakarsa.com/siriliuskevin" target="_blank">❤️ Donasi</a>
+    </div>
+  </div>
+
   <div class="container">
     <div class="privacy">
-      <h1>Privasi</h1>
+      <h1 style="text-align: center;">Privasi</h1>
       <p>Watermark KTP tidak pernah <strong>menjual, menyalahgunakan, memanfaatkan</strong> data KTP siapapun.</p>
 
       <p>Watermark KTP adalah alat sederhana untuk menambahkan teks (watermark) ke dalam scan KTP sebagai penandaan dan upaya pengamanan data pribadi. Watermark KTP tidak pernah mengirim gambar yang diunggah Pengguna keluar dari peramban Pengguna.</p>
@@ -45,4 +57,17 @@
     <p class="thanks-to">Terima kasih untuk semua sponsor, kontributor, dan teman-teman yang sudah mendukung dalam petualanganku ❤️</p>
   </footer>
 </body>
+
+<script>
+  window.onclick = function(event) {
+    if (event.target == document.getElementById("pop-up")) {
+      document.getElementById("pop-up").style.display = "none";
+    }
+  }
+
+  document.getElementsByClassName("nav-bar")[0].onclick = function () {
+    document.getElementById("pop-up").style.display = "flex";
+  }
+</script>
+
 </html>
