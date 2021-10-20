@@ -77,6 +77,12 @@ header {
 .nav-bar {
   display: none;
   cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.nav-bar:hover {
+  transform: scale(1.1);
 }
 
 #pop-up {
