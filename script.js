@@ -128,6 +128,7 @@ function automate(img) {
 
   document.getElementById('rotate').oninput = function () {
     draggable(img);
+    document.getElementById('rotate-val').innerHTML = document.getElementById('rotate').value + '°';
   };
 
   document.addEventListener('click', function () {
@@ -292,7 +293,7 @@ function download() {
 function reset() {
   document.getElementById("text").value = "";
   document.getElementById("rotate").value = "0";
-  document.getElementById("rotate").value = "0°";
+  document.getElementById("rotate-val").value = "0°";
   document.getElementById("opacity").value = "0.5";
   document.getElementById("colorPicker").value = "#000000";
   document.getElementById("select-position").value = "top";
