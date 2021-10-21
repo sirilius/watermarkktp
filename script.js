@@ -175,6 +175,7 @@ function draggable(img, text_x, text_y) {
 
   // Font Selection
   var font = document.getElementById('select-font').value;
+  var fontSize = document.getElementById('select-font-size').value;
 
   for (var i = 0; i < texts.length; i++) {
     var text = texts[i];
@@ -203,7 +204,7 @@ function draggable(img, text_x, text_y) {
     opacity +
     ')';
 
-  ctx.font = `30px ${font}`;
+  ctx.font = `${fontSize}px ${font}`;
   ctx.fillStyle = rgbaCol;
   ctx.textAlign = 'center';
   text.width = ctx.measureText(text.text).width;
@@ -299,6 +300,7 @@ function reset() {
   document.getElementById("select-position").value = "top";
   dispatchEvent('#select-position', 'input');
   document.getElementById("select-font").value = "times New Roman";
+  document.getElementById("select-font-size").value = "20";
 }
 
 $('#inputFile').change(function () {
