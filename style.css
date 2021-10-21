@@ -246,25 +246,25 @@ header {
 }
 
 #text::-webkit-input-placeholder {
-  color: #676767;
+  color: #b0b0b0;
 }
 
 #text:-moz-placeholder {
   /* Firefox 18- */
-  color: #676767;
+  color: #b0b0b0;
 }
 
 #text::-moz-placeholder {
   /* Firefox 19+ */
-  color: #676767;
+  color: #b0b0b0;
 }
 
 #text:-ms-input-placeholder {
-  color: #676767;
+  color: #b0b0b0;
 }
 
 #text::placeholder {
-  color: #676767;
+  color: #b0b0b0;
 }
 
 #text:focus-visible,
