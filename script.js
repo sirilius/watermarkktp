@@ -122,6 +122,10 @@ function automate(img) {
     draggable(img, x, y);
   };
 
+  document.getElementById('select-font-size').oninput = function () {
+    draggable(img);
+  }
+
   document.getElementById('opacity').oninput = function () {
     draggable(img);
   };
