@@ -41,7 +41,7 @@
     <div class="wrapper">
       <div class="input">
         <div class="file-wrapper">
-          <input type="file" id="inputFile" style="opacity: 0" accept="image/*"/>
+          <input type="file" id="inputFile" style="opacity: 0" />
           <label class="label-file" for="inputFile">
             <i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i>
             Pilih Gambar
@@ -89,8 +89,8 @@
 
         <div style="display: flex; align-items: center; margin: 20px 0px;">
           <label for="rotate">Rotate Teks :</label>
-          <input type="range" min="-180" max="180" step="1" value="0" id="rotate" oninput="this.nextElementSibling.value = this.value+'°';">
-          <output>0°</output>
+          <input type="range" min="-180" max="180" step="1" value="0" id="rotate">
+          <output id="rotate-val">0°</output>
         </div>
 
         <div style="display: flex; align-items: center; margin: 20px 0px">
