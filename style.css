@@ -231,6 +231,7 @@ header {
 #text,
 #select-font,
 #select-position,
+#select-font-size,
 #font-style {
   margin-top: 5px;
   width: 100%;
@@ -270,7 +271,8 @@ header {
 #text:focus-visible,
 #select-font:focus-visible,
 #select-position:focus-visible,
-#font-style:focus-visible {
+#font-style:focus-visible,
+#select-font-size:focus-visible {
   outline: none;
   border: 1px solid var(--main-color);
   box-shadow: 0 0 4px var(--main-color);
