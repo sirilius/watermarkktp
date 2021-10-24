@@ -245,7 +245,11 @@ function theimg(img) {
     ctx.textAlign = 'center';
     ctx.translate(text.x, text.y);
     ctx.rotate(angle * (Math.PI / 180));
-    ctx.fillText(text.text, 0, text.height / 2);
+    var splitedText = text.text.split('\n');
+    var fontSize = document.getElementById('select-font-size').value;
+    for (let i = 0; i < splitedText.length; i++) {
+      ctx.fillText(splitedText[i], 0, fontSize * (i + 1));
+    }
     ctx.restore();
   }
 }
