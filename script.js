@@ -30,9 +30,12 @@ function textHittest(x, y, textIndex) {
 
 function handleMouseDown(e) {
   e.preventDefault();
-  startX = parseInt(e.clientX - offsetX);
-  startY = parseInt(e.clientY - offsetY);
-  
+  let textData = texts[texts.length - 1];
+  let startX = parseInt(e.clientX - (offsetX));
+  let startY = parseInt(e.clientY - (offsetY + textData.height));
+
+  console.log(startX, startY, e, textData)
+
   draggable(img, startX, startY)
   for (var i = 0; i < texts.length; i++) {
     if (textHittest(startX, startY, i)) {
