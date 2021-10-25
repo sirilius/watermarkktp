@@ -30,8 +30,13 @@ function textHittest(x, y, textIndex) {
 
 function handleMouseDown(e) {
   e.preventDefault();
-  startX = parseInt(e.clientX - offsetX);
-  startY = parseInt(e.clientY - offsetY);
+  let textData = texts[texts.length - 1];
+  let startX = parseInt(e.clientX - (offsetX));
+  let startY = parseInt(e.clientY - (offsetY + textData.height));
+
+  console.log(startX, startY, e, textData)
+
+  draggable(img, startX, startY)
   for (var i = 0; i < texts.length; i++) {
     if (textHittest(startX, startY, i)) {
       selectedText = i;
@@ -213,14 +218,11 @@ function draggable(img, text_x, text_y) {
   ctx.textAlign = 'center';
   text.width = ctx.measureText(text.text).width;
   text.height = 30;
-
   texts.push(text);
-
   theimg(img);
 }
 
 function theimg(img) {
-  for (var i = 0; i < texts.length; i++) {
     var acanvas = ctx.canvas;
     var hRatio = acanvas.width / img.width;
     var vRatio = acanvas.height / img.height;
@@ -241,7 +243,11 @@ function theimg(img) {
       img.height * ratio,
     );
     ctx.save();
-    var text = texts[i];
+    var text = texts[texts.length - 1] || {
+      x: 0,
+      y: 0,
+      text: ''
+    };
     ctx.textAlign = 'center';
     ctx.translate(text.x, text.y);
     ctx.rotate(angle * (Math.PI / 180));
@@ -251,12 +257,11 @@ function theimg(img) {
       ctx.fillText(splitedText[i], 0, fontSize * (i + 1));
     }
     ctx.restore();
-  }
 }
 
+var img = '';
 function handleImage(e) {
   var reader = new FileReader();
-  var img = '';
   var src = '';
 
   reader.onload = function (event) {
@@ -291,6 +296,7 @@ function handleImage(e) {
   };
 
   reader.readAsDataURL(e.target.files[0]);
+
 }
 
 function download() {
