@@ -11,7 +11,7 @@ var offsetY = canvasOffset.top;
 var scrollX = $canvas.scrollLeft();
 var scrollY = $canvas.scrollTop();
 
-var img = ''; // Single Image Variable Value
+var img = '';
 let textValue = '';
 let textObj = {};
 
@@ -25,75 +25,23 @@ let elementRotate = document.getElementById('rotate');
 
 var startX;
 var startY;
-// var texts = [];
 
 var selectedText = 0;
 var angle = 0;
 
-function handleMouseDown(e) {
-	e.preventDefault();
-	selectedText = 0;
-	let textData = textObj;
-	let startX = parseInt(e.clientX - (offsetX));
-	let startY = parseInt(e.clientY - (offsetY + textData.height)) || 0;
+$(window).on('resize', function(e) {
+	inputFile = document.getElementById('inputFile');
+	inputFile.addEventListener('change', handleImage, false);
+	canvas = document.getElementById('canvas');
+	ctx = canvas.getContext('2d');
 
-	textData.x = startX;
-	textData.y = startY;
-
-	if(textData.x < 0){
-		textData.x = 0;
-	}
-	if(textData.y < 0){
-		textData.y = 0;
-	}
-	
-	draggable(img, startX, startY)
-	textObj = textData;
-	return;
-}
-
-function handleMouseUp(e) {
-	e.preventDefault();
-	selectedText = -1;
-}
-
-function handleMouseOut(e) {
-	e.preventDefault();
-	selectedText = -1;
-}
-
-function handleMouseMove(e) {
-	console.log(selectedText)
-	if (selectedText < 0) {
-		return;
-	}
-	e.preventDefault();
-	mouseX = parseInt(e.clientX - offsetX);
-	mouseY = parseInt(e.clientY - offsetY);
-
-	var dx = mouseX - startX;
-	var dy = mouseY - startY;
-	startX = mouseX;
-	startY = mouseY;
-
-	var text = textObj;
-	if(!text.x || !text.y){
-		text.y = 90;
-		text.x = 400;
-	}
-	text.x += dx;
-	text.y += dy;
-
-	if(text.x < 0){
-		text.x = 0;
-	}
-	if(text.y < 0){
-		text.y = 0;
-	}
-	console.log(text)
-	theimg(img);
-	textObj = text;
-}
+	$canvas = $('#canvas');
+	canvasOffset = $canvas.offset();
+	offsetX = canvasOffset.left;
+	offsetY = canvasOffset.top;
+	scrollX = $canvas.scrollLeft();
+	scrollY = $canvas.scrollTop();
+})
 
 function mouseUp() {
     selectedText = 0;
@@ -244,7 +192,6 @@ function draggable(img, text_x = 0, text_y = 0) {
 	')';
 
 	let metrics = ctx.measureText(textValue);
-	// let fontHeight = metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent;
 	let actualHeight = Math.ceil(metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent);
 
 	ctx.font = `${fontSize}px ${font}`;
@@ -329,7 +276,6 @@ function handleImage(e) {
         img.src = event.target.result;
         src = event.target.result;
         canvas.classList.add('show');
-        // theimg(img);
         automate();
     };
 
