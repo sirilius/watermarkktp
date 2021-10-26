@@ -72,7 +72,7 @@ function changePosXY(x, y){
 }
 
 function automate() {
-    elementText.oninput = function(e) {
+  elementText.oninput = function(e) {
         textValue = elementText.value;
         draggable();
     };
@@ -128,7 +128,11 @@ function automate() {
 	};
 
 	elementFontSize.oninput = function () {
-        draggable(img);
+    draggable(img);
+	}
+
+	elementFont.oninput = function () {
+		draggable();
 	}
 
 	elementOpacity.oninput = function () {
