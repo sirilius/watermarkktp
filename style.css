@@ -44,7 +44,7 @@ header {
 .logo-text {
   margin-right: 50px;
   font-size: 30px;
-  font-weight: 600; 
+  font-weight: 600;
   color: var(--fourth-color);
   text-decoration: none;
 }
@@ -81,7 +81,8 @@ header {
   transition: 0.2s;
 }
 
-.nav-bar:hover, .close-btn:hover {
+.nav-bar:hover,
+.close-btn:hover {
   transform: scale(1.1);
 }
 
@@ -310,7 +311,8 @@ footer {
   text-align: center;
 }
 
-.copyright, .copyright a {
+.copyright,
+.copyright a {
   color: #555;
 }
 
@@ -337,7 +339,8 @@ footer {
   object-fit: cover;
 }
 
-.news-left { /*changed*/
+.news-left {
+  /*changed*/
   padding: 20px;
   overflow: hidden;
 }
