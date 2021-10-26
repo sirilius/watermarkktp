@@ -44,14 +44,19 @@ $(window).on('resize', function(e) {
 })
 
 function mouseUp() {
-    selectedText = 0;
-    mouseXY();
+  $('#canvas').addClass('grab')
+  $('#canvas').removeClass('grabbing')
+  selectedText = 0;
+  mouseXY();
 }
 
 function mouseDown() {
-    selectedText = 1;
-    mouseXY();
+  $('#canvas').addClass('grabbing')
+  $('#canvas').removeClass('grab')
+  selectedText = 1;
+  mouseXY();
 }
+
 
 function mouseXY(e) {
 	try {
