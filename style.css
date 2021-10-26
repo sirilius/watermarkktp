@@ -31,6 +31,8 @@ header {
   justify-content: space-between;
 }
 
+.grab {cursor: -webkit-grab; cursor: grab;}
+.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
 .container {
   max-width: 720px;
   margin: auto;
