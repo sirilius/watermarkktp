@@ -284,6 +284,7 @@ function download() {
 
 function reset() {
 	document.getElementById("text").value = "";
+	dispatchEvent('#text', 'input');
 	document.getElementById("rotate").value = "0";
 	document.getElementById("rotate-val").value = "0°";
 	document.getElementById("opacity").value = "0.5";
