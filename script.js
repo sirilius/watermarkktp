@@ -311,6 +311,8 @@ $('#inputFile').change(function() {
     if (document.getElementsByClassName('truncate-text')[0].innerHTML == '') {
         document.getElementsByClassName('label-file')[0].innerHTML = '<i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i> Pilih Gambar';
     }
+
+    document.getElementsByClassName("draggable-file")[0].style.display = "none"
 });
 
 var dispatchEvent = function (element, eventName) {
@@ -353,6 +355,8 @@ function dropHandler(ev) {
 			reader.readAsDataURL(ev.dataTransfer.files[i]);
 		}
 	}
+
+	document.getElementsByClassName("draggable-file")[0].style.display = "none"
 }
 
 function dragOverHandler(ev) {
