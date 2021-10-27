@@ -144,6 +144,12 @@ header {
   background: white;
 }
 
+.output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .file-wrapper {
   margin-bottom: 20px;
   width: 100%;
@@ -369,6 +375,19 @@ footer {
   font-weight: 500;
 }
 
+.draggable-file {
+  position: absolute;
+  height: 520px;
+  width: 770px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px dashed #d7d7d7;
+  border-radius: 15px;
+  font-size: 20px;
+  color: #676767;
+}
+
 @media (min-width: 320px) {
   .wrapper {
     flex-direction: column;
@@ -409,6 +428,10 @@ footer {
   .donate {
     font-size: 20px;
   }
+
+  .draggable-file {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -439,6 +462,10 @@ footer {
 
   .donate {
     font-size: 20px;
+  }
+
+  .draggable-file {
+    display: none;
   }
 }
 
