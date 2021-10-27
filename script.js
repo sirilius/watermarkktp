@@ -157,9 +157,13 @@ function automate() {
 		}, 1)
 	})
 
+	canvas.addEventListener('pointerdown', mouseDown, false)
+	canvas.addEventListener("pointermove", mouseXY, false);
+	canvas.addEventListener("pointerup", mouseXY, false);
+
 	canvas.addEventListener("mousedown", mouseDown, false);
-    canvas.addEventListener("mousemove", mouseXY, false);
-    document.body.addEventListener("mouseup", mouseUp, false);
+  canvas.addEventListener("mousemove", mouseXY, false);
+  document.body.addEventListener("mouseup", mouseUp, false);
 }
 
 function draggable(img, text_x = 0, text_y = 0) {
