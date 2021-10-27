@@ -44,17 +44,17 @@ $(window).on('resize', function(e) {
 })
 
 function mouseUp() {
-  $('#canvas').addClass('grab')
-  $('#canvas').removeClass('grabbing')
-  selectedText = 0;
-  mouseXY();
+	$('#canvas').addClass('grab')
+	$('#canvas').removeClass('grabbing')
+	selectedText = 0;
+	mouseXY();
 }
 
 function mouseDown() {
-  $('#canvas').addClass('grabbing')
-  $('#canvas').removeClass('grab')
-  selectedText = 1;
-  mouseXY();
+	$('#canvas').addClass('grabbing')
+	$('#canvas').removeClass('grab')
+	selectedText = 1;
+	mouseXY();
 }
 
 
@@ -77,7 +77,10 @@ function changePosXY(x, y){
 }
 
 function automate() {
-  elementText.oninput = function(e) {
+	let downloadElement = $('#download');
+	let name = `Watermark-${new Date().toLocaleDateString()}.png`;
+	downloadElement.attr('download', name);
+	elementText.oninput = function(e) {
         textValue = elementText.value;
         draggable();
     };
@@ -92,7 +95,7 @@ function automate() {
 		var y = 0;
 		switch (position) {
 			case 'top':
-		  textObj.y = 90;
+			textObj.y = 90;
 			textObj.x = 400;
 			break;
 			case 'top-left':
@@ -298,6 +301,13 @@ function reset() {
 	dispatchEvent('#select-position', 'input');
 	document.getElementById("select-font").value = "times New Roman";
 	document.getElementById("select-font-size").value = "20";
+}
+
+function resetAll(){
+	reset();
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	$('.label-file').html(`<i class="fas fa-arrow-circle-up" style="margin-right: 8px" aria-hidden="true"></i> Pilih Gambar`);
+	img = null;
 }
 
 
