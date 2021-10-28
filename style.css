@@ -39,8 +39,15 @@ header {
   padding: 0 20px;
 }
 
-.privacy {
+.paragraph {
   font-size: 24px;
+}
+
+.paragraph img {
+  width: 100%;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 0px #d8d8d89e;
 }
 
 .logo-text {
