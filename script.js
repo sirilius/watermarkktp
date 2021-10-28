@@ -28,6 +28,7 @@ var startY;
 
 var selectedText = 0;
 var angle = 0;
+var isDownloadable = false;
 
 $(window).on('resize', function(e) {
 	inputFile = document.getElementById('inputFile');
@@ -277,6 +278,7 @@ reader.onload = function(event) {
 	src = event.target.result;
 	canvas.classList.add('show');
 	automate();
+	isDownloadable = true;
 };
 
 function handleImage(e) {
@@ -284,6 +286,7 @@ function handleImage(e) {
 }
 
 function download() {
+	if (!isDownloadable) return alert('Gambar belum diunggah, silakan unggah gambar terlebih dahulu!');
 	var download = document.getElementById('download');
 	var image = document.getElementById('canvas').toDataURL('image/png');
 	download.setAttribute('href', image);
