@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/d6e78495c8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.svg" />
+  <title>Cara pakai - Watermark KTP</title>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <a href="index.html" class="logo-text">Watermark KTP</a>
+      <a href="index.html" class="nav-link">Beranda</a>
+      <a href="cara-pakai.html" class="nav-link" style="color: black;">Cara Pakai</a>
+      <a href="privasi.html" class="nav-link">Privasi</a>
+      <a href="https://github.com/sirilius/watermarkktp" class="nav-link">GitHub</a>
+      <a href="pers.html" class="nav-link">Pers</a>
+    </div>
+    <div class="header-right">
+      <a class="donate" href="https://karyakarsa.com/siriliuskevin" target="_blank">❤️ Donasi</a>
+      <i class="fas fa-bars nav-bar"></i>
+    </div>
+  </header>
+
+  <div id="pop-up">
+    <div class="mobile-menu">
+      <i class="fas fa-times close-btn"></i>
+      <a href="index.html">Beranda</a>
+      <a href="cara-pakai.html" style="color: black;">Cara Pakai</a>
+      <a href="privasi.html">Privasi</a>
+      <a href="https://github.com/sirilius/watermarkktp">GitHub</a>
+      <a href="pers.html">Pers</a>
+      <a class="donate" style="display: block" href="https://karyakarsa.com/siriliuskevin" target="_blank">❤️ Donasi</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="paragraph">
+      <h1 style="text-align: center;">Cara Pakai</h1>
+    
+      <ol>
+        <h2><li>Upload Gambar</li></h2>
+        <p>Langkah pertama adalah upload gambar yang ingin diberi watermark dengan menekan tombol <strong>"Pilih Gambar"</strong> seperti gambar di bawah ini. Gambar yang kamu upload tidak akan dikirim keluar dari perangkat yang kamu gunakan.</p>
+        <img src="image/pilih-gambar.png" alt="Tombol pilih gambar">
+
+        <h2><li>Input Teks</li></h2>
+        <p>Setelah itu, masukan teks watermark yang kamu inginkan di kotak teks. Misalnya, <strong>"2-2-2021 Verifikasi Pinjaman Online"</strong>.</p>
+        <img src="image/box-teks.png" alt="Box input teks watermark">
+
+        <h2><li>Pilih Font</li></h2>
+        <p>Kamu bisa memilih jenis teks yang kamu suka dengan menginput box <strong>"Font"</strong> seperti gambar di bawah ini.</p>
+        <img src="image/box-font.png" alt="Box input teks watermark">
+
+        <h2><li>Pilih Posisi Watermark</li></h2>
+        <p>Pilih posisi watermark melalui box <strong>"Posisi Teks"</strong> seperti di bawah ini. Kamu juga bisa memilih posisi dengan cara langsung menekan teks pada box gambar di samping kanan lalu menariknya ke tempat yang kamu inginkan.</p>
+        <img src="image/box-posisi.png" alt="Box untuk menginput posisi teks">
+
+        <h2><li>Pilih Ukuran Watermark</li></h2>
+        <p>Kamu juga bisa memilih ukuran watermark. Pilih salah satu opsi yang ada di box <strong>"Ukuran Font"</strong>.</p>
+        <img src="image/box-ukuran.png" alt="Box untuk menginput posisi teks">
+
+        <h2><li>Tentukan Warna Watermark</li></h2>
+        <p>Setelah itu, pilih warna watermark yang kamu inginkan di opsi <strong>"Warna Teks"</strong>.</p>
+        <img src="image/warna-teks.png" alt="Gambar dari opsi warna teks">
+
+        <h2><li>Mengatur Rotasi Watermark</li></h2>
+        <p>Atur rotasi watermark dengan menginput opsi <strong>"Rotasi Teks"</strong>.</p>
+        <img src="image/rotate.png" alt="Gambar opsi rotasi teks">
+
+        <h2><li>Mengatur Opasitas Watermark</li></h2>
+        <p>Kamu bisa mengatur opasitas Watermark dengan menginput opsi <strong>"Opacity Teks"</strong>.</p>
+        <img src="image/opacity.png" alt="Gambar opsi opasitas teks">
+
+        <h2><li>Mereset watermark</li></h2>
+        <p>Jika kamu ingin mengatur ulang watermark yang telah kamu input, gunakan tombol <strong>"Reset"</strong>.</p>
+        <img src="image/reset.png" alt="Gambar tombol reset teks">
+
+        <h2><li>Download Gambar</li></h2>
+        <p>Setelah kamu selesai memberi watermark pada scan KTP mu, tekan tombol <strong>"Download"</strong> untuk menyimpannya.</p>
+        <img src="image/download.png" alt="Gambar tombol download">
+
+        <h3>Selesai!</h3>
+        <p>Kamu sudah memberi watermark pada scan KTP mu 🎉</p>
+      </ol>
+    </div>
+  </div>
+
+  <footer>
+    <div class="copyright">
+      &copy; <script>document.write(new Date().getFullYear());</script> <a href="https://sirilius.com">Sirilius Kevin</a>
+    </div>
+    <p class="thanks-to">Terima kasih untuk semua sponsor, kontributor, dan teman-teman yang sudah mendukung dalam petualanganku ❤️</p>
+  </footer>
+  
+</body>
+
+<script>
+  window.onclick = function(event) {
+    if (event.target == document.getElementById("pop-up")) {
+      document.getElementById("pop-up").style.display = "none";
+    }
+  }
+
+  document.getElementsByClassName("nav-bar")[0].onclick = function () {
+    document.getElementById("pop-up").style.display = "flex";
+  }
+
+  document.getElementsByClassName("close-btn")[0].onclick = function () {
+    document.getElementById("pop-up").style.display = "none";
+  }
+</script>
+
+</html>
