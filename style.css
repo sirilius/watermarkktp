@@ -476,6 +476,41 @@ footer {
   }
 }
 
+@media (max-width: 850px) {
+  .logo-text {
+    margin: 0;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .donate {
+    display: none;
+  }
+
+  .nav-bar {
+    display: block;
+  }
+
+  .news-wrapper {
+    flex-direction: column;
+  }
+
+  .news-right {
+    width: 100%;
+    height: 200px;
+  }
+
+  .donate {
+    font-size: 20px;
+  }
+
+  .draggable-file {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) {
   .wrapper {
     flex-direction: row;
