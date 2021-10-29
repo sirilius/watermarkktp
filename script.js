@@ -354,6 +354,7 @@ function dropHandler(ev) {
 				var file = ev.dataTransfer.items[i].getAsFile();
 				if (file.type.includes('image/')) {
 					reader.readAsDataURL(file);
+					document.getElementsByClassName("draggable-file")[0].style.display = "none"
 				}
 			}
 		}
@@ -363,7 +364,6 @@ function dropHandler(ev) {
 		}
 	}
 
-	document.getElementsByClassName("draggable-file")[0].style.display = "none"
 }
 
 function dragOverHandler(ev) {
