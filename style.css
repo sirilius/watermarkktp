@@ -388,11 +388,17 @@ footer {
   width: 770px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   border: 5px dashed #d7d7d7;
   border-radius: 15px;
   font-size: 20px;
   color: #676767;
+}
+.draggable-file i{
+  display: block;
+  color: gray;
+  font-size: 50px
 }
 
 @media (min-width: 320px) {
