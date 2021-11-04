@@ -273,6 +273,7 @@ reader.onload = function(event) {
 			img.width * ratio,
 			img.height * ratio,
 		);
+		draggable();
 	};
 
 	img.src = event.target.result;
