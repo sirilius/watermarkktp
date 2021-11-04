@@ -29,6 +29,7 @@ var startY;
 var selectedText = 0;
 var angle = 0;
 var isDownloadable = false;
+var isWMEmpty = function() { return elementText.value.replace(/^\s+|\s+$/g,"") == "" }
 
 $(window).on('resize', function(e) {
 	inputFile = document.getElementById('inputFile');
@@ -287,6 +288,7 @@ function handleImage(e) {
 
 function download() {
 	if (!isDownloadable) return alert('Gambar belum diunggah, silakan unggah gambar terlebih dahulu!');
+	if (isWMEmpty()) return alert('Watermark belum ditentukan!');
 	var download = document.getElementById('download');
 	var image = document.getElementById('canvas').toDataURL('image/png');
 	download.setAttribute('href', image);
