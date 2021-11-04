@@ -30,6 +30,25 @@ var selectedText = 0;
 var angle = 0;
 var isDownloadable = false;
 
+// shareURL: why not just 'document.location.href'? because query args are not currently used
+// and it may brings unintended "user specific" data leakage
+let shareURL = document.location.origin + document.location.pathname;
+let shareHTML = "" // list of <a> tag
+let shareCaption = `Halo saya telah menggunakan aplikasi Watermark KTP, sekarang saatnya kamu mengamankan data KTP mu: ${shareURL}`
+let shareBtn = {
+	"WhatsApp": `https://wa.me/?text=${shareCaption}`,
+	"Telegram": `https://t.me/share/url?url=${shareURL}&text=${shareCaption}`,
+	"Twitter": `http://twitter.com/share?text=${shareCaption}`,
+	// facebook will error when the share url are not "real" url (like localhost and file://)
+	"Facebook": `http://www.facebook.com/sharer/sharer.php?u=${shareURL}&quote=${shareCaption}`
+}
+
+for ( const [key, value] of Object.entries(shareBtn) ) {
+	shareHTML += `<a href="${value}" target="_blank" title="Bagikan ke ${key}">${key}</a>`
+}
+
+document.getElementsByClassName("dropdown-content")[0].innerHTML = shareHTML
+
 $(window).on('resize', function(e) {
 	inputFile = document.getElementById('inputFile');
 	inputFile.addEventListener('change', handleImage, false);
