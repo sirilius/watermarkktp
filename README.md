@@ -9,7 +9,7 @@ Watermark KTP adalah sebuah alat sederhana untuk menambahkan watermark pada KTP.
 
 Dibuat dengan JavaScript, HTML, dan CSS.
 
-URL : https://sirilius.github.io/watermarkktp/
+URL : https://watermarkktp.com
 
 # Kontribusi
 Mari berkontribusi, berikan _Issue_ dan _Pull Request_ yang relevan
