@@ -141,8 +141,11 @@
         </canvas>
 
         <div class="draggable-file" ondrop="dropHandler(event);"ondragover="dragOverHandler(event);">
-          <i class="fas fa-arrow-circle-up"></i>
-          <p>Tarik file mu ke sini</p>
+          <input type="file" class="draggable-file-input" style="opacity: 0" accept="image/*" />
+          <label class="draggable-file-label" for="inputFile">
+            <i class="fas fa-arrow-circle-up"></i>
+            <p>Tarik file mu ke sini</p>
+          </label>
         </div>
       </div>
     </div>
