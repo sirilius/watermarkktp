@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap');
-
 :root {
   --main-color: #a8dadb;
   --sec-color: #457b9d;
@@ -17,7 +15,7 @@ a {
 }
 
 body {
-  font-family: 'Heebo', sans-serif;
+  font-family: Arial, sans-serif;
   background: #f9f9f9;
   margin: 20px;
 }
@@ -257,7 +255,6 @@ header {
   border: 1px solid #67676757;
   padding: 9px 8px;
   box-sizing: border-box;
-  font-family: 'Heebo', sans-serif;
   resize: vertical;
   color: #676767;
   background: white;
