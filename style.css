@@ -255,6 +255,7 @@ header {
   border: 1px solid #67676757;
   padding: 9px 8px;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
   resize: vertical;
   color: #676767;
   background: white;
