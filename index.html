@@ -7,7 +7,6 @@
     <script src="js/jquery.js"></script>
 
     <link rel="canonical" href="https://watermarkktp.com"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"></link>
     <script async defer data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23" src="https://kila.sirilius.com/script.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="logo.svg" />
@@ -40,13 +39,18 @@
           </div>
         </div>
         <a class="donate" href="https://karyakarsa.com/siriliuskevin" target="_blank">❤️ Donasi</a>
-        <i class="fas fa-bars nav-bar"></i>
+        <span class="icon nav-bar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg>
+        </span>
       </div>
     </header>
 
     <div id="pop-up">
       <div class="mobile-menu">
-        <i class="fas fa-times close-btn"></i>
+        <span class="icon close-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg>
+        </span>
+
         <a href="index.html" style="color: black;">Beranda</a>
         <a href="cara-pakai.html">Cara Pakai</a>
         <a href="privasi.html">Privasi</a>
@@ -74,7 +78,10 @@
         <div class="file-wrapper">
           <input type="file" id="inputFile" style="opacity: 0" accept="image/*" />
           <label class="label-file" for="inputFile">
-            <i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i>
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" height="25"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 10h3l-4-4-4 4h3v4h2v-4z" fill="rgba(255,255,255,1)"/></svg>
+            </span>
+
             Pilih Gambar
           </label>
           <p id="error"></p>
@@ -145,13 +152,18 @@
         <div style="display: flex; justify-content: space-around;">
           <a id="download" download="watermark.png">
             <button onclick="download()">
-              <i class="fas fa-arrow-circle-down" style="margin-right: 8px" aria-hidden="true"></i>
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" height="25"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 10V8h-2v4H8l4 4 4-4h-3z" fill="rgba(255,255,255,1)"/></svg>
+              </span>
+
               Download
             </button>
           </a>
           <a id="reset">
             <button onclick="reset()">
-              <i class="fas fa-redo-alt" style="margin-right: 8px" aria-hidden="true"></i>
+              <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="25" height="25"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm4.82-4.924a7 7 0 1 0-1.852 1.266l-.975-1.755A5 5 0 1 1 17 12h-3l2.82 5.076z" fill="rgba(255,255,255,1)"/></svg>
+              </span>
               Reset
             </button>
           </a>
@@ -164,7 +176,11 @@
         </canvas>
 
         <div class="draggable-file" ondrop="dropHandler(event);"ondragover="dragOverHandler(event);">
-          <i class="fas fa-arrow-circle-up"></i>
+          <span class="icon">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 10h3l-4-4-4 4h3v4h2v-4z" fill="rgba(103,103,103,1)"/></svg>
+            </span>
+          </span>
           <p>Tarik file mu ke sini</p>
         </div>
       </div>
