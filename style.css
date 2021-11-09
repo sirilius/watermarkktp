@@ -30,6 +30,13 @@ header {
   justify-content: space-between;
 }
 
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+}
+
 .grab {cursor: -webkit-grab; cursor: grab;}
 .grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
 .container {
@@ -106,10 +113,9 @@ header {
 .close-btn {
   cursor: pointer;
   position: absolute;
-  top: 30px;
-  right: 35px;
+  top: 23px;
+  right: 29px;
   transition: 0.2s;
-  font-size: 23px;
 }
 
 .mobile-menu {
@@ -210,6 +216,9 @@ header {
 }
 
 #download button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   background: var(--sec-color);
   color: white;
@@ -227,6 +236,9 @@ header {
 }
 
 #reset button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   background: var(--reset-color);
   color: white;
