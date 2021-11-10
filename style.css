@@ -407,12 +407,22 @@ footer {
   border-radius: 15px;
   font-size: 20px;
   color: #676767;
+  text-align: center;
 }
 
 .draggable-file i{
   display: block;
   color: gray;
-  font-size: 50px
+  font-size: 50px;
+  text-align: center;
+  margin-top: 25%;
+}
+.draggable-file-label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .dropbtn { 
