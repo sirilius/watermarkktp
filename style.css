@@ -37,8 +37,14 @@ header {
   margin-right: 4px;
 }
 
-.grab {cursor: -webkit-grab; cursor: grab;}
-.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
+.grab {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.grabbing {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
 .container {
   max-width: 720px;
   margin: auto;
@@ -152,7 +158,8 @@ header {
   border: 1px solid #efefef;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 10%),
+    0 1px 2px 0 rgb(0 0 0 / 6%);
   background: #fff;
 }
 
@@ -212,7 +219,8 @@ header {
   object-fit: contain;
   border: 1px solid #ececec;
   border-radius: 15px;
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 3px 0 rgb(0 0 0 / 10%),
+    0 1px 2px 0 rgb(0 0 0 / 6%);
 }
 
 #download button {
@@ -410,7 +418,7 @@ footer {
   text-align: center;
 }
 
-.draggable-file i{
+.draggable-file i {
   display: block;
   color: gray;
   font-size: 50px;
@@ -431,7 +439,7 @@ footer {
   align-items: center;
 }
 
-.dropbtn { 
+.dropbtn {
   background: #cae4ff;
   margin-left: 10px;
 }
@@ -462,9 +470,13 @@ footer {
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f3f3f3;}
+.dropdown-content a:hover {
+  background-color: #f3f3f3;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 @media (min-width: 320px) {
   .wrapper {
