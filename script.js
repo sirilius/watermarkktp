@@ -40,7 +40,6 @@ const elementFont = document.querySelector('#select-font');
 const selectPosition = document.querySelector('#select-position');
 const selectFontSize = document.querySelector('#select-font-size');
 const draggableFile = document.querySelector('.draggable-file');
-const truncateText = document.querySelector('.truncate-text');
 const elementColor = document.querySelector('#colorPicker');
 const downloadAnchor = document.querySelector('#download');
 const elementOpacity = document.querySelector('#opacity');
@@ -175,6 +174,14 @@ window.addEventListener('DOMContentLoaded', () => {
   canvas.addEventListener('mousemove', mouseXY, false);
   document.body.addEventListener('mouseup', mouseUp, false);
 
+  navBar.addEventListener('click', function () {
+    popUp.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', function () {
+    popUp.style.display = 'none';
+  });
+
   downloadAnchor.addEventListener('click', function () {
     if (!isDownloadable)
       return alert(
@@ -203,14 +210,19 @@ window.addEventListener('DOMContentLoaded', () => {
     elementFont.value = 'times New Roman';
     selectFontSize.value = '20';
   });
-});
 
-navBar.addEventListener('click', function () {
-  popUp.style.display = 'flex';
-});
+  inputFile.addEventListener('change', function () {
+    const filename = this.value.split('\\').pop();
 
-closeBtn.addEventListener('click', function () {
-  popUp.style.display = 'none';
+    inputFile.nextElementSibling.innerHTML = `<span class="truncate-text">${filename}</span>`;
+
+    if (document.querySelector('.truncate-text').innerHTML === '') {
+      labelFile.innerHTML =
+        '<i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i> Pilih Gambar';
+    }
+
+    draggableFile.style.display = 'none';
+  });
 });
 
 // Section fungsi-fungsi
