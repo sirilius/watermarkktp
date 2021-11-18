@@ -223,6 +223,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     draggableFile.style.display = 'none';
   });
+
+  draggableFile.addEventListener('drop', dropHandler);
+  draggableFile.addEventListener('dragover', dragOverHandler);
 });
 
 // Section fungsi-fungsi
