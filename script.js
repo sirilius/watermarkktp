@@ -198,7 +198,6 @@ function draggable(img, text_x = 0, text_y = 0) {
 	};
 
 	angle = elementRotate.value;
-	console.log("angle : " + angle);
 	var opacity = elementOpacity.value;
 	var color = elementColor.value;
 
