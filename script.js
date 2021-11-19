@@ -22,6 +22,7 @@ let elementFontSize = document.getElementById('select-font-size');
 let elementColor = document.getElementById('colorPicker');
 let elementOpacity = document.getElementById('opacity');
 let elementRotate = document.getElementById('rotate');
+let elementInputRotate = document.getElementById('rotate-input');
 
 var startX;
 var startY;
@@ -146,10 +147,34 @@ function automate() {
 		draggable(img);
 	};
 
+	/*
+	function updateRotateInput(val){
+		document.getElementById('rotate').value=val;
+	}*/
+
 	elementRotate.oninput = function () {
 		draggable(img);
-		document.getElementById('rotate-val').innerHTML = elementRotate.value + '°';
-	};
+		let rotVal = elementRotate.value;
+		document.getElementById('rotate-input').innerHTML = elementRotate.value;
+		document.getElementById('rotate-input').value = rotVal;
+		
+		console.log("elementRotate");
+		console.log(rotVal);
+		console.log(elementInputRotate.value);
+	}
+
+	
+	elementInputRotate.oninput = function () {
+		draggable(img);
+		let rotVal = elementInputRotate.value;
+		
+		document.getElementById('rotate').innerHTML = elementInputRotate.value;
+
+		console.log("elementInputRotate");
+		console.log(rotVal);
+		console.log(elementRotate.value);
+	}
+
 
 	canvas.addEventListener('click', function(e){
 		selectedText = 1;
@@ -299,7 +324,7 @@ function reset() {
 	document.getElementById("text").value = "";
 	dispatchEvent('#text', 'input');
 	document.getElementById("rotate").value = "0";
-	document.getElementById("rotate-val").value = "0°";
+	document.getElementById("rotate-input").value = "0°";
 	document.getElementById("opacity").value = "0.5";
 	document.getElementById("colorPicker").value = "#000000";
 	document.getElementById("select-position").value = "top";
