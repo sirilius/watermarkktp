@@ -148,17 +148,16 @@ function automate() {
 	};
 
 	elementRotate.oninput = function () {
-		draggable(img);
 		let rotVal = elementRotate.value;
 		document.getElementById('rotate-input').value = rotVal;
+		draggable(img);
 	}
 
 	
 	elementInputRotate.oninput = function () {
-		draggable(img);
 		let rotVal = elementInputRotate.value;
 		document.getElementById('rotate').value = rotVal;
-		
+		draggable(img);		
 	}
 
 
@@ -198,7 +197,8 @@ function draggable(img, text_x = 0, text_y = 0) {
 		y: y,
 	};
 
-	angle = elementInputRotate.value;
+	angle = elementRotate.value;
+	console.log("angle : " + angle);
 	var opacity = elementOpacity.value;
 	var color = elementColor.value;
 
