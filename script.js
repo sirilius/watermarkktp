@@ -224,8 +224,8 @@ window.addEventListener('DOMContentLoaded', () => {
     draggableFile.style.display = 'none';
   });
 
-  draggableFile.addEventListener('drop', dropHandler);
-  draggableFile.addEventListener('dragover', dragOverHandler);
+  draggableFile.addEventListener('dragover', dragOverHandler, false);
+  draggableFile.addEventListener('drop', dropHandler, false);
 });
 
 // Section fungsi-fungsi
@@ -358,18 +358,20 @@ function dispatchEvent(element, eventName) {
 function dropHandler(ev) {
   ev.preventDefault();
   if (ev.dataTransfer.items) {
-    ev.dataTransfer.items.forEach((item) => {
-      if (item.kind === 'file') {
-        const file = item.getAsFile();
+    for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+      if (ev.dataTransfer.items[i].kind === 'file') {
+        const file = ev.dataTransfer.items[i].getAsFile();
 
         if (file.type.includes('image/')) {
           reader.readAsDataURL(file);
           draggableFile.style.display = 'none';
         }
       }
-    });
+    }
   } else {
-    ev.dataTransfer.files.forEach((file) => reader.readAsDataURL(file));
+    for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+      reader.readAsDataURL(ev.dataTransfer.files[i]);
+    }
   }
 }
 
