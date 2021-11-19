@@ -378,3 +378,6 @@ function dropHandler(ev) {
 function dragOverHandler(ev) {
   ev.preventDefault();
 }
+
+const year = document.querySelector('.copyright .year');
+year.innerText = new Date().getFullYear();
