@@ -147,32 +147,18 @@ function automate() {
 		draggable(img);
 	};
 
-	/*
-	function updateRotateInput(val){
-		document.getElementById('rotate').value=val;
-	}*/
-
 	elementRotate.oninput = function () {
 		draggable(img);
 		let rotVal = elementRotate.value;
-		document.getElementById('rotate-input').innerHTML = elementRotate.value;
 		document.getElementById('rotate-input').value = rotVal;
-		
-		console.log("elementRotate");
-		console.log(rotVal);
-		console.log(elementInputRotate.value);
 	}
 
 	
 	elementInputRotate.oninput = function () {
 		draggable(img);
 		let rotVal = elementInputRotate.value;
+		document.getElementById('rotate').value = rotVal;
 		
-		document.getElementById('rotate').innerHTML = elementInputRotate.value;
-
-		console.log("elementInputRotate");
-		console.log(rotVal);
-		console.log(elementRotate.value);
 	}
 
 
@@ -212,7 +198,7 @@ function draggable(img, text_x = 0, text_y = 0) {
 		y: y,
 	};
 
-	angle = elementRotate.value;
+	angle = elementInputRotate.value;
 	var opacity = elementOpacity.value;
 	var color = elementColor.value;
 
