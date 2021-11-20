@@ -17,6 +17,7 @@ let textObj = {};
 
 let elementText = document.getElementById('text');
 let elementFont = document.getElementById('select-font');
+let elementFontCase = document.getElementById('make-font-uppercase')
 let elementPosition = document.getElementById('select-position');
 let elementFontSize = document.getElementById('select-font-size');
 let elementColor = document.getElementById('colorPicker');
@@ -83,6 +84,10 @@ function automate() {
         textValue = elementText.value;
         draggable();
     };
+
+	elementFontCase.onchange = function () {
+		draggable();
+	}
 
 	elementColor.oninput = function () {
         draggable();
@@ -242,9 +247,17 @@ function theimg() {
     ctx.rotate(angle * (Math.PI / 180));
     var splitedText = text.text.split('\n');
     var fontSize = document.getElementById('select-font-size').value;
-    for (let i = 0; i < splitedText.length; i++) {
-      ctx.fillText(splitedText[i], 0, fontSize * (i + 1));
-    }
+		
+		var isUppercase = elementFontCase.checked
+
+		for (let i = 0; i < splitedText.length; i++) {
+			if(isUppercase) {
+				ctx.fillText(splitedText[i].toUpperCase(), 0, fontSize * (i + 1));
+			} else {
+				ctx.fillText(splitedText[i], 0, fontSize * (i + 1));
+			}
+		}
+
     ctx.restore();
 }
 
