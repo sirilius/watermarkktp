@@ -180,7 +180,7 @@ elementInputRotate.oninput = function () {
     let rotVal = elementInputRotate.value;
 		document.getElementById('rotate').value = rotVal;
 		draggable(img);
-  })
+  });
 
   canvas.addEventListener('click', function (e) {
     selectedText = 1;
