@@ -45,6 +45,7 @@ const downloadAnchor = document.querySelector('#download');
 const elementOpacity = document.querySelector('#opacity');
 const labelFile = document.querySelector('.label-file');
 const elementRotate = document.querySelector('#rotate');
+const elementInputRotate = document.querySelector('#rotate-input');
 const closeBtn = document.querySelector('.close-btn');
 const resetAnchor = document.querySelector('#reset');
 const navBar = document.querySelector('.nav-bar');
