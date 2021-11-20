@@ -109,6 +109,20 @@ window.addEventListener('DOMContentLoaded', () => {
     draggable();
   });
 
+  // bagian pengaturan rotasi teks 
+  elementRotate.addEventListener('input', function () {
+		let rotVal = elementRotate.value;
+		document.getElementById('rotate-input').value = rotVal;
+    draggable(img);
+  });
+  
+  elementInputRotate.addEventListener('input', function () {
+    let rotVal = elementInputRotate.value;
+		document.getElementById('rotate').value = rotVal;
+		draggable(img);
+  });
+  // bagian pengaturan rotasi teks 
+	
   selectPosition.addEventListener('input', function () {
     const position = selectPosition.value;
 
@@ -152,35 +166,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     draggable(img);
-  });
-  /*
-  elementRotate.oninput = function () {
-		let rotVal = elementRotate.value;
-		document.getElementById('rotate-input').value = rotVal;
-		draggable(img);
-	}
-
-	
-elementInputRotate.oninput = function () {
-		let rotVal = elementInputRotate.value;
-		document.getElementById('rotate').value = rotVal;
-		draggable(img);		
-	}
-  */
-  //let elementRotate = document.getElementById('rotate');
-  //let elementInputRotate = document.getElementById('rotate-input');
-
-  elementRotate.addEventListener('input', function () {
-		let rotVal = elementRotate.value;
-		document.getElementById('rotate-input').value = rotVal;
-    draggable(img);
-    //document.getElementById('rotate-val').innerHTML = elementRotate.value + '°';
-  });
-  
-  elementInputRotate.addEventListener('input', function () {
-    let rotVal = elementInputRotate.value;
-		document.getElementById('rotate').value = rotVal;
-		draggable(img);
   });
 
   canvas.addEventListener('click', function (e) {
