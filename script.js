@@ -45,6 +45,7 @@ const downloadAnchor = document.querySelector('#download');
 const elementOpacity = document.querySelector('#opacity');
 const labelFile = document.querySelector('.label-file');
 const elementRotate = document.querySelector('#rotate');
+const elementInputRotate = document.querySelector('#rotate-input');
 const closeBtn = document.querySelector('.close-btn');
 const resetAnchor = document.querySelector('#reset');
 const navBar = document.querySelector('.nav-bar');
@@ -108,6 +109,20 @@ window.addEventListener('DOMContentLoaded', () => {
     draggable();
   });
 
+  // bagian pengaturan rotasi teks 
+  elementRotate.addEventListener('input', function () {
+		let rotVal = elementRotate.value;
+		document.getElementById('rotate-input').value = rotVal;
+    draggable(img);
+  });
+  
+  elementInputRotate.addEventListener('input', function () {
+    let rotVal = elementInputRotate.value;
+		document.getElementById('rotate').value = rotVal;
+		draggable(img);
+  });
+  // bagian pengaturan rotasi teks 
+	
   selectPosition.addEventListener('input', function () {
     const position = selectPosition.value;
 
@@ -151,11 +166,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     draggable(img);
-  });
-
-  elementRotate.addEventListener('input', function () {
-    draggable(img);
-    document.getElementById('rotate-val').innerHTML = elementRotate.value + '°';
   });
 
   canvas.addEventListener('click', function (e) {
@@ -348,6 +358,7 @@ function dispatchEvent(element, eventName) {
   if ('createEvent' in document) {
     const event = document.createEvent('HTMLEvents');
     event.initEvent(eventName, false, true);
+
 
     element.dispatchEvent(event);
   } else {
