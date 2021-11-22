@@ -302,17 +302,16 @@ reader.onload = function(event) {
 	isDownloadable = true;
 };
 
-function validateImage(file) {
-	if (file) {
-				var regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
-				if (!(regex.test(val))) {
-						alert("Format gambar yang Anda masukan salah");
-						inputFile.value = '';
-						return false;
-				}else{
-					return true;
-				}
-	}
+function validateImage() {
+		var img = inputFile.value.toLowerCase()
+				regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
+		if (!(regex.test(img))) {
+			alert("Format gambar yang Anda masukan salah");
+			inputFile.value = '';
+			return false;
+		}else{
+			return true;
+		}
 }
 
 function handleImage(e) {
