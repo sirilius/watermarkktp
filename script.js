@@ -302,8 +302,23 @@ reader.onload = function(event) {
 	isDownloadable = true;
 };
 
+function validateImage(file) {
+	if (file) {
+				var regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
+				if (!(regex.test(val))) {
+						alert("Format gambar yang Anda masukan salah");
+						inputFile.value = '';
+						return false;
+				}else{
+					return true;
+				}
+	}
+}
+
 function handleImage(e) {
-  reader.readAsDataURL(e.target.files[0]);
+	if (validateImage(e.target.files[0])) {
+			reader.readAsDataURL(e.target.files[0]);
+	}
 }
 
 function download() {
