@@ -478,6 +478,22 @@ footer {
   display: block;
 }
 
+.slider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#rotate-input, #opacity-input {
+  width: 50px;
+}
+
+.input-right {
+  width: 100%;
+  justify-content: right;
+  display: flex;
+}
+
 @media (min-width: 320px) {
   .wrapper {
     flex-direction: column;
@@ -532,6 +548,20 @@ footer {
   .draggable-file {
     display: none;
   }
+
+
+  .slider {
+    display: flex;
+    margin: 20px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -576,6 +606,19 @@ footer {
 
   .draggable-file {
     display: none;
+  }
+
+  .slider {
+    display: flex;
+    margin: 20px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 }
 

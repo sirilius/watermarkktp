@@ -43,6 +43,7 @@ const draggableFile = document.querySelector('.draggable-file');
 const elementColor = document.querySelector('#colorPicker');
 const downloadAnchor = document.querySelector('#download');
 const elementOpacity = document.querySelector('#opacity');
+const elementInputOpacity = document.querySelector('#opacity-input')
 const labelFile = document.querySelector('.label-file');
 const elementRotate = document.querySelector('#rotate');
 const elementInputRotate = document.querySelector('#rotate-input');
@@ -109,7 +110,6 @@ window.addEventListener('DOMContentLoaded', () => {
     draggable();
   });
 
-  // bagian pengaturan rotasi teks 
   elementRotate.addEventListener('input', function () {
 		let rotVal = elementRotate.value;
 		document.getElementById('rotate-input').value = rotVal;
@@ -121,7 +121,18 @@ window.addEventListener('DOMContentLoaded', () => {
 		document.getElementById('rotate').value = rotVal;
 		draggable(img);
   });
-  // bagian pengaturan rotasi teks 
+  
+  elementOpacity.addEventListener('input', function () {
+		let opacVal = elementOpacity.value;
+		document.getElementById('opacity-input').value = opacVal;
+    draggable(img);
+  });
+
+  elementInputOpacity.addEventListener('input', function () {
+    let opacVal = elementInputOpacity.value;
+		document.getElementById('opacity').value = opacVal;
+		draggable(img);
+  });
 	
   selectPosition.addEventListener('input', function () {
     const position = selectPosition.value;
