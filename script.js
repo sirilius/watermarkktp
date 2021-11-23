@@ -361,8 +361,22 @@ function theimg() {
   ctx.restore();
 }
 
+function validateImage() {
+		var img = inputFile.value.toLowerCase()
+				regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
+		if (!(regex.test(img))) {
+			alert("Format gambar yang Anda masukan salah");
+			inputFile.value = '';
+			return false;
+		}else{
+			return true;
+		}
+}
+
 function handleImage(e) {
-  reader.readAsDataURL(e.target.files[0]);
+	if (validateImage(e.target.files[0])) {
+			reader.readAsDataURL(e.target.files[0]);
+	}
 }
 
 function dispatchEvent(element, eventName) {
