@@ -126,7 +126,7 @@ header {
 
 .mobile-menu {
   background: #f9f9f9;
-  width: 250px;
+  width: 80%;
   display: flex;
   padding: 0px 20px;
   flex-direction: column;
