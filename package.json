@@ -2,9 +2,11 @@
   "name": "watermarkktp",
   "private": true,
   "scripts": {
+    "min": "minify script.js > script.min.js && minify style.css > style.min.css",
     "format": "prettier --write '**/*.{css,js,md,html}'"
   },
   "devDependencies": {
+    "minify": "^8.0.3",
     "prettier": "2.3.2"
   }
 }
