@@ -43,7 +43,7 @@ const draggableFile = document.querySelector('.draggable-file');
 const elementColor = document.querySelector('#colorPicker');
 const downloadAnchor = document.querySelector('#download');
 const elementOpacity = document.querySelector('#opacity');
-const elementInputOpacity = document.querySelector('#opacity-input')
+const elementInputOpacity = document.querySelector('#opacity-input');
 const labelFile = document.querySelector('.label-file');
 const elementRotate = document.querySelector('#rotate');
 const elementInputRotate = document.querySelector('#rotate-input');
@@ -111,29 +111,29 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   elementRotate.addEventListener('input', function () {
-		let rotVal = elementRotate.value;
-		document.getElementById('rotate-input').value = rotVal;
+    let rotVal = elementRotate.value;
+    document.getElementById('rotate-input').value = rotVal;
     draggable(img);
   });
-  
+
   elementInputRotate.addEventListener('input', function () {
     let rotVal = elementInputRotate.value;
-		document.getElementById('rotate').value = rotVal;
-		draggable(img);
+    document.getElementById('rotate').value = rotVal;
+    draggable(img);
   });
-  
+
   elementOpacity.addEventListener('input', function () {
-		let opacVal = elementOpacity.value;
-		document.getElementById('opacity-input').value = opacVal;
+    let opacVal = elementOpacity.value;
+    document.getElementById('opacity-input').value = opacVal;
     draggable(img);
   });
 
   elementInputOpacity.addEventListener('input', function () {
     let opacVal = elementInputOpacity.value;
-		document.getElementById('opacity').value = opacVal;
-		draggable(img);
+    document.getElementById('opacity').value = opacVal;
+    draggable(img);
   });
-	
+
   selectPosition.addEventListener('input', function () {
     const position = selectPosition.value;
 
@@ -362,28 +362,27 @@ function theimg() {
 }
 
 function validateImage() {
-		var img = inputFile.value.toLowerCase()
-				regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
-		if (!(regex.test(img))) {
-			alert("Format gambar yang Anda masukan salah");
-			inputFile.value = '';
-			return false;
-		}else{
-			return true;
-		}
+  var img = inputFile.value.toLowerCase();
+  regex = new RegExp('(.*?).(jpg|jpeg|png)$');
+  if (!regex.test(img)) {
+    alert('Format gambar yang Anda masukan salah');
+    inputFile.value = '';
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function handleImage(e) {
-	if (validateImage(e.target.files[0])) {
-			reader.readAsDataURL(e.target.files[0]);
-	}
+  if (validateImage(e.target.files[0])) {
+    reader.readAsDataURL(e.target.files[0]);
+  }
 }
 
 function dispatchEvent(element, eventName) {
   if ('createEvent' in document) {
     const event = document.createEvent('HTMLEvents');
     event.initEvent(eventName, false, true);
-
 
     element.dispatchEvent(event);
   } else {

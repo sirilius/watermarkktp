@@ -484,7 +484,8 @@ footer {
   margin-bottom: 20px;
 }
 
-#rotate-input, #opacity-input {
+#rotate-input,
+#opacity-input {
   width: 50px;
 }
 
@@ -548,7 +549,6 @@ footer {
   .draggable-file {
     display: none;
   }
-
 
   .slider {
     display: flex;
