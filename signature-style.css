@@ -48,6 +48,11 @@ body {
   transition: 0.2s;
 }
 
+.copyright,
+.copyright a {
+  color: #555;
+}
+
 #download button {
   display: flex;
   justify-content: center;
@@ -113,6 +118,11 @@ body {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+footer {
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .file-wrapper {
@@ -266,6 +276,12 @@ header {
   transform: scale(1.01);
 }
 
+.thanks-to {
+  color: #999;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -380,13 +396,18 @@ header {
 }
 
 @media (min-width: 1024px) {
-  .wrapper {
-    flex-direction: row;
+  footer {
+    margin-top: -3rem;
   }
 
   .input {
     width: 350px;
     margin: 0px 30px 0px 0px;
+  }
+
+  .wrapper {
+    flex-direction: row;
+    margin-top: -5rem;
   }
 }
 
