@@ -75,3 +75,6 @@ document.getElementsByClassName('nav-bar')[0].onclick = function () {
 document.getElementsByClassName('close-btn')[0].onclick = function () {
   document.getElementById('pop-up').style.display = 'none';
 };
+
+const year = document.querySelector('.copyright .year');
+      year.innerText = new Date().getFullYear();
