@@ -404,6 +404,11 @@ header {
     width: 350px;
     margin: 0px 30px 0px 0px;
   }
+
+  .wrapper {
+    flex-direction: row;
+    margin-top: -5rem;
+  }
 }
 
 
