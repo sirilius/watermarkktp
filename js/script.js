@@ -238,8 +238,7 @@ window.addEventListener('DOMContentLoaded', () => {
     inputFile.nextElementSibling.innerHTML = `<span class="truncate-text">${filename}</span>`;
 
     if (document.querySelector('.truncate-text').innerHTML === '') {
-      labelFile.innerHTML =
-        'Pilih Gambar';
+      labelFile.innerHTML = 'Pilih Gambar';
     }
 
     draggableFile.style.display = 'none';
