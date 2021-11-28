@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "min": "minify script.js > script.min.js && minify style.css > style.min.css",
-    "format": "prettier --write '{*.html,style.css,script.js,README.md}'"
+    "format": "prettier --write '{*.html,style/*.css,js/script.js,js/signature.js,README.md}'"
   },
   "devDependencies": {
     "minify": "^8.0.3",

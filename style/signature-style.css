@@ -5,7 +5,9 @@
   --fourth-color: #1d3557;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,9 +17,9 @@ a {
 }
 
 body {
-  font-family: Arial,sans-serif;
-    background: #f9f9f9;
-    margin: 20px;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 20px;
 }
 
 .canvas-wrapper {
@@ -291,7 +293,6 @@ header {
   width: 100%;
   user-select: none;
 }
-
 
 @media (max-width: 640px) {
   .logo-text {
