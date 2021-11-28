@@ -2,7 +2,7 @@
   "name": "watermarkktp",
   "private": true,
   "scripts": {
-    "min": "minify script.js > script.min.js && minify style.css > style.min.css",
+    "min": "minify js/script.js > js/script.min.js && minify js/signature.js > js/signature.min.js && minify style/style.css > style/style.min.css && minify style/signature-style.css > style/signature-style.min.css",
     "format": "prettier --write '{*.html,style/style.css,style/signature-style.css,js/script.js,js/signature.js,README.md}'"
   },
   "devDependencies": {
