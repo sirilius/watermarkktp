@@ -239,7 +239,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (document.querySelector('.truncate-text').innerHTML === '') {
       labelFile.innerHTML =
-        '<i class="fas fa-arrow-circle-up" style="margin-right: 8px"></i> Pilih Gambar';
+        'Pilih Gambar';
     }
 
     draggableFile.style.display = 'none';
