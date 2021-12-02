@@ -179,6 +179,8 @@ window.addEventListener('DOMContentLoaded', () => {
     draggable(img);
   });
 
+  dispatchEvent(selectPosition, 'input');
+
   canvas.addEventListener('click', function (e) {
     selectedText = 1;
     mouseXY(e);
