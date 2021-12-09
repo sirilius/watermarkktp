@@ -7,6 +7,7 @@
 
     <link rel="canonical" href="https://watermarkktp.com/pers" />
     <link rel="stylesheet" href="style/style.min.css" />
+	<link rel="stylesheet" href="style/dark.min.css" media="(prefers-color-scheme: light)" />
     <link rel="icon" href="logo.svg" />
 
     <title>Pers - Watermark KTP</title>
@@ -56,6 +57,7 @@
       data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23"
       src="https://respectedprivacy.com/script.js"
     ></script>
+	<script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
   </head>
   <body>
     <header>
@@ -67,7 +69,7 @@
         <a href="https://github.com/sirilius/watermarkktp" class="nav-link"
           >GitHub</a
         >
-        <a href="pers.html" class="nav-link" style="color: black">Pers</a>
+        <a href="pers.html" class="nav-link">Pers</a>
       </div>
 
       <div class="header-right">
@@ -468,6 +470,12 @@
         Terima kasih untuk semua sponsor, kontributor, dan teman yang
         sudah mendukung petualanganku ❤️
       </p>
+	  <dark-mode-toggle
+		id="dark-mode-toggle-1"
+		appearance="toggle"
+		dark="Switch to Dark Mode"
+		light="Switch to Light Mode"
+	  ></dark-mode-toggle>
     </footer>
   </body>
 

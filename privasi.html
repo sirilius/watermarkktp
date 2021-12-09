@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style/style.min.css" />
+	<link rel="stylesheet" href="style/dark.min.css" media="(prefers-color-scheme: light)" />
     <link rel="icon" href="logo.svg" />
 
     <title>Privasi - Watermark KTP</title>
@@ -68,6 +69,7 @@
       data-website-id="a21bda6f-433b-47e7-9225-e16bedc4ac23"
       src="https://respectedprivacy.com/script.js"
     ></script>
+	<script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
   </head>
   <body>
     <header>
@@ -75,7 +77,7 @@
         <a href="index.html" class="logo-text">Watermark KTP</a>
         <a href="tanda-tangan.html" class="nav-link">Tanda Tangan</a>
         <a href="cara-pakai.html" class="nav-link">Cara Pakai</a>
-        <a href="privasi.html" class="nav-link" style="color: black">Privasi</a>
+        <a href="privasi.html" class="nav-link">Privasi</a>
         <a href="https://github.com/sirilius/watermarkktp" class="nav-link"
           >GitHub</a
         >
@@ -248,6 +250,12 @@
         Terima kasih untuk semua sponsor, kontributor, dan teman yang
         sudah mendukung petualanganku ❤️
       </p>
+	  <dark-mode-toggle
+		id="dark-mode-toggle-1"
+		appearance="toggle"
+		dark="Switch to Dark Mode"
+		light="Switch to Light Mode"
+	  ></dark-mode-toggle>
     </footer>
   </body>
 
