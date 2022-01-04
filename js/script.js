@@ -394,9 +394,9 @@ function dispatchEvent(element, eventName) {
 function dropHandler(ev) {
   ev.preventDefault();
   if (ev.dataTransfer.items) {
-    for (let i = 0; i < ev.dataTransfer.items.length; i++) {
-      if (ev.dataTransfer.items[i].kind === 'file') {
-        const file = ev.dataTransfer.items[i].getAsFile();
+    for (const item of ev.dataTransfer.items) {
+      if (item.kind === 'file') {
+        const file = item.getAsFile();
 
         if (file.type.includes('image/')) {
           reader.readAsDataURL(file);
@@ -405,8 +405,8 @@ function dropHandler(ev) {
       }
     }
   } else {
-    for (let i = 0; i < ev.dataTransfer.files.length; i++) {
-      reader.readAsDataURL(ev.dataTransfer.files[i]);
+    for (const file of ev.dataTransfer.files) {
+      reader.readAsDataURL(file);
     }
   }
 }
