@@ -1,0 +1,251 @@
+---
+layout: layouts/base.njk
+permalink: /
+---
+
+<div class="wrapper">
+  <div class="input">
+    <div class="file-wrapper">
+      <input type="file" id="inputFile" style="opacity: 0" accept="image/*" />
+      <label class="label-file" for="inputFile"> Tambah Gambar </label>
+      <p id="error"></p>
+    </div>
+
+    <div style="margin: 20px 0px">
+      <label>Watermark</label>
+      <textarea
+        id="text"
+        placeholder="01-07-2021 Verifikasi E-Wallet"
+      ></textarea>
+    </div>
+
+    <!-- Font Selection -->
+    <div style="margin: 20px 0px">
+      <label for="">Font</label>
+      <select id="select-font" class="select">
+        <option value="times New Roman" selected="selected">
+          Times New Roman
+        </option>
+        <option value="arial">Arial</option>
+        <option value="sans">PT Sans</option>
+      </select>
+    </div>
+
+    <!-- Position Selection -->
+    <div style="margin: 20px 0px">
+      <label for="select-position">Posisi</label>
+      <select id="select-position" class="select">
+        <option value="top" selected="selected">Atas</option>
+        <option value="top-left">Atas kiri</option>
+        <option value="top-right">Atas kanan</option>
+        <option value="center">Tengah</option>
+        <option value="center-left">Tengah kiri</option>
+        <option value="center-right">Tengah kanan</option>
+        <option value="bottom">Bawah</option>
+        <option value="bottom-left">Bawah kiri</option>
+        <option value="bottom-right">Bawah kanan</option>
+      </select>
+    </div>
+
+    <div style="margin: 20px 0px">
+      <label for="">Ukuran</label>
+      <select id="select-font-size" class="select">
+        <option value="14">Sangat kecil</option>
+        <option value="16">Kecil</option>
+        <option value="20" selected="selected">Normal</option>
+        <option value="36">Besar</option>
+        <option value="60">Sangat besar</option>
+      </select>
+    </div>
+
+    <div style="display: flex; align-items: center; margin: 20px 0px">
+      <label for="colorPicker" style="margin-right: 8px">Warna</label>
+      <input type="color" id="colorPicker" />
+    </div>
+
+    <div class="slider">
+      <label for="rotate" style="margin-right: 8px">Rotasi</label>
+      <div class="input-right">
+        <input
+          type="range"
+          min="-180"
+          max="180"
+          step="1"
+          value="0"
+          id="rotate"
+          style="margin: 0 8px 0 0"
+        />
+        <input
+          type="number"
+          min="-180"
+          max="180"
+          step="1"
+          id="rotate-input"
+          value="0"
+        />
+      </div>
+    </div>
+
+    <div class="slider">
+      <label for="opacity" style="margin-right: 8px">Transparansi</label>
+      <div class="input-right">
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          id="opacity"
+          style="margin-right: 8px"
+        />
+        <input
+          type="number"
+          min="0"
+          max="1"
+          step="0.01"
+          id="opacity-input"
+          value="0"
+        />
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-around">
+      <a id="reset">
+        <button>
+          <span class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"
+                fill="#ff5f5f"
+              />
+            </svg>
+          </span>
+          Reset
+        </button>
+      </a>
+
+      <a id="download" download="watermark.png">
+        <button>
+          <span class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8h3l-4 4-4-4h3V8h2v4z"
+                fill="#ffe500"
+              />
+            </svg>
+          </span>
+
+          Download
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="output">
+    <canvas id="canvas" width="800" height="550">
+      Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser
+      lainnya.
+    </canvas>
+
+    <div class="draggable-file">
+      <input
+        type="file"
+        class="draggable-file-input"
+        style="opacity: 0"
+        accept="image/*"
+      />
+
+      <label class="draggable-file-label" for="inputFile">
+        <span class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="64"
+            height="64"
+          >
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+              d="M5 11.1l2-2 5.5 5.5 3.5-3.5 3 3V5H5v6.1zm0 2.829V19h3.1l2.986-2.985L7 11.929l-2 2zM10.929 19H19v-2.071l-3-3L10.929 19zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm11.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+              fill="rgba(103,103,103,1)"
+            />
+          </svg>
+        </span>
+        <p>Tarik gambarmu ke sini</p>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="as-featured-in">
+  <h3>As Featured In</h3>
+  <div class="news-site-logos">
+    <a
+      href="https://inet.detik.com/cyberlife/d-5800653/kevin-cah-yogya-pencipta-watermark-ktp-yang-sangat-berguna"
+    >
+      <img src="/img/logo-detik.png" alt="Logo detikcom" />
+    </a>
+
+    <a
+      href="https://www.kompas.com/tren/read/2021/11/19/181500765/remaja-14-tahun-ini-buat-aplikasi-watermark-ktp-"
+    >
+      <img
+        src="/img/logo-kompas.png"
+        alt="Kompas.com logo"
+        style="margin-top: 10px"
+      />
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=eliNihJWAG4">
+      <img
+        src="/img/logo-narasi.png"
+        alt="Logo Narasi"
+        style="height: 38px; width: auto"
+      />
+    </a>
+
+    <a
+      href="https://www.cnnindonesia.com/teknologi/20211014125330-185-707721/cara-agar-foto-ektp-tidak-disalahgunakan"
+    >
+      <img src="/img/logo-cnn-indonesia.png" alt="Logo CNN Indonesia" />
+    </a>
+
+    <a
+      href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
+    >
+      <img
+        src="/img/logo-mojok.png"
+        alt="Logo Mojok.co"
+        style="height: 68px; width: auto; background: #0d2030; padding: 1rem"
+      />
+    </a>
+
+    <a
+      href="https://www.suara.com/news/2021/10/15/162419/bocah-14-tahun-bikin-aplikasi-watermark-ktp-demi-cegah-jebakan-pinjol-ini-cara-pakainya?page=all"
+    >
+      <img src="/img/logo-suara.png" alt="Logo Suara.com" />
+    </a>
+
+    <a
+      href="https://www.brilio.net/sosok/sirilius-kevin-sosok-14-tahun-di-balik-pencetus-watermark-ktp-211119e.html"
+    >
+      <img src="/img/logo-brilio.png" alt="Logo Brilio.net" />
+    </a>
+
+    <a
+      href="https://www.jawapos.com/features/26/11/2021/sirilius-kevin-belum-punya-ktp-tapi-turut-bantu-lindungi-ktp/"
+    >
+      <img src="/img/logo-jawapos.png" alt="Logo JawaPos.com" />
+    </a>
+  </div>
+</div>
