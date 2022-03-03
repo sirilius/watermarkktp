@@ -1,16 +1,16 @@
 // Inisialisasi variabel
-let val = '';
-let textValue = '';
+let val = "";
+let textValue = "";
 let textObj = {};
 let startX;
 let startY;
 let selectedText = 0;
 let angle = 0;
 let isDownloadable = false;
-let src = '';
+let src = "";
 
 const img = new Image();
-img.addEventListener('load', function () {
+img.addEventListener("load", function () {
   const canvas = ctx.canvas;
   const hRatio = canvas.width / img.width;
   const vRatio = canvas.height / img.height;
@@ -34,27 +34,27 @@ img.addEventListener('load', function () {
 });
 
 // Inisialisasi element
-const elementText = document.querySelector('#text');
-const inputFile = document.querySelector('#inputFile');
-const elementFont = document.querySelector('#select-font');
-const selectPosition = document.querySelector('#select-position');
-const selectFontSize = document.querySelector('#select-font-size');
-const draggableFile = document.querySelector('.draggable-file');
-const elementColor = document.querySelector('#colorPicker');
-const downloadAnchor = document.querySelector('#download');
-const elementOpacity = document.querySelector('#opacity');
-const elementInputOpacity = document.querySelector('#opacity-input');
-const labelFile = document.querySelector('.label-file');
-const elementRotate = document.querySelector('#rotate');
-const elementInputRotate = document.querySelector('#rotate-input');
-const closeBtn = document.querySelector('.close-btn');
-const resetAnchor = document.querySelector('#reset');
-const navBar = document.querySelector('.nav-bar');
-const popUp = document.querySelector('#pop-up');
+const elementText = document.querySelector("#text");
+const inputFile = document.querySelector("#inputFile");
+const elementFont = document.querySelector("#select-font");
+const selectPosition = document.querySelector("#select-position");
+const selectFontSize = document.querySelector("#select-font-size");
+const draggableFile = document.querySelector(".draggable-file");
+const elementColor = document.querySelector("#colorPicker");
+const downloadAnchor = document.querySelector("#download");
+const elementOpacity = document.querySelector("#opacity");
+const elementInputOpacity = document.querySelector("#opacity-input");
+const labelFile = document.querySelector(".label-file");
+const elementRotate = document.querySelector("#rotate");
+const elementInputRotate = document.querySelector("#rotate-input");
+const closeBtn = document.querySelector(".close-btn");
+const resetAnchor = document.querySelector("#reset");
+const navBar = document.querySelector(".nav-bar");
+const popUp = document.querySelector("#pop-up");
 
 // Section Canvas
-const canvas = document.querySelector('#canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.querySelector("#canvas");
+const ctx = canvas.getContext("2d");
 
 let canvasOffset = canvas.getBoundingClientRect();
 let offsetX = canvasOffset.left;
@@ -65,10 +65,10 @@ let scrollY = canvas.scrollTop;
 // Section file reader
 let reader = new FileReader();
 
-reader.addEventListener('load', function (event) {
+reader.addEventListener("load", function (event) {
   img.src = event.target.result;
   src = event.target.result;
-  canvas.classList.add('show');
+  canvas.classList.add("show");
 
   isDownloadable = true;
 });
@@ -76,7 +76,7 @@ reader.addEventListener('load', function (event) {
 // Section Event Listener
 
 // Pada saat window browser di resize
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   canvasOffset = canvas.getBoundingClientRect();
   offsetX = canvasOffset.left;
   offsetY = canvasOffset.top;
@@ -85,92 +85,92 @@ window.addEventListener('resize', () => {
 });
 
 // Pada saat window di click
-window.addEventListener('click', function (event) {
+window.addEventListener("click", function (event) {
   if (event.target === popUp) {
-    popUp.style.display = 'none';
+    popUp.style.display = "none";
   }
 });
 
 // Pada saat semua dom element telah selesai dimuat
-window.addEventListener('DOMContentLoaded', () => {
-  inputFile.addEventListener('change', handleImage, false);
+window.addEventListener("DOMContentLoaded", () => {
+  inputFile.addEventListener("change", handleImage, false);
 
   const elementsBerulang = [elementColor, elementFont];
   elementsBerulang.forEach((element) =>
-    element.addEventListener('input', () => draggable()),
+    element.addEventListener("input", () => draggable()),
   );
 
   const elementsBerulangWithImg = [selectFontSize, elementOpacity];
   elementsBerulangWithImg.forEach((element) =>
-    element.addEventListener('input', () => draggable(img)),
+    element.addEventListener("input", () => draggable(img)),
   );
 
-  elementText.addEventListener('input', function () {
+  elementText.addEventListener("input", function () {
     textValue = elementText.value;
     draggable();
   });
 
-  elementRotate.addEventListener('input', function () {
+  elementRotate.addEventListener("input", function () {
     let rotVal = elementRotate.value;
-    document.getElementById('rotate-input').value = rotVal;
+    document.getElementById("rotate-input").value = rotVal;
     draggable(img);
   });
 
-  elementInputRotate.addEventListener('input', function () {
+  elementInputRotate.addEventListener("input", function () {
     let rotVal = elementInputRotate.value;
-    document.getElementById('rotate').value = rotVal;
+    document.getElementById("rotate").value = rotVal;
     draggable(img);
   });
 
-  elementOpacity.addEventListener('input', function () {
+  elementOpacity.addEventListener("input", function () {
     let opacVal = elementOpacity.value;
-    document.getElementById('opacity-input').value = opacVal;
+    document.getElementById("opacity-input").value = opacVal;
     draggable(img);
   });
 
-  elementInputOpacity.addEventListener('input', function () {
+  elementInputOpacity.addEventListener("input", function () {
     let opacVal = elementInputOpacity.value;
-    document.getElementById('opacity').value = opacVal;
+    document.getElementById("opacity").value = opacVal;
     draggable(img);
   });
 
-  selectPosition.addEventListener('input', function () {
+  selectPosition.addEventListener("input", function () {
     const position = selectPosition.value;
 
     switch (position) {
-      case 'top':
+      case "top":
         textObj.y = 90;
         textObj.x = 400;
         break;
-      case 'top-left':
+      case "top-left":
         textObj.y = 90;
         textObj.x = 100;
         break;
-      case 'top-right':
+      case "top-right":
         textObj.y = 90;
         textObj.x = 700;
         break;
-      case 'center':
+      case "center":
         textObj.y = 300;
         textObj.x = 400;
         break;
-      case 'center-left':
+      case "center-left":
         textObj.y = 300;
         textObj.x = 100;
         break;
-      case 'center-right':
+      case "center-right":
         textObj.y = 300;
         textObj.x = 700;
         break;
-      case 'bottom':
+      case "bottom":
         textObj.y = 500;
         textObj.x = 400;
         break;
-      case 'bottom-left':
+      case "bottom-left":
         textObj.y = 500;
         textObj.x = 100;
         break;
-      case 'bottom-right':
+      case "bottom-right":
         textObj.y = 500;
         textObj.x = 700;
         break;
@@ -179,9 +179,9 @@ window.addEventListener('DOMContentLoaded', () => {
     draggable(img);
   });
 
-  dispatchEvent(selectPosition, 'input');
+  dispatchEvent(selectPosition, "input");
 
-  canvas.addEventListener('click', function (e) {
+  canvas.addEventListener("click", function (e) {
     selectedText = 1;
     mouseXY(e);
     setTimeout(() => {
@@ -189,80 +189,80 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 1);
   });
 
-  canvas.addEventListener('pointerdown', mouseDown, false);
-  canvas.addEventListener('pointermove', mouseXY, false);
-  canvas.addEventListener('pointerup', mouseXY, false);
+  canvas.addEventListener("pointerdown", mouseDown, false);
+  canvas.addEventListener("pointermove", mouseXY, false);
+  canvas.addEventListener("pointerup", mouseXY, false);
 
-  canvas.addEventListener('mousedown', mouseDown, false);
-  canvas.addEventListener('mousemove', mouseXY, false);
-  document.body.addEventListener('mouseup', mouseUp, false);
+  canvas.addEventListener("mousedown", mouseDown, false);
+  canvas.addEventListener("mousemove", mouseXY, false);
+  document.body.addEventListener("mouseup", mouseUp, false);
 
-  navBar.addEventListener('click', function () {
-    popUp.style.display = 'flex';
+  navBar.addEventListener("click", function () {
+    popUp.style.display = "flex";
   });
 
-  closeBtn.addEventListener('click', function () {
-    popUp.style.display = 'none';
+  closeBtn.addEventListener("click", function () {
+    popUp.style.display = "none";
   });
 
-  downloadAnchor.addEventListener('click', function () {
+  downloadAnchor.addEventListener("click", function () {
     if (!isDownloadable)
       return alert(
-        'Gambar belum diunggah, silakan unggah gambar terlebih dahulu!',
+        "Gambar belum ditambahkan, silakan tambah gambar terlebih dahulu",
       );
-    if (isWMEmpty()) return alert('Watermark belum ditentukan!');
+    if (isWMEmpty()) return alert("Watermark belum ditentukan!");
 
-    const image = canvas.toDataURL('image/png');
+    const image = canvas.toDataURL("image/png");
 
-    downloadAnchor.setAttribute('href', image);
+    downloadAnchor.setAttribute("href", image);
   });
 
-  resetAnchor.addEventListener('click', function () {
-    elementText.value = '';
-    dispatchEvent(elementText, 'input');
+  resetAnchor.addEventListener("click", function () {
+    elementText.value = "";
+    dispatchEvent(elementText, "input");
 
-    elementRotate.value = '0';
-    elementOpacity.value = '0.5';
+    elementRotate.value = "0";
+    elementOpacity.value = "0.5";
 
-    document.querySelector('#rotate-val').value = '0°';
-    document.querySelector('#colorPicker').value = '#000000';
-    selectPosition.value = 'top';
+    document.querySelector("#rotate-val").value = "0°";
+    document.querySelector("#colorPicker").value = "#000000";
+    selectPosition.value = "top";
 
-    dispatchEvent(selectPosition, 'input');
+    dispatchEvent(selectPosition, "input");
 
-    elementFont.value = 'times New Roman';
-    selectFontSize.value = '20';
+    elementFont.value = "times New Roman";
+    selectFontSize.value = "20";
   });
 
-  inputFile.addEventListener('change', function () {
-    const filename = this.value.split('\\').pop();
+  inputFile.addEventListener("change", function () {
+    const filename = this.value.split("\\").pop();
 
     inputFile.nextElementSibling.innerHTML = `<span class="truncate-text">${filename}</span>`;
 
-    if (document.querySelector('.truncate-text').innerHTML === '') {
-      labelFile.innerHTML = 'Pilih Gambar';
+    if (document.querySelector(".truncate-text").innerHTML === "") {
+      labelFile.innerHTML = "Pilih Gambar";
     }
 
-    draggableFile.style.display = 'none';
+    draggableFile.style.display = "none";
   });
 
-  draggableFile.addEventListener('dragover', dragOverHandler, false);
-  draggableFile.addEventListener('drop', dropHandler, false);
+  draggableFile.addEventListener("dragover", dragOverHandler, false);
+  draggableFile.addEventListener("drop", dropHandler, false);
 });
 
 // Section fungsi-fungsi
-const isWMEmpty = () => elementText.value.replace(/^\s+|\s+$/g, '') === '';
+const isWMEmpty = () => elementText.value.replace(/^\s+|\s+$/g, "") === "";
 
 function mouseUp() {
-  canvas.classList.add('grab');
-  canvas.classList.remove('grabbing');
+  canvas.classList.add("grab");
+  canvas.classList.remove("grabbing");
   selectedText = 0;
   mouseXY();
 }
 
 function mouseDown() {
-  canvas.classList.add('grabbing');
-  canvas.classList.remove('grab');
+  canvas.classList.add("grabbing");
+  canvas.classList.remove("grab");
   selectedText = 1;
   mouseXY();
 }
@@ -318,7 +318,7 @@ function draggable(img, text_x = 0, text_y = 0) {
 
   ctx.font = `${fontSize}px ${font}`;
   ctx.fillStyle = rgbaCol;
-  ctx.textAlign = 'center';
+  ctx.textAlign = "center";
   text.width = Math.ceil(ctx.measureText(textValue).width);
   text.height = actualHeight;
 
@@ -350,11 +350,11 @@ function theimg() {
 
   const text = textObj;
 
-  ctx.textAlign = 'center';
+  ctx.textAlign = "center";
   ctx.translate(text.x, text.y);
   ctx.rotate(angle * (Math.PI / 180));
 
-  const splitedText = text.text.split('\n');
+  const splitedText = text.text.split("\n");
   const fontSize = selectFontSize.value;
 
   splitedText.forEach((text, i) => ctx.fillText(text, 0, fontSize * (i + 1)));
@@ -364,10 +364,10 @@ function theimg() {
 
 function validateImage() {
   var img = inputFile.value.toLowerCase();
-  regex = new RegExp('(.*?).(jpg|jpeg|png)$');
+  regex = new RegExp("(.*?).(jpg|jpeg|png)$");
   if (!regex.test(img)) {
-    alert('Format gambar yang Anda masukan salah');
-    inputFile.value = '';
+    alert("Format gambar yang Anda masukan salah");
+    inputFile.value = "";
     return false;
   } else {
     return true;
@@ -381,8 +381,8 @@ function handleImage(e) {
 }
 
 function dispatchEvent(element, eventName) {
-  if ('createEvent' in document) {
-    const event = document.createEvent('HTMLEvents');
+  if ("createEvent" in document) {
+    const event = document.createEvent("HTMLEvents");
     event.initEvent(eventName, false, true);
 
     element.dispatchEvent(event);
@@ -395,12 +395,12 @@ function dropHandler(ev) {
   ev.preventDefault();
   if (ev.dataTransfer.items) {
     for (const item of ev.dataTransfer.items) {
-      if (item.kind === 'file') {
+      if (item.kind === "file") {
         const file = item.getAsFile();
 
-        if (file.type.includes('image/')) {
+        if (file.type.includes("image/")) {
           reader.readAsDataURL(file);
-          draggableFile.style.display = 'none';
+          draggableFile.style.display = "none";
         }
       }
     }
@@ -414,6 +414,3 @@ function dropHandler(ev) {
 function dragOverHandler(ev) {
   ev.preventDefault();
 }
-
-const year = document.querySelector('.copyright .year');
-year.innerText = new Date().getFullYear();
