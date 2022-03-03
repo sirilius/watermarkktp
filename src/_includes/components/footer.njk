@@ -1,0 +1,25 @@
+<footer>
+  <div class="copyright">
+    &copy; <a href="https://sirilius.com/">Sirilius Kevin</a>
+  </div>
+  <p class="thanks-to">
+    Terima kasih untuk semua sponsor, kontributor, dan teman yang sudah
+    mendukung petualanganku ❤️
+  </p>
+</footer>
+
+{%- set js %}
+{% if page.url == "/" %}
+{% include "js/watermark.js" %}
+{% endif %}
+
+{% if page.url == "/tanda-tangan/" %}
+{% include "js/signature_pad.js" %}
+{% include "js/signature.js" %}
+{% endif %}
+
+{% include "js/mobile-menu.js" %}
+{% endset %}
+<script>
+  {{ js | jsmin | safe }}
+</script>

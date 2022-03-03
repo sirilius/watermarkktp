@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: Tanda Tangan
+eleventyNavigation:
+  key: Tanda Tangan
+  order: 1
+---
+
+<div class="wrapper tanda-tangan">
+  <div class="input">
+    <div class="file-wrapper">
+      <input type="file" id="inputFile" style="opacity: 0" accept="image/*" />
+      <label class="label-file" for="inputFile">Tambah Gambar</label>
+      <p id="error"></p>
+    </div>
+
+    <div style="display: flex; justify-content: space-around">
+      <a id="reset">
+        <button>
+          <span class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"
+                fill="#ff5f5f"
+              />
+            </svg>
+          </span>
+          Reset
+        </button>
+      </a>
+
+      <a id="download" download="tanda-tangan.png">
+        <button>
+          <span class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z" />
+              <path
+                d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8h3l-4 4-4-4h3V8h2v4z"
+                fill="#ffe500"
+              />
+            </svg>
+          </span>
+
+          Download
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="output">
+    <div class="canvas-wrapper">
+      <canvas id="canvas" width="640" height="320">
+        Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser
+        lainnya.
+      </canvas>
+    </div>
+  </div>
+</div>
