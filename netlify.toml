@@ -4,6 +4,30 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/tanda-tangan.html"
+  to = "/tanda-tangan/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cara-pakai.html"
+  to = "/cara-pakai/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privasi.html"
+  to = "/privasi/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pers.html"
+  to = "/pers/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
