@@ -195,6 +195,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   canvas.addEventListener("mousedown", mouseDown, false);
   canvas.addEventListener("mousemove", mouseXY, false);
+  canvas.addEventListener("touchmove", touchXY, false);
   document.body.addEventListener("mouseup", mouseUp, false);
 
   navBar.addEventListener("click", function () {
@@ -272,6 +273,16 @@ function mouseXY(e) {
     e.preventDefault();
     canvasX = e.pageX - canvas.offsetLeft;
     canvasY = e.pageY - canvas.offsetTop;
+    changePosXY(canvasX, canvasY);
+  } catch (error) {}
+}
+
+function touchXY(e) {
+  try {
+    e.preventDefault();
+    canvasX  = e.touches[0].clientX - initialX;
+    canvasY = e.touches[0].clientY - initialY;
+    
     changePosXY(canvasX, canvasY);
   } catch (error) {}
 }
