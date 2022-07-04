@@ -6,12 +6,19 @@
   "license": "MIT",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve",
-    "format": "prettier --write '**/*.{js,css,html,md}'"
+    "serve": "npx @11ty/eleventy --serve",
+    "format": "prettier --write '**/*.{js,css,html,md}'",
+    "tailwind:process": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/style.css --watch",
+    "dev": "concurrently \"npm run tailwind:process\" \"npm run serve\""
   },
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.2",
-    "prettier": "^2.5.1"
+    "autoprefixer": "^10.4.7",
+    "concurrently": "^7.2.2",
+    "postcss-cli": "^10.0.0",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.1.4"
   },
   "dependencies": {
     "clean-css": "^5.2.4",
