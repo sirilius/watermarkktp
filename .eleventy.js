@@ -46,6 +46,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy({
+    "src/_includes/css/app.css": "./css/app.css",
+  });
 
   return {
     dir: {
