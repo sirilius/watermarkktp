@@ -3,3 +3,5 @@ node_modules
 package-lock.json
 yarn.lock
 src/_includes/css/app.css
+# Local Netlify folder
+.netlify
