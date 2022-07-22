@@ -222,7 +222,9 @@ window.addEventListener("DOMContentLoaded", () => {
     dispatchEvent(elementText, "input");
 
     elementRotate.value = "0";
+    elementInputRotate.value = "0";
     elementOpacity.value = "0.5";
+    elementInputOpacity.value = "0";
 
     document.querySelector("#rotate-val").value = "0°";
     document.querySelector("#colorPicker").value = "#000000";
