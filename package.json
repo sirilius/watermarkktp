@@ -5,7 +5,7 @@
   "author": "Sirilius Kevin",
   "license": "MIT",
   "scripts": {
-    "build": "npx @11ty/eleventy",
+    "build": "npm run tailwind:process && npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "format": "prettier --write '**/*.{js,css,html,md}'",
     "tailwind:process": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
