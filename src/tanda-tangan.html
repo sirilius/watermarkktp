@@ -6,64 +6,75 @@ eleventyNavigation:
   order: 1
 ---
 
-<div class="wrapper tanda-tangan">
-  <div class="input">
-    <div class="file-wrapper">
-      <input type="file" id="inputFile" style="opacity: 0" accept="image/*" />
-      <label class="label-file" for="inputFile">Tambah Gambar</label>
+<div class="mt-6 mb-16 flex flex-wrap justify-center items-start">
+  <div
+    class="mr-0 lg:mr-6 mb-6 p-4 w-full lg:w-80 rounded-xl border border-gray-200 shadow"
+  >
+    <div class="mb-4 flex">
+      <input
+        class="absolute hidden"
+        type="file"
+        id="inputFile"
+        accept="image/*"
+      />
+      <label
+        class="truncate w-full py-2 px-4 bg-black shadow-3d-black-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80 duration-300 font-medium text-white rounded-lg cursor-pointer text-center"
+        for="inputFile"
+      >
+        Tambah Gambar
+      </label>
       <p id="error"></p>
     </div>
 
-    <div style="display: flex; justify-content: space-around">
-      <a id="reset">
-        <button>
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-            >
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path
-                d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"
-                fill="#ff5f5f"
-              />
-            </svg>
-          </span>
-          Reset
-        </button>
-      </a>
+    <div class="flex">
+      <button
+        id="reset"
+        class="p-2 mr-4 w-1/2 flex items-center justify-center border-2 border-red-500 text-red-500 rounded-lg group font-medium"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1 group-hover:-rotate-180 duration-300"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Reset
+      </button>
 
-      <a id="download" download="tanda-tangan.png">
-        <button>
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-            >
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path
-                d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8h3l-4 4-4-4h3V8h2v4z"
-                fill="#ffe500"
-              />
-            </svg>
-          </span>
-
+      <a class="contents" id="download" download="watermark.png"
+        ><button
+          class="p-2 w-1/2 flex items-center justify-center bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat rounded-lg group font-medium text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-1 group-hover:translate-y-[2px] duration-200"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
           Download
-        </button>
-      </a>
+        </button></a
+      >
     </div>
   </div>
 
-  <div class="output">
-    <div class="canvas-wrapper">
-      <canvas id="canvas" width="640" height="320">
-        Yahh! Browser kamu engga mendukung Watermark KTP. Coba dengan browser
-        lainnya.
-      </canvas>
-    </div>
-  </div>
+  <canvas
+    id="canvas"
+    width="800"
+    height="550"
+    class="border border-gray-200 shadow rounded-xl w-full max-w-3xl"
+  >
+    Yahh! Browser kamu tidak mendukung Watermark KTP. Coba dengan browser
+    lainnya.
+  </canvas>
 </div>

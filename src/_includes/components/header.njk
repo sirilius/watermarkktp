@@ -1,119 +1,202 @@
-<header>
-  <div class="header-left">
-    <a href="/" class="logo-text">Watermark KTP</a>
-
-    {% set navPages = collections.all | eleventyNavigation %}
-    {%- for entry in navPages %}
-      <a href="{{ entry.url | url }}" class="nav-link" {% if entry.url == page.url %} style="color: #000"{% endif %}>{{ entry.title }}</a>
-    {%- endfor %}
-  </div>
-
-  <div class="header-right">
-    <a class="donate" href="https://saweria.co/sirilius" target="_blank">
-      😊 Sawer
-    </a>
-
-    <div class="dropdown">
-      <a class="dropbtn donate" target="_blank">👍 Bagikan</a>
-      <div class="dropdown-content">
-        <a
-          href="https://wa.me/?text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >WhatsApp</a
+<div class="relative bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="flex justify-between items-center border-b-2 border-gray-100 py-6 lg:justify-start lg:space-x-10"
+    >
+      <div class="flex justify-start text-2xl font-bold">
+        <a href="/"> Watermark KTP </a>
+      </div>
+      <div class="-mr-2 -my-2 lg:hidden">
+        <button
+          type="button"
+          class="bg-white rounded-md p-2 inline-flex flex-col items-center justify-between h-[29px] text-gray-500 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+          aria-expanded="false"
+          onclick="toggle_menu()"
         >
-
+          <span class="sr-only">Open menu</span>
+          <span
+            class="w-5 h-0.5 bg-gray-400 rounded-lg duration-300"
+            id="line-1"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-gray-400 rounded-lg duration-300"
+            id="line-2"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-gray-400 rounded-lg duration-300"
+            id="line-3"
+          ></span>
+        </button>
+      </div>
+      <nav class="hidden lg:flex space-x-10">
+        {% set navPages = collections.all | eleventyNavigation %}
+        {%- for entry in navPages %}
+        <a href="{{ entry.url | url }}" class="text-base font-medium text-gray-500 hover:text-gray-900" {% if entry.url == page.url %} style="color: #111827"{% endif %}>{{ entry.title }}</a>
+        {%- endfor %}
+      </nav>
+      <div class="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
         <a
-          href="https://t.me/share/url?url=https://watermarkktp.com&amp;text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
+          href="https://saweria.co/sirilius"
           target="_blank"
-          >Telegram</a
-        >
-
-        <a
-          href="http://twitter.com/share?text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >Twitter</a
-        >
-
-        <a
-          href="http://www.facebook.com/sharer/sharer.php?u=https://watermarkktp.com&amp;quote=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >Facebook</a
-        >
+          class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg text-base font-medium text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
+          >Support Me
+        </a>
       </div>
     </div>
-
-    <span class="icon nav-bar">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
-        <path fill="none" d="M0 0h24v24H0z" />
-        <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
-      </svg>
-    </span>
   </div>
-</header>
 
-<div id="pop-up">
-  <div class="mobile-menu">
-    <span class="icon close-btn">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 30 30"
-        width="30"
-        height="30"
-      >
-        <path fill="none" d="M0 0h24v24H0z" />
-        <path
-          d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
-        />
-      </svg>
-    </span>
-
-    <a href="/tanda-tangan/">Tanda Tangan</a>
-    <a href="/cara-pakai/">Cara Pakai</a>
-    <a href="/privasi/">Privasi</a>
-    <a href="https://github.com/sirilius/watermarkktp">GitHub</a>
-    <a href="https://twitter.com/SiriliusKevin">Twitter</a>
-    <a href="/pers/">Pers</a>
-    <a
-      class="donate"
-      style="color: #fff; display: block"
-      href="https://saweria.co/sirilius"
-      target="_blank"
-      >😊 Sawer</a
+  <div
+    class="inset-x-0 pt-6 transition transform origin-top-right hidden"
+    id="menu"
+  >
+    <div
+      class="rounded-lg border border-gray-200 shadow ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50"
     >
+      <div class="pt-5 pb-6 px-5">
+        <div>
+          <nav class="grid gap-y-8">
+            <a
+              href="/tanda-tangan"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M6.414 16L16.556 5.858l-1.414-1.414L5 14.586V16h1.414zm.829 2H3v-4.243L14.435 2.322a1 1 0 0 1 1.414 0l2.829 2.829a1 1 0 0 1 0 1.414L7.243 18zM3 20h18v2H3v-2z"
+                  fill="black"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Tanda Tangan
+              </span>
+            </a>
 
-    <div class="dropdown" style="display: block">
-      <a class="dropbtn donate" target="_blank" style="display: block"
-        >👍 Bagikan</a
-      >
-      <div class="dropdown-content">
-        <a
-          href="https://wa.me/?text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >WhatsApp</a
-        >
+            <a
+              href="/cara-pakai"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                class="flex-shrink-0 h-6 w-6 text-black"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Cara Pakai
+              </span>
+            </a>
 
-        <a
-          href="https://t.me/share/url?url=https://watermarkktp.com&text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >Telegram</a
-        >
+            <a
+              href="/privasi"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                class="flex-shrink-0 h-6 w-6 text-black"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Privasi
+              </span>
+            </a>
 
-        <a
-          href="http://twitter.com/share?text=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
-          target="_blank"
-          >Twitter</a
-        >
+            <a
+              href="https://github.com/sirilius/watermarkktp"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"
+                  fill="black"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                GitHub
+              </span>
+            </a>
 
+            <a
+              href="https://twitter.com/SiriliusKevin"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
+                  fill="black"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Twitter
+              </span>
+            </a>
+
+            <a
+              href="/pers"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 3a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zm0-2a5 5 0 0 1 5 5v4a5 5 0 0 1-10 0V6a5 5 0 0 1 5-5zM3.055 11H5.07a7.002 7.002 0 0 0 13.858 0h2.016A9.004 9.004 0 0 1 13 18.945V23h-2v-4.055A9.004 9.004 0 0 1 3.055 11z"
+                  fill="black"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Pers
+              </span>
+            </a>
+          </nav>
+        </div>
+      </div>
+      <div class="px-5 pt-0 pb-5 space-y-6 flex flex-wrap">
         <a
-          href="http://www.facebook.com/sharer/sharer.php?u=https://watermarkktp.com&quote=Halo, saya telah menggunakan aplikasi Watermark KTP. Sekarang saatnya kamu mengamankan data KTP-mu: https://watermarkktp.com"
+          href="https://saweria.co/sirilius"
           target="_blank"
-          >Facebook</a
+          class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
         >
+          Support Me
+        </a>
       </div>
     </div>
   </div>

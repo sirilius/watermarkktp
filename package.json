@@ -8,7 +8,7 @@
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "format": "prettier --write '**/*.{js,css,html,md}'",
-    "tailwind:process": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/style.css --watch",
+    "tailwind:process": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
     "dev": "concurrently \"npm run tailwind:process\" \"npm run serve\""
   },
   "devDependencies": {
