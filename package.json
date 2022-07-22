@@ -5,11 +5,12 @@
   "author": "Sirilius Kevin",
   "license": "MIT",
   "scripts": {
-    "build": "npm run tailwind:process && npx @11ty/eleventy",
+    "build": "npm run tailwind:prod && npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "format": "prettier --write '**/*.{js,css,html,md}'",
-    "tailwind:process": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
-    "dev": "concurrently \"npm run tailwind:process\" \"npm run serve\""
+    "tailwind:dev": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
+    "tailwind:prod": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css",
+    "dev": "concurrently \"npm run tailwind:dev\" \"npm run serve\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
