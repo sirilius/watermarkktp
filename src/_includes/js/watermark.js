@@ -34,12 +34,13 @@ img.addEventListener("load", function () {
 });
 
 // Inisialisasi element
-const elementText = document.querySelector("#text");
+const elementText = document.querySelector("#input-watermark");
 const inputFile = document.querySelector("#inputFile");
 const elementFont = document.querySelector("#select-font");
 const selectPosition = document.querySelector("#select-position");
 const selectFontSize = document.querySelector("#select-font-size");
 const draggableFile = document.querySelector(".draggable-file");
+const elementTextColor = document.querySelector("#text-colorPicker");
 const elementColor = document.querySelector("#colorPicker");
 const downloadAnchor = document.querySelector("#download");
 const elementOpacity = document.querySelector("#opacity");
@@ -47,7 +48,6 @@ const elementInputOpacity = document.querySelector("#opacity-input");
 const labelFile = document.querySelector(".label-file");
 const elementRotate = document.querySelector("#rotate");
 const elementInputRotate = document.querySelector("#rotate-input");
-const closeBtn = document.querySelector(".close-btn");
 const resetAnchor = document.querySelector("#reset");
 const navBar = document.querySelector(".nav-bar");
 const popUp = document.querySelector("#pop-up");
@@ -95,7 +95,7 @@ window.addEventListener("click", function (event) {
 window.addEventListener("DOMContentLoaded", () => {
   inputFile.addEventListener("change", handleImage, false);
 
-  const elementsBerulang = [elementColor, elementFont];
+  const elementsBerulang = [elementColor, elementTextColor, elementFont];
   elementsBerulang.forEach((element) =>
     element.addEventListener("input", () => draggable()),
   );
@@ -131,6 +131,18 @@ window.addEventListener("DOMContentLoaded", () => {
   elementInputOpacity.addEventListener("input", function () {
     let opacVal = elementInputOpacity.value;
     document.getElementById("opacity").value = opacVal;
+    draggable(img);
+  });
+
+  elementColor.addEventListener("input", function () {
+    let opacVal = elementColor.value;
+    document.getElementById("text-colorPicker").value = opacVal;
+    draggable(img);
+  });
+
+  elementTextColor.addEventListener("input", function () {
+    let colorVal = elementTextColor.value;
+    document.getElementById("colorPicker").value = colorVal;
     draggable(img);
   });
 
@@ -197,14 +209,6 @@ window.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("mousemove", mouseXY, false);
   document.body.addEventListener("mouseup", mouseUp, false);
 
-  navBar.addEventListener("click", function () {
-    popUp.style.display = "flex";
-  });
-
-  closeBtn.addEventListener("click", function () {
-    popUp.style.display = "none";
-  });
-
   downloadAnchor.addEventListener("click", function () {
     if (!isDownloadable)
       return alert(
@@ -221,26 +225,29 @@ window.addEventListener("DOMContentLoaded", () => {
     elementText.value = "";
     dispatchEvent(elementText, "input");
 
-    elementRotate.value = "0";
-    elementOpacity.value = "0.5";
-
-    document.querySelector("#rotate-val").value = "0°";
     document.querySelector("#colorPicker").value = "#000000";
-    selectPosition.value = "top";
+    document.querySelector("#text-colorPicker").value = "#000000";
+
+    elementFont.value = "times New Roman";
 
     dispatchEvent(selectPosition, "input");
 
-    elementFont.value = "times New Roman";
     selectFontSize.value = "20";
+
+    elementRotate.value = "0";
+    elementInputRotate.value = "0";
+
+    elementOpacity.value = "0.5";
+    elementInputOpacity.value = "0.5";
   });
 
   inputFile.addEventListener("change", function () {
     const filename = this.value.split("\\").pop();
 
-    inputFile.nextElementSibling.innerHTML = `<span class="truncate-text">${filename}</span>`;
+    inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
 
-    if (document.querySelector(".truncate-text").innerHTML === "") {
-      labelFile.innerHTML = "Pilih Gambar";
+    if (document.querySelector("#file-name").innerHTML === "") {
+      document.querySelector("#file-name").innerHTML = "Pilih Gambar";
     }
 
     draggableFile.style.display = "none";
@@ -367,7 +374,6 @@ function validateImage() {
   regex = new RegExp("(.*?).(jpg|jpeg|png)$");
   if (!regex.test(img)) {
     alert("Format gambar yang Anda masukan salah");
-    inputFile.value = "";
     return false;
   } else {
     return true;
