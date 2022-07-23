@@ -50,6 +50,7 @@ const elementRotate = document.querySelector("#rotate");
 const elementInputRotate = document.querySelector("#rotate-input");
 const resetAnchor = document.querySelector("#reset");
 const navBar = document.querySelector(".nav-bar");
+const canvasWrapper = document.querySelector("#canvas-wrapper");
 const popUp = document.querySelector("#pop-up");
 
 // Section Canvas
@@ -95,7 +96,7 @@ window.addEventListener("click", function (event) {
 window.addEventListener("DOMContentLoaded", () => {
   inputFile.addEventListener("change", handleImage, false);
 
-  const elementsBerulang = [elementColor, elementTextColor, elementFont];
+  const elementsBerulang = [elementColor, elementFont];
   elementsBerulang.forEach((element) =>
     element.addEventListener("input", () => draggable()),
   );
@@ -251,6 +252,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     draggableFile.style.display = "none";
+    canvasWrapper.style.position = "unset";
   });
 
   draggableFile.addEventListener("dragover", dragOverHandler, false);
