@@ -42,7 +42,6 @@ const inputOpacity = document.querySelector("#opacity");
 const inputTextOpacity = document.querySelector("#opacity-input");
 const inputRotate = document.querySelector("#rotate");
 const inputTextRotate = document.querySelector("#rotate-input");
-const labelFile = document.querySelector(".label-file");
 const draggableFile = document.querySelector(".draggable-file");
 const selectFont = document.querySelector("#select-font");
 const selectPosition = document.querySelector("#select-position");
