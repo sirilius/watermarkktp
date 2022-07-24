@@ -36,20 +36,21 @@ img.addEventListener("load", function () {
 // Inisialisasi element
 const inputWatermark = document.querySelector("#input-watermark");
 const inputFile = document.querySelector("#inputFile");
-const labelFile = document.querySelector(".label-file");
-const selectFont = document.querySelector("#select-font");
-const selectPosition = document.querySelector("#select-position");
-const selectFontSize = document.querySelector("#select-font-size");
 const inputColor = document.querySelector("#colorPicker");
 const inputTextColor = document.querySelector("#text-colorPicker");
 const inputOpacity = document.querySelector("#opacity");
 const inputTextOpacity = document.querySelector("#opacity-input");
 const inputRotate = document.querySelector("#rotate");
 const inputTextRotate = document.querySelector("#rotate-input");
+const labelFile = document.querySelector(".label-file");
+const draggableFile = document.querySelector(".draggable-file");
+const selectFont = document.querySelector("#select-font");
+const selectPosition = document.querySelector("#select-position");
+const selectFontSize = document.querySelector("#select-font-size");
 const resetButton = document.querySelector("#reset");
 const downloadButton = document.querySelector("#download");
 const canvasWrapper = document.querySelector("#canvas-wrapper");
-const draggableFile = document.querySelector(".draggable-file");
+const watermarkTemplate = document.querySelector("#wm-template");
 
 // Section Canvas
 const canvas = document.querySelector("#canvas");
@@ -374,6 +375,20 @@ function validateImage() {
 }
 
 function handleImage(e) {
+  const dateObj = new Date();
+  let month = dateObj.getMonth() + 1;
+  let day = dateObj.getDate();
+  let year = dateObj.getFullYear();
+
+  const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
+
+  inputWatermark.value = newdate;
+  inputRotate.value = "-45";
+  inputTextRotate.value = "-45";
+
+  watermarkTemplate.innerText = newdate;
+  textValue = watermarkTemplate.innerText;
+
   if (validateImage(e.target.files[0])) {
     reader.readAsDataURL(e.target.files[0]);
   }
@@ -401,6 +416,20 @@ function dropHandler(ev) {
           reader.readAsDataURL(file);
           draggableFile.classList.add("hidden");
           canvasWrapper.classList.remove("relative");
+
+          const dateObj = new Date();
+          let month = dateObj.getMonth() + 1;
+          let day = dateObj.getDate();
+          let year = dateObj.getFullYear();
+
+          const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
+
+          inputWatermark.value = newdate;
+          inputRotate.value = "-45";
+          inputTextRotate.value = "-45";
+
+          watermarkTemplate.innerText = newdate;
+          textValue = watermarkTemplate.innerText;
         }
       }
     }
