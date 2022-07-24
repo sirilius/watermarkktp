@@ -88,7 +88,7 @@ window.addEventListener("resize", () => {
 // Pada saat window di click
 window.addEventListener("click", function (event) {
   if (event.target === popUp) {
-    popUp.style.display = "none";
+    popUp.classList.add("hidden");
   }
 });
 
@@ -251,8 +251,8 @@ window.addEventListener("DOMContentLoaded", () => {
       document.querySelector("#file-name").innerHTML = "Pilih Gambar";
     }
 
-    draggableFile.style.display = "none";
-    canvasWrapper.style.position = "unset";
+    draggableFile.classList.add("hidden");
+    canvasWrapper.classList.remove("relative");
   });
 
   draggableFile.addEventListener("dragover", dragOverHandler, false);
@@ -408,7 +408,8 @@ function dropHandler(ev) {
 
         if (file.type.includes("image/")) {
           reader.readAsDataURL(file);
-          draggableFile.style.display = "none";
+          draggableFile.classList.add("hidden");
+          canvasWrapper.classList.remove("relative");
         }
       }
     }
