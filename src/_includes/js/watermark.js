@@ -68,7 +68,6 @@ let reader = new FileReader();
 reader.addEventListener("load", function (event) {
   img.src = event.target.result;
   src = event.target.result;
-  canvas.classList.add("show");
 
   isDownloadable = true;
 });
@@ -255,15 +254,15 @@ window.addEventListener("DOMContentLoaded", () => {
 const isWMEmpty = () => inputWatermark.value.replace(/^\s+|\s+$/g, "") === "";
 
 function mouseUp() {
-  canvas.classList.add("grab");
-  canvas.classList.remove("grabbing");
+  canvas.classList.add("cursor-grab");
+  canvas.classList.remove("cursor-grabbing");
   selectedText = 0;
   mouseXY();
 }
 
 function mouseDown() {
-  canvas.classList.add("grabbing");
-  canvas.classList.remove("grab");
+  canvas.classList.add("cursor-grabbing");
+  canvas.classList.remove("cursor-grab");
   selectedText = 1;
   mouseXY();
 }
