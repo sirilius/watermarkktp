@@ -34,22 +34,22 @@ img.addEventListener("load", function () {
 });
 
 // Inisialisasi element
-const elementText = document.querySelector("#input-watermark");
+const inputWatermark = document.querySelector("#input-watermark");
 const inputFile = document.querySelector("#inputFile");
-const elementFont = document.querySelector("#select-font");
+const labelFile = document.querySelector(".label-file");
+const selectFont = document.querySelector("#select-font");
 const selectPosition = document.querySelector("#select-position");
 const selectFontSize = document.querySelector("#select-font-size");
-const draggableFile = document.querySelector(".draggable-file");
-const elementTextColor = document.querySelector("#text-colorPicker");
-const elementColor = document.querySelector("#colorPicker");
-const downloadAnchor = document.querySelector("#download");
-const elementOpacity = document.querySelector("#opacity");
-const elementInputOpacity = document.querySelector("#opacity-input");
-const labelFile = document.querySelector(".label-file");
-const elementRotate = document.querySelector("#rotate");
-const elementInputRotate = document.querySelector("#rotate-input");
-const resetAnchor = document.querySelector("#reset");
+const inputColor = document.querySelector("#colorPicker");
+const inputTextColor = document.querySelector("#text-colorPicker");
+const inputOpacity = document.querySelector("#opacity");
+const inputTextOpacity = document.querySelector("#opacity-input");
+const inputRotate = document.querySelector("#rotate");
+const inputTextRotate = document.querySelector("#rotate-input");
+const resetButton = document.querySelector("#reset");
+const downloadButton = document.querySelector("#download");
 const canvasWrapper = document.querySelector("#canvas-wrapper");
+const draggableFile = document.querySelector(".draggable-file");
 
 // Section Canvas
 const canvas = document.querySelector("#canvas");
@@ -87,53 +87,53 @@ window.addEventListener("resize", () => {
 window.addEventListener("DOMContentLoaded", () => {
   inputFile.addEventListener("change", handleImage, false);
 
-  const elementsBerulang = [elementColor, elementFont];
+  const elementsBerulang = [inputColor, selectFont];
   elementsBerulang.forEach((element) =>
     element.addEventListener("input", () => draggable()),
   );
 
-  const elementsBerulangWithImg = [selectFontSize, elementOpacity];
+  const elementsBerulangWithImg = [selectFontSize, inputOpacity];
   elementsBerulangWithImg.forEach((element) =>
     element.addEventListener("input", () => draggable(img)),
   );
 
-  elementText.addEventListener("input", function () {
-    textValue = elementText.value;
+  inputWatermark.addEventListener("input", function () {
+    textValue = inputWatermark.value;
     draggable();
   });
 
-  elementRotate.addEventListener("input", function () {
-    let rotVal = elementRotate.value;
+  inputRotate.addEventListener("input", function () {
+    let rotVal = inputRotate.value;
     document.getElementById("rotate-input").value = rotVal;
     draggable(img);
   });
 
-  elementInputRotate.addEventListener("input", function () {
-    let rotVal = elementInputRotate.value;
+  inputTextRotate.addEventListener("input", function () {
+    let rotVal = inputTextRotate.value;
     document.getElementById("rotate").value = rotVal;
     draggable(img);
   });
 
-  elementOpacity.addEventListener("input", function () {
-    let opacVal = elementOpacity.value;
+  inputOpacity.addEventListener("input", function () {
+    let opacVal = inputOpacity.value;
     document.getElementById("opacity-input").value = opacVal;
     draggable(img);
   });
 
-  elementInputOpacity.addEventListener("input", function () {
-    let opacVal = elementInputOpacity.value;
+  inputTextOpacity.addEventListener("input", function () {
+    let opacVal = inputTextOpacity.value;
     document.getElementById("opacity").value = opacVal;
     draggable(img);
   });
 
-  elementColor.addEventListener("input", function () {
-    let opacVal = elementColor.value;
+  inputColor.addEventListener("input", function () {
+    let opacVal = inputColor.value;
     document.getElementById("text-colorPicker").value = opacVal;
     draggable(img);
   });
 
-  elementTextColor.addEventListener("input", function () {
-    let colorVal = elementTextColor.value;
+  inputTextColor.addEventListener("input", function () {
+    let colorVal = inputTextColor.value;
     document.getElementById("colorPicker").value = colorVal;
     draggable(img);
   });
@@ -201,7 +201,7 @@ window.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("mousemove", mouseXY, false);
   document.body.addEventListener("mouseup", mouseUp, false);
 
-  downloadAnchor.addEventListener("click", function () {
+  downloadButton.addEventListener("click", function () {
     if (!isDownloadable)
       return alert(
         "Gambar belum ditambahkan, silakan tambah gambar terlebih dahulu",
@@ -210,27 +210,27 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const image = canvas.toDataURL("image/png");
 
-    downloadAnchor.setAttribute("href", image);
+    downloadButton.setAttribute("href", image);
   });
 
-  resetAnchor.addEventListener("click", function () {
-    elementText.value = "";
-    dispatchEvent(elementText, "input");
+  resetButton.addEventListener("click", function () {
+    inputWatermark.value = "";
+    dispatchEvent(inputWatermark, "input");
 
     document.querySelector("#colorPicker").value = "#000000";
     document.querySelector("#text-colorPicker").value = "#000000";
 
-    elementFont.value = "times New Roman";
+    selectFont.value = "times New Roman";
 
     dispatchEvent(selectPosition, "input");
 
     selectFontSize.value = "20";
 
-    elementRotate.value = "0";
-    elementInputRotate.value = "0";
+    inputRotate.value = "0";
+    inputTextRotate.value = "0";
 
-    elementOpacity.value = "0.5";
-    elementInputOpacity.value = "0.5";
+    inputOpacity.value = "0.5";
+    inputTextOpacity.value = "0.5";
   });
 
   inputFile.addEventListener("change", function () {
@@ -251,7 +251,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Section fungsi-fungsi
-const isWMEmpty = () => elementText.value.replace(/^\s+|\s+$/g, "") === "";
+const isWMEmpty = () => inputWatermark.value.replace(/^\s+|\s+$/g, "") === "";
 
 function mouseUp() {
   canvas.classList.add("grab");
@@ -287,9 +287,9 @@ function changePosXY(x, y) {
 function draggable(img, text_x = 0, text_y = 0) {
   let y = text_x > 0 ? text_x : canvas.height / 3;
   let x = text_y > 0 ? text_y : canvas.width / 2;
-  const color = elementColor.value;
+  const color = inputColor.value;
 
-  const font = elementFont.value;
+  const font = selectFont.value;
   const fontSize = selectFontSize.value;
 
   if (textObj.x && textObj.y) {
@@ -303,8 +303,8 @@ function draggable(img, text_x = 0, text_y = 0) {
     y,
   };
 
-  angle = elementRotate.value;
-  const opacity = elementOpacity.value;
+  angle = inputRotate.value;
+  const opacity = inputOpacity.value;
 
   const rgbaCol = `rgba(${parseInt(color.slice(-6, -4), 16)},
     ${parseInt(color.slice(-4, -2), 16)},
