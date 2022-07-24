@@ -49,9 +49,7 @@ const labelFile = document.querySelector(".label-file");
 const elementRotate = document.querySelector("#rotate");
 const elementInputRotate = document.querySelector("#rotate-input");
 const resetAnchor = document.querySelector("#reset");
-const navBar = document.querySelector(".nav-bar");
 const canvasWrapper = document.querySelector("#canvas-wrapper");
-const popUp = document.querySelector("#pop-up");
 
 // Section Canvas
 const canvas = document.querySelector("#canvas");
@@ -83,13 +81,6 @@ window.addEventListener("resize", () => {
   offsetY = canvasOffset.top;
   scrollX = canvas.scrollLeft;
   scrollY = canvas.scrollTop;
-});
-
-// Pada saat window di click
-window.addEventListener("click", function (event) {
-  if (event.target === popUp) {
-    popUp.classList.add("hidden");
-  }
 });
 
 // Pada saat semua dom element telah selesai dimuat
