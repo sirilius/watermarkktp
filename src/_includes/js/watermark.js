@@ -144,39 +144,39 @@ window.addEventListener("DOMContentLoaded", () => {
 
     switch (position) {
       case "top":
-        textObj.y = 90;
+        textObj.y = 50;
         textObj.x = 400;
         break;
       case "top-left":
-        textObj.y = 90;
-        textObj.x = 100;
+        textObj.y = 50;
+        textObj.x = 200;
         break;
       case "top-right":
-        textObj.y = 90;
+        textObj.y = 50;
         textObj.x = 700;
         break;
       case "center":
-        textObj.y = 300;
+        textObj.y = 230;
         textObj.x = 400;
         break;
       case "center-left":
-        textObj.y = 300;
+        textObj.y = 230;
         textObj.x = 100;
         break;
       case "center-right":
-        textObj.y = 300;
+        textObj.y = 230;
         textObj.x = 700;
         break;
       case "bottom":
-        textObj.y = 500;
+        textObj.y = 450;
         textObj.x = 400;
         break;
       case "bottom-left":
-        textObj.y = 500;
+        textObj.y = 450;
         textObj.x = 100;
         break;
       case "bottom-right":
-        textObj.y = 500;
+        textObj.y = 450;
         textObj.x = 700;
         break;
     }
