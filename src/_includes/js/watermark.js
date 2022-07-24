@@ -383,8 +383,10 @@ function handleImage(e) {
   const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
 
   inputWatermark.value = newdate;
-  inputRotate.value = "-45";
-  inputTextRotate.value = "-45";
+  inputRotate.value = "-15";
+  inputTextRotate.value = "-15";
+  inputOpacity.value = "0.3";
+  inputTextOpacity.value = "0.3";
 
   watermarkTemplate.innerText = newdate;
   textValue = watermarkTemplate.innerText;
@@ -425,8 +427,10 @@ function dropHandler(ev) {
           const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
 
           inputWatermark.value = newdate;
-          inputRotate.value = "-45";
-          inputTextRotate.value = "-45";
+          inputRotate.value = "-15";
+          inputTextRotate.value = "-15";
+          inputOpacity.value = "0.3";
+          inputTextOpacity.value = "0.3";
 
           watermarkTemplate.innerText = newdate;
           textValue = watermarkTemplate.innerText;
