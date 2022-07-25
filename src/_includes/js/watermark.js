@@ -241,19 +241,6 @@ window.addEventListener("DOMContentLoaded", () => {
     dispatchEvent(inputOpacity, "input");
   });
 
-  inputFile.addEventListener("change", function () {
-    const filename = this.value.split("\\").pop();
-
-    inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
-
-    if (document.querySelector("#file-name").innerHTML === "") {
-      document.querySelector("#file-name").innerHTML = "Pilih Gambar";
-    }
-
-    draggableFile.classList.add("hidden");
-    canvasWrapper.classList.remove("relative");
-  });
-
   draggableFile.addEventListener("dragover", dragOverHandler, false);
   draggableFile.addEventListener("drop", dropHandler, false);
 });
@@ -383,9 +370,14 @@ function validateImage() {
 
 function handleImage(e) {
   if (!validateImage(e.target.files[0])) {
-    document.querySelector("#inputFile").value = "";
     return; 
   }
+
+  const filename = this.value.split("\\").pop();
+  inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
+
+  draggableFile.classList.add("hidden");
+  canvasWrapper.classList.remove("relative");
 
   const dateObj = new Date();
   let month = dateObj.getMonth() + 1;
