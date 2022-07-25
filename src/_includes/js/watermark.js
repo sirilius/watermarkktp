@@ -213,23 +213,32 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   resetButton.addEventListener("click", function () {
-    inputWatermark.value = "";
-    dispatchEvent(inputWatermark, "input");
+    const dateObj = new Date();
+    let month = dateObj.getMonth() + 1;
+    let day = dateObj.getDate();
+    let year = dateObj.getFullYear();
 
-    document.querySelector("#colorPicker").value = "#000000";
-    document.querySelector("#text-colorPicker").value = "#000000";
+    const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
 
+    watermarkTemplate.innerText = newdate;
+    textValue = watermarkTemplate.innerText;
+
+    inputWatermark.value = newdate;
+    inputColor.value = "#000000";
+    inputTextColor.value = "#000000";
+    inputRotate.value = "-15";
+    inputTextRotate.value = "-15";
+    inputOpacity.value = "0.3";
+    inputTextOpacity.value = "0.3";
     selectFont.value = "times New Roman";
+    selectPosition.value = "center";
+    selectFontSize.value = "60";
 
     dispatchEvent(selectPosition, "input");
-
-    selectFontSize.value = "20";
-
-    inputRotate.value = "0";
-    inputTextRotate.value = "0";
-
-    inputOpacity.value = "0.5";
-    inputTextOpacity.value = "0.5";
+    dispatchEvent(selectFontSize, "input");
+    dispatchEvent(inputColor, "input");
+    dispatchEvent(inputRotate, "input");
+    dispatchEvent(inputOpacity, "input");
   });
 
   inputFile.addEventListener("change", function () {
