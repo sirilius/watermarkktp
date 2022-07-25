@@ -420,6 +420,7 @@ function dropHandler(ev) {
     for (const item of ev.dataTransfer.items) {
       if (item.kind === "file") {
         const file = item.getAsFile();
+        inputFile.nextElementSibling.innerHTML = `<span id="file-name">${file.name}</span>`;
 
         if (file.type.includes("image/")) {
           reader.readAsDataURL(file);
