@@ -382,6 +382,11 @@ function validateImage() {
 }
 
 function handleImage(e) {
+  if (!validateImage(e.target.files[0])) {
+    document.querySelector("#inputFile").value = "";
+    return; 
+  }
+
   const dateObj = new Date();
   let month = dateObj.getMonth() + 1;
   let day = dateObj.getDate();
@@ -398,9 +403,7 @@ function handleImage(e) {
   watermarkTemplate.innerText = newdate;
   textValue = watermarkTemplate.innerText;
 
-  if (validateImage(e.target.files[0])) {
-    reader.readAsDataURL(e.target.files[0]);
-  }
+  reader.readAsDataURL(e.target.files[0]);
 }
 
 function dispatchEvent(element, eventName) {
