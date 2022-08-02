@@ -9,6 +9,16 @@ let angle = 0;
 let isDownloadable = false;
 let src = "";
 
+let prevWm;
+let prevColor;
+let prevRotate;
+let prevTextRotate;
+let prevOpacity;
+let prevTextOpacity;
+let prevFont;
+let prevPosition;
+let prevFontSize;
+
 const img = new Image();
 img.addEventListener("load", function () {
   const canvas = ctx.canvas;
@@ -50,6 +60,7 @@ const resetButton = document.querySelector("#reset");
 const downloadButton = document.querySelector("#download");
 const canvasWrapper = document.querySelector("#canvas-wrapper");
 const watermarkTemplate = document.querySelector("#wm-template");
+const automaticWm = document.querySelector("#automatic-wm");
 
 // Section Canvas
 const canvas = document.querySelector("#canvas");
@@ -135,6 +146,119 @@ window.addEventListener("DOMContentLoaded", () => {
     let colorVal = inputTextColor.value;
     document.getElementById("colorPicker").value = colorVal;
     draggable(img);
+  });
+
+  function savePrevInput(
+    wm,
+    color,
+    rotate,
+    textRotate,
+    opacity,
+    textOpacity,
+    font,
+    position,
+    fontSize,
+  ) {
+    prevWm = wm;
+    prevColor = color;
+    prevRotate = rotate;
+    prevTextRotate = textRotate;
+    prevOpacity = opacity;
+    prevTextOpacity = textOpacity;
+    prevFont = font;
+    prevPosition = position;
+    prevFontSize = fontSize;
+  }
+
+  automaticWm.addEventListener("input", function () {
+    if (!isDownloadable && automaticWm.checked == true) {
+      alert("Gambar belum ditambahkan, silakan tambah gambar terlebih dahulu");
+      automaticWm.checked = false;
+    }
+    if (inputWatermark.value == "") {
+      savePrevInput(
+        inputWatermark.value,
+        inputColor.value,
+        inputRotate.value,
+        inputTextRotate.value,
+        inputOpacity.value,
+        inputTextOpacity.value,
+        selectFont.value,
+        selectPosition.value,
+        selectFontSize.value,
+      );
+    }
+
+    if (automaticWm.checked == true) {
+      savePrevInput(
+        inputWatermark.value,
+        inputColor.value,
+        inputRotate.value,
+        inputTextRotate.value,
+        inputOpacity.value,
+        inputTextOpacity.value,
+        selectFont.value,
+        selectPosition.value,
+        selectFontSize.value,
+      );
+      const dateObj = new Date();
+      let month = dateObj.getMonth() + 1;
+      let day = dateObj.getDate();
+      let year = dateObj.getFullYear();
+
+      const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
+
+      watermarkTemplate.innerText = newdate;
+      textValue = watermarkTemplate.innerText;
+
+      inputWatermark.value = newdate;
+      inputColor.value = "#000000";
+      inputTextColor.value = "#000000";
+      inputRotate.value = "-15";
+      inputTextRotate.value = "-15";
+      inputOpacity.value = "0.3";
+      inputTextOpacity.value = "0.3";
+      selectFont.value = "times New Roman";
+      selectPosition.value = "center";
+      selectFontSize.value = "60";
+
+      dispatchEvent(selectPosition, "input");
+      dispatchEvent(selectFontSize, "input");
+      dispatchEvent(inputColor, "input");
+      dispatchEvent(inputRotate, "input");
+      dispatchEvent(inputOpacity, "input");
+    } else {
+      inputWatermark.value = prevWm;
+      inputWatermark.selectionStart = prevWm.length;
+      inputColor.value = prevColor;
+      inputRotate.value = prevRotate;
+      inputTextRotate.value = prevTextRotate;
+      inputOpacity.value = prevOpacity;
+      inputTextOpacity.value = prevTextOpacity;
+      selectFont.value = prevFont;
+      selectPosition.value = prevPosition;
+      selectFontSize.value = prevFontSize;
+
+      textValue = prevWm;
+
+      dispatchEvent(selectPosition, "input");
+      dispatchEvent(selectFontSize, "input");
+      dispatchEvent(inputColor, "input");
+      dispatchEvent(inputRotate, "input");
+      dispatchEvent(inputOpacity, "input");
+
+      savePrevInput(
+        inputWatermark.value,
+        inputColor.value,
+        inputRotate.value,
+        inputTextRotate.value,
+        inputOpacity.value,
+        inputTextOpacity.value,
+        selectFont.value,
+        selectPosition.value,
+        selectFontSize.value,
+      );
+    }
   });
 
   selectPosition.addEventListener("input", function () {
@@ -370,7 +494,7 @@ function validateImage() {
 
 function handleImage(e) {
   if (!validateImage(e.target.files[0])) {
-    return; 
+    return;
   }
 
   const filename = this.value.split("\\").pop();
@@ -378,22 +502,6 @@ function handleImage(e) {
 
   draggableFile.classList.add("hidden");
   canvasWrapper.classList.remove("relative");
-
-  const dateObj = new Date();
-  let month = dateObj.getMonth() + 1;
-  let day = dateObj.getDate();
-  let year = dateObj.getFullYear();
-
-  const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
-
-  inputWatermark.value = newdate;
-  inputRotate.value = "-15";
-  inputTextRotate.value = "-15";
-  inputOpacity.value = "0.3";
-  inputTextOpacity.value = "0.3";
-
-  watermarkTemplate.innerText = newdate;
-  textValue = watermarkTemplate.innerText;
 
   reader.readAsDataURL(e.target.files[0]);
 }

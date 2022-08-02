@@ -20,7 +20,6 @@ permalink: /
       >
         Tambah Gambar
       </label>
-      <p id="error"></p>
     </div>
 
     <div class="mb-4">
@@ -37,6 +36,28 @@ permalink: /
           class="shadow-sm outline outline-1 outline-gray-300 focus:outline-2 focus:outline-blue-500 mt-1 p-2 block w-full sm:text-sm text-gray-500 rounded-md"
           placeholder="Verifikasi, 10-10-2021 "
         ></textarea>
+        <label
+          for="automatic-wm"
+          class="text-sm font-medium text-gray-700 cursor-pointer flex items-center relative mt-2 select-none"
+          ><input
+            type="checkbox"
+            id="automatic-wm"
+            class="appearance-none w-4 h-4 mr-2 outline outline-1 outline-gray-300 checked:outline-2 checked:bg-blue-500 checked:outline-blue-500 cursor-pointer rounded-sm peer"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 absolute hidden peer-checked:block text-white"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Watermark Otomatis
+        </label>
       </div>
     </div>
 
