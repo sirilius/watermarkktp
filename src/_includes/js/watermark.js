@@ -271,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
         break;
       case "top-left":
         textObj.y = 50;
-        textObj.x = 200;
+        textObj.x = 100;
         break;
       case "top-right":
         textObj.y = 50;
