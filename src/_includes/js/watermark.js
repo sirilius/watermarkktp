@@ -217,8 +217,8 @@ window.addEventListener("DOMContentLoaded", () => {
       inputTextColor.value = "#000000";
       inputRotate.value = "-15";
       inputTextRotate.value = "-15";
-      inputOpacity.value = "0.3";
-      inputTextOpacity.value = "0.3";
+      inputOpacity.value = "30";
+      inputTextOpacity.value = "30";
       selectFont.value = "times New Roman";
       selectPosition.value = "center";
       selectFontSize.value = "60";
@@ -348,8 +348,8 @@ window.addEventListener("DOMContentLoaded", () => {
     inputTextColor.value = "#000000";
     inputRotate.value = "0";
     inputTextRotate.value = "0";
-    inputOpacity.value = "0.5";
-    inputTextOpacity.value = "0.5";
+    inputOpacity.value = "50";
+    inputTextOpacity.value = "50";
     selectFont.value = "times New Roman";
     selectPosition.value = "center";
     selectFontSize.value = "60";
@@ -421,7 +421,7 @@ function draggable(img, text_x = 0, text_y = 0) {
   };
 
   angle = inputRotate.value;
-  const opacity = inputOpacity.value;
+  const opacity = inputOpacity.value / 100;
 
   const rgbaCol = `rgba(${parseInt(color.slice(-6, -4), 16)},
     ${parseInt(color.slice(-4, -2), 16)},
@@ -539,8 +539,8 @@ function dropHandler(ev) {
           inputWatermark.value = newdate;
           inputRotate.value = "-15";
           inputTextRotate.value = "-15";
-          inputOpacity.value = "0.3";
-          inputTextOpacity.value = "0.3";
+          inputOpacity.value = "30";
+          inputTextOpacity.value = "30";
 
           watermarkTemplate.innerText = newdate;
           textValue = watermarkTemplate.innerText;
