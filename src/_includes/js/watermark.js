@@ -61,6 +61,7 @@ const downloadButton = document.querySelector("#download");
 const canvasWrapper = document.querySelector("#canvas-wrapper");
 const watermarkTemplate = document.querySelector("#wm-template");
 const automaticWm = document.querySelector("#automatic-wm");
+const whiteBackground = document.querySelector("#bg");
 
 // Section Canvas
 const canvas = document.querySelector("#canvas");
@@ -451,6 +452,7 @@ function theimg() {
   const centerShift_y = (acanvas.height - img.height * ratio) / 2;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(whiteBackground, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(
     img,
     0,
