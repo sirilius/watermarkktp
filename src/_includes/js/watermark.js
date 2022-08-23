@@ -528,22 +528,6 @@ function dropHandler(ev) {
           reader.readAsDataURL(file);
           draggableFile.classList.add("hidden");
           canvasWrapper.classList.remove("relative");
-
-          const dateObj = new Date();
-          let month = dateObj.getMonth() + 1;
-          let day = dateObj.getDate();
-          let year = dateObj.getFullYear();
-
-          const newdate = "Verifikasi, " + day + "-" + month + "-" + year;
-
-          inputWatermark.value = newdate;
-          inputRotate.value = "-15";
-          inputTextRotate.value = "-15";
-          inputOpacity.value = "30";
-          inputTextOpacity.value = "30";
-
-          watermarkTemplate.innerText = newdate;
-          textValue = watermarkTemplate.innerText;
         }
       }
     }
