@@ -52,7 +52,8 @@ const inputOpacity = document.querySelector("#opacity");
 const inputTextOpacity = document.querySelector("#opacity-input");
 const inputRotate = document.querySelector("#rotate");
 const inputTextRotate = document.querySelector("#rotate-input");
-const draggableFile = document.querySelector(".draggable-file");
+const dragFileArea = document.querySelector("body");
+const dragFileBox = document.querySelector(".draggable-file");
 const selectFont = document.querySelector("#select-font");
 const selectPosition = document.querySelector("#select-position");
 const selectFontSize = document.querySelector("#select-font-size");
@@ -363,8 +364,8 @@ window.addEventListener("DOMContentLoaded", () => {
     dispatchEvent(inputWatermark, "input");
   });
 
-  draggableFile.addEventListener("dragover", dragOverHandler, false);
-  draggableFile.addEventListener("drop", dropHandler, false);
+  dragFileArea.addEventListener("dragover", dragOverHandler, false);
+  dragFileArea.addEventListener("drop", dropHandler, false);
 });
 
 // Section fungsi-fungsi
@@ -499,7 +500,7 @@ function handleImage(e) {
   const filename = this.value.split("\\").pop();
   inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
 
-  draggableFile.classList.add("hidden");
+  dragFileBox.classList.add("hidden");
   canvasWrapper.classList.remove("relative");
 
   reader.readAsDataURL(e.target.files[0]);
@@ -526,7 +527,7 @@ function dropHandler(ev) {
 
         if (file.type.includes("image/")) {
           reader.readAsDataURL(file);
-          draggableFile.classList.add("hidden");
+          dragFileBox.classList.add("hidden");
           canvasWrapper.classList.remove("relative");
         }
       }
