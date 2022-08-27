@@ -52,8 +52,8 @@ const inputOpacity = document.querySelector("#opacity");
 const inputTextOpacity = document.querySelector("#opacity-input");
 const inputRotate = document.querySelector("#rotate");
 const inputTextRotate = document.querySelector("#rotate-input");
-const dragFileArea = document.querySelector("body");
-const dragFileBox = document.querySelector(".draggable-file");
+const dropZone = document.querySelector("#drop-overlay");
+const dropBox = document.querySelector(".draggable-file");
 const selectFont = document.querySelector("#select-font");
 const selectPosition = document.querySelector("#select-position");
 const selectFontSize = document.querySelector("#select-font-size");
@@ -364,8 +364,9 @@ window.addEventListener("DOMContentLoaded", () => {
     dispatchEvent(inputWatermark, "input");
   });
 
-  dragFileArea.addEventListener("dragover", dragOverHandler, false);
-  dragFileArea.addEventListener("drop", dropHandler, false);
+  dropZone.addEventListener("dragover", allowDrag, false);
+  dropZone.addEventListener("dragenter", allowDrag);
+  dropZone.addEventListener("drop", dropHandler, false);
 });
 
 // Section fungsi-fungsi
@@ -500,7 +501,7 @@ function handleImage(e) {
   const filename = this.value.split("\\").pop();
   inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
 
-  dragFileBox.classList.add("hidden");
+  dropBox.classList.add("hidden");
   canvasWrapper.classList.remove("relative");
 
   reader.readAsDataURL(e.target.files[0]);
@@ -517,18 +518,39 @@ function dispatchEvent(element, eventName) {
   }
 }
 
+function showDropZone() {
+  dropZone.classList.remove("hidden");
+  dropZone.classList.add("flex");
+}
+
+function hideDropZone() {
+  dropZone.classList.remove("flex");
+  dropZone.classList.add("hidden");
+}
+
+window.addEventListener("dragenter", function () {
+  showDropZone();
+});
+
+dropZone.addEventListener("dragleave", function () {
+  hideDropZone();
+});
+
 function dropHandler(ev) {
   ev.preventDefault();
+  hideDropZone();
   if (ev.dataTransfer.items) {
     for (const item of ev.dataTransfer.items) {
       if (item.kind === "file") {
         const file = item.getAsFile();
-        inputFile.nextElementSibling.innerHTML = `<span id="file-name">${file.name}</span>`;
 
         if (file.type.includes("image/")) {
+          inputFile.nextElementSibling.innerHTML = `<span id="file-name">${file.name}</span>`;
           reader.readAsDataURL(file);
-          dragFileBox.classList.add("hidden");
+          dropBox.classList.add("hidden");
           canvasWrapper.classList.remove("relative");
+        } else {
+          alert("Format gambar yang Anda masukan salah");
         }
       }
     }
@@ -539,6 +561,8 @@ function dropHandler(ev) {
   }
 }
 
-function dragOverHandler(ev) {
-  ev.preventDefault();
+function allowDrag(ev) {
+  if (true) {
+    ev.preventDefault();
+  }
 }
