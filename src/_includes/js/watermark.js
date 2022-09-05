@@ -253,7 +253,6 @@ downloadButton.addEventListener("click", function () {
     }).then(function (canvas) {
       var anchorTag = document.createElement("a");
       document.body.appendChild(anchorTag);
-      document.getElementById("ss").appendChild(canvas);
       anchorTag.download = "watermark.png";
       anchorTag.href = canvas.toDataURL();
       anchorTag.target = "_blank";
