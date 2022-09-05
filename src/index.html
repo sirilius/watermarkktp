@@ -70,11 +70,11 @@ permalink: /
           id="select-font"
           class="shadow-sm outline outline-1 outline-gray-300 focus:outline-2 focus:outline-blue-500 mt-1 p-2 block w-full sm:text-sm bg-white rounded-md text-gray-500"
         >
-          <option value="times New Roman" selected="selected">
+          <option value="Times New Roman" selected="selected">
             Times New Roman
           </option>
-          <option value="arial">Arial</option>
-          <option value="sans">PT Sans</option>
+          <option value="Arial">Arial</option>
+          <option value="Sans">PT Sans</option>
         </select>
       </div>
     </div>
@@ -119,8 +119,8 @@ permalink: /
           <option value="14">Sangat kecil</option>
           <option value="16">Kecil</option>
           <option value="20">Normal</option>
-          <option value="36">Besar</option>
-          <option value="60" selected="selected">Sangat besar</option>
+          <option value="36" selected="selected">Besar</option>
+          <option value="60">Sangat besar</option>
         </select>
       </div>
     </div>
@@ -238,8 +238,11 @@ permalink: /
       >
     </div>
   </div>
-  <div id="canvas-wrapper" class="flex justify-center items-center relative">
-    <div class="absolute w-full h-full p-4 flex draggable-file">
+  <div
+    id="canvas-wrapper"
+    class="flex justify-center items-center relative w-full md:w-[800px]"
+  >
+    <div class="absolute w-full h-full p-4 flex draggable-file z-50">
       <input class="hidden" type="file" accept="image/*" />
       <label
         class="w-full flex flex-col justify-center items-center border-4 border-dashed rounded-lg text-gray-400 font-medium text-xl cursor-pointer"
@@ -262,15 +265,22 @@ permalink: /
       >
     </div>
 
-    <canvas
-      id="canvas"
-      width="800"
-      height="550"
-      class="border border-gray-200 shadow rounded-xl w-full"
+    <div
+      id="output"
+      class="flex border border-gray-200 shadow rounded-xl w-full aspect-[800/550] overflow-hidden lg:w-[800px] touch-none"
     >
-      Yahh! Browser kamu tidak mendukung Watermark KTP. Coba dengan browser
-      lainnya.
-    </canvas>
+      <div id="canvas" class="flex relative justify-center items-center w-full">
+        <img
+          id="image"
+          class="max-w-[800px] max-h-[550px]"
+          ondragstart="return false;"
+        />
+        <p
+          id="watermark"
+          class="absolute text-center cursor-move font-serif text-4xl opacity-50"
+        ></p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -584,3 +594,4 @@ permalink: /
 >
   Tarik Gambarmu Ke Sini
 </div>
+<div id="ss"></div>
