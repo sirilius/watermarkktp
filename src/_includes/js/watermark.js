@@ -373,6 +373,18 @@ function drag(e) {
       currentX = e.clientX - initialX;
       currentY = e.clientY - initialY;
     }
+    if (currentX < `-${output.offsetWidth / 2 - text.offsetWidth / 2}`) {
+      currentX = `-${output.offsetWidth / 2 - text.offsetWidth / 2}`;
+    }
+    if (currentX > output.offsetWidth / 2 - text.offsetWidth / 2) {
+      currentX = output.offsetWidth / 2 - text.offsetWidth / 2;
+    }
+    if (currentY < `-${output.offsetHeight / 2 - text.offsetHeight / 2}`) {
+      currentY = `-${output.offsetHeight / 2 - text.offsetHeight / 2}`;
+    }
+    if (currentY > output.offsetHeight / 2 - text.offsetHeight / 2) {
+      currentY = output.offsetHeight / 2 - text.offsetHeight / 2;
+    }
 
     xOffset = currentX;
     yOffset = currentY;
