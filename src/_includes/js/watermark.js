@@ -11,6 +11,17 @@ let initialY;
 let xOffset = 0;
 let yOffset = 0;
 
+let activeRotate = false;
+let center_x;
+let center_y;
+let degree;
+let mouse_x;
+let mouse_y;
+let initialTransform;
+let offsetTop;
+let offsetLeft;
+let radians;
+
 let prevWm;
 let prevColor;
 let prevRotate;
@@ -44,7 +55,11 @@ const automaticWm = document.querySelector("#automatic-wm");
 const imageElement = document.querySelector("#image");
 const img = new Image();
 const output = document.querySelector("#output");
-const text = document.querySelector("#watermark");
+const rotateButton = document.querySelector("#rotate-button");
+const rotateBtnIcon = document.querySelector("#rotateBtn-icon");
+const draggableText = document.querySelector("#draggable-text");
+const textWrapper = document.querySelector("#text-wrapper");
+const text = document.querySelector("#text");
 
 // event listener section
 window.addEventListener("resize", () => {
@@ -106,66 +121,81 @@ selectPosition.addEventListener("input", function () {
   switch (position) {
     case "top":
       currentX = 0;
-      currentY = `-${output.offsetHeight / 2 - text.offsetHeight / 2 - 20}`;
+      currentY = `-${
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - 20
+      }`;
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "top-left":
-      currentX = `-${output.offsetWidth / 2 - text.offsetWidth / 2 - 20}`;
-      currentY = `-${output.offsetHeight / 2 - text.offsetHeight / 2 - 20}`;
+      currentX = `-${
+        output.offsetWidth / 2 - draggableText.offsetWidth / 2 - 20
+      }`;
+      currentY = `-${
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - 20
+      }`;
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "top-right":
-      currentX = output.offsetWidth / 2 - text.offsetWidth / 2 - 20;
-      currentY = `-${output.offsetHeight / 2 - text.offsetHeight / 2 - 20}`;
+      currentX = output.offsetWidth / 2 - draggableText.offsetWidth / 2 - 20;
+      currentY = `-${
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - 20
+      }`;
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "center":
       currentX = 0;
       currentY = 0;
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "center-left":
-      currentX = `-${output.offsetWidth / 2 - text.offsetWidth / 2 - 20}`;
+      currentX = `-${
+        output.offsetWidth / 2 - draggableText.offsetWidth / 2 - 20
+      }`;
       currentY = 0;
       xOffset = currentX;
       yOffset = 0;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "center-right":
-      currentX = output.offsetWidth / 2 - text.offsetWidth / 2 - "20";
+      currentX = output.offsetWidth / 2 - draggableText.offsetWidth / 2 - "20";
       currentY = 0;
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "bottom":
       currentX = 0;
-      currentY = output.offsetHeight / 2 - text.offsetHeight / 2 - "20";
+      currentY =
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - "20";
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "bottom-left":
-      currentX = `-${output.offsetWidth / 2 - text.offsetWidth / 2 - "20"}`;
-      currentY = output.offsetHeight / 2 - text.offsetHeight / 2 - "20";
+      currentX = `-${
+        output.offsetWidth / 2 - draggableText.offsetWidth / 2 - "20"
+      }`;
+      currentY =
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - "20";
       xOffset = currentX;
-      yOffset = output.offsetHeight / 2 - text.offsetHeight / 2 - "20";
-      setTranslate(currentX, currentY, text);
+      yOffset = output.offsetHeight / 2 - draggableText.offsetHeight / 2 - "20";
+      setTranslate(currentX, currentY, draggableText);
       break;
     case "bottom-right":
-      currentX = output.offsetWidth / 2 - text.offsetWidth / 2 - "20";
-      currentY = output.offsetHeight / 2 - text.offsetHeight / 2 - "20";
+      currentX = output.offsetWidth / 2 - draggableText.offsetWidth / 2 - "20";
+      currentY =
+        output.offsetHeight / 2 - draggableText.offsetHeight / 2 - "20";
       xOffset = currentX;
       yOffset = currentY;
-      setTranslate(currentX, currentY, text);
+      setTranslate(currentX, currentY, draggableText);
       break;
   }
 });
@@ -189,13 +219,13 @@ inputTextColor.addEventListener("input", function () {
 inputRotate.addEventListener("input", function () {
   inputTextRotate.value = inputRotate.value;
 
-  setTranslate(currentX, currentY, text);
+  setTranslate(currentX, currentY, draggableText);
 });
 
 inputTextRotate.addEventListener("input", function () {
   inputRotate.value = inputTextRotate.value;
 
-  setTranslate(currentX, currentY, text);
+  setTranslate(currentX, currentY, draggableText);
 });
 
 inputOpacity.addEventListener("input", function () {
@@ -234,7 +264,7 @@ resetButton.addEventListener("click", function () {
   xOffset = currentX;
   yOffset = currentY;
 
-  setTranslate(currentX, currentY, text);
+  setTranslate(currentX, currentY, draggableText);
 });
 
 // download section
@@ -244,6 +274,7 @@ downloadButton.addEventListener("click", function () {
       "Gambar belum ditambahkan, silakan tambah gambar terlebih dahulu",
     );
   else {
+    textWrapper.classList.remove("outline");
     html2canvas(canvasElement, {
       allowTaint: true,
       scrollX: -window.scrollX,
@@ -269,6 +300,31 @@ output.addEventListener("touchmove", drag, false);
 output.addEventListener("mousedown", dragStart, false);
 output.addEventListener("mouseup", dragEnd, false);
 output.addEventListener("mousemove", drag, false);
+
+// rotate text event listener
+document.addEventListener("mousedown", rotateStart, false);
+document.addEventListener("mousemove", rotate, false);
+document.addEventListener("mouseup", rotateEnd, false);
+
+document.addEventListener("touchstart", rotateStart, false);
+document.addEventListener("touchmove", rotate, false);
+document.addEventListener("touchend", rotateEnd, false);
+
+output.addEventListener("click", function (e) {
+  if (
+    (e.target === text) |
+    (e.target === rotateButton) |
+    (e.target === rotateBtnIcon)
+  ) {
+    textWrapper.classList.add("outline");
+    textWrapper.classList.remove("hover:outline-blue-400");
+    rotateButton.classList.remove("hidden");
+  } else {
+    textWrapper.classList.remove("outline");
+    textWrapper.classList.add("hover:outline-blue-400");
+    rotateButton.classList.add("hidden");
+  }
+});
 
 // draggable file event listener
 window.addEventListener("dragenter", function () {
@@ -365,6 +421,8 @@ function dragEnd(e) {
 function drag(e) {
   if (active) {
     e.preventDefault();
+    textWrapper.classList.remove("hover:outline-blue-400");
+    rotateButton.classList.add("hidden");
 
     if (e.type === "touchmove") {
       currentX = e.touches[0].clientX - initialX;
@@ -373,23 +431,27 @@ function drag(e) {
       currentX = e.clientX - initialX;
       currentY = e.clientY - initialY;
     }
-    if (currentX < `-${output.offsetWidth / 2 - text.offsetWidth / 2}`) {
-      currentX = `-${output.offsetWidth / 2 - text.offsetWidth / 2}`;
+    if (
+      currentX < `-${output.offsetWidth / 2 - draggableText.offsetWidth / 2}`
+    ) {
+      currentX = `-${output.offsetWidth / 2 - draggableText.offsetWidth / 2}`;
     }
-    if (currentX > output.offsetWidth / 2 - text.offsetWidth / 2) {
-      currentX = output.offsetWidth / 2 - text.offsetWidth / 2;
+    if (currentX > output.offsetWidth / 2 - draggableText.offsetWidth / 2) {
+      currentX = output.offsetWidth / 2 - draggableText.offsetWidth / 2;
     }
-    if (currentY < `-${output.offsetHeight / 2 - text.offsetHeight / 2}`) {
-      currentY = `-${output.offsetHeight / 2 - text.offsetHeight / 2}`;
+    if (
+      currentY < `-${output.offsetHeight / 2 - draggableText.offsetHeight / 2}`
+    ) {
+      currentY = `-${output.offsetHeight / 2 - draggableText.offsetHeight / 2}`;
     }
-    if (currentY > output.offsetHeight / 2 - text.offsetHeight / 2) {
-      currentY = output.offsetHeight / 2 - text.offsetHeight / 2;
+    if (currentY > output.offsetHeight / 2 - draggableText.offsetHeight / 2) {
+      currentY = output.offsetHeight / 2 - draggableText.offsetHeight / 2;
     }
 
     xOffset = currentX;
     yOffset = currentY;
 
-    setTranslate(currentX, currentY, text);
+    setTranslate(currentX, currentY, draggableText);
   }
 }
 
@@ -495,7 +557,7 @@ automaticWm.addEventListener("input", function () {
     xOffset = currentX;
     yOffset = currentY;
 
-    setTranslate(currentX, currentY, text);
+    setTranslate(currentX, currentY, draggableText);
   } else {
     inputWatermark.value = prevWm;
     inputWatermark.selectionStart = prevWm.length;
@@ -519,7 +581,7 @@ automaticWm.addEventListener("input", function () {
     xOffset = currentX;
     yOffset = currentY;
 
-    setTranslate(currentX, currentY, text);
+    setTranslate(currentX, currentY, draggableText);
 
     savePrevInput(
       inputWatermark.value,
@@ -536,3 +598,60 @@ automaticWm.addEventListener("input", function () {
     );
   }
 });
+
+// rotate text button
+
+function getOffset(element) {
+  if (!element.getClientRects().length) {
+    return { top: 0, left: 0 };
+  }
+
+  let rect = element.getBoundingClientRect();
+  let win = element.ownerDocument.defaultView;
+  return {
+    top: rect.top + win.pageYOffset,
+    left: rect.left + win.pageXOffset,
+  };
+}
+
+function rotateStart(e) {
+  if ((e.target === rotateButton) | (e.target === rotateBtnIcon)) {
+    activeRotate = true;
+  }
+}
+
+function rotate(e) {
+  if (activeRotate == true) {
+    if (e.type === "touchmove") {
+      mouse_x = e.touches[0].clientX;
+      mouse_y = e.touches[0].clientY;
+    } else {
+      mouse_x = e.clientX;
+      mouse_y = e.clientY;
+    }
+    radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
+    degree = radians * (180 / Math.PI) * -1;
+    inputRotate.value = degree;
+    setTranslate(currentX, currentY, draggableText);
+  }
+}
+
+function rotateEnd() {
+  activeRotate = false;
+}
+
+window.addEventListener("mousemove", () => {
+  position();
+  center_x = offsetLeft + text.offsetWidth / 2 - window.pageXOffset;
+  center_y = offsetTop + text.offsetHeight / 2 - window.pageYOffset;
+});
+
+function position() {
+  initialTransform = draggableText.style.transform;
+  draggableText.style.transform = "none";
+  draggableText.style.transform =
+    "translate3d(" + currentX + "px, " + currentY + "px, 0)";
+  offsetTop = text.getBoundingClientRect().top;
+  offsetLeft = text.getBoundingClientRect().left;
+  draggableText.style.transform = initialTransform;
+}
