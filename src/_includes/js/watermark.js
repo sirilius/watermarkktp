@@ -605,6 +605,9 @@ automaticWm.addEventListener("input", function () {
       currentX,
       currentY,
     );
+    textWrapper.classList.remove("outline");
+    textWrapper.classList.add("hover:outline-blue-400");
+    rotateButton.classList.add("hidden");
   }
 });
 
