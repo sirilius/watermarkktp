@@ -313,22 +313,6 @@ document.addEventListener("touchstart", rotateStart, false);
 document.addEventListener("touchmove", rotate, false);
 document.addEventListener("touchend", rotateEnd, false);
 
-output.addEventListener("click", function (e) {
-  if (
-    (e.target === text) |
-    (e.target === rotateButton) |
-    (e.target === rotateBtnIcon)
-  ) {
-    textWrapper.classList.add("outline");
-    textWrapper.classList.remove("hover:outline-blue-400");
-    rotateButton.classList.remove("hidden");
-  } else {
-    textWrapper.classList.remove("outline");
-    textWrapper.classList.add("hover:outline-blue-400");
-    rotateButton.classList.add("hidden");
-  }
-});
-
 // draggable file event listener
 window.addEventListener("dragenter", function () {
   showDropZone();
@@ -412,6 +396,20 @@ function dragStart(e) {
   if (e.target === text) {
     active = true;
   }
+
+  if (
+    (e.target === text) |
+    (e.target === rotateButton) |
+    (e.target === rotateBtnIcon)
+  ) {
+    textWrapper.classList.add("outline");
+    textWrapper.classList.remove("hover:outline-blue-400");
+    rotateButton.classList.remove("hidden");
+  } else {
+    textWrapper.classList.remove("outline");
+    textWrapper.classList.add("hover:outline-blue-400");
+    rotateButton.classList.add("hidden");
+  }
 }
 
 function dragEnd(e) {
@@ -419,6 +417,10 @@ function dragEnd(e) {
   initialY = currentY;
 
   active = false;
+
+  if (e.target === text) {
+    rotateButton.classList.remove("hidden");
+  }
 }
 
 function drag(e) {
