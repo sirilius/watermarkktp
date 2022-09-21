@@ -264,6 +264,10 @@ resetButton.addEventListener("click", function () {
   xOffset = currentX;
   yOffset = currentY;
 
+  textWrapper.classList.remove("outline");
+  textWrapper.classList.add("hover:outline-blue-400");
+  rotateButton.classList.add("hidden");
+
   setTranslate(currentX, currentY, draggableText);
 });
 
