@@ -275,6 +275,7 @@ downloadButton.addEventListener("click", function () {
     );
   else {
     textWrapper.classList.remove("outline");
+    rotateButton.classList.add("hidden");
     html2canvas(canvasElement, {
       allowTaint: true,
       scrollX: -window.scrollX,
@@ -289,6 +290,8 @@ downloadButton.addEventListener("click", function () {
       anchorTag.target = "_blank";
       anchorTag.click();
     });
+    textWrapper.classList.add("outline");
+    rotateButton.classList.remove("hidden");
   }
 });
 
