@@ -642,8 +642,8 @@ function rotateEnd() {
 
 window.addEventListener("mousemove", () => {
   position();
-  center_x = offsetLeft + text.offsetWidth / 2 - window.pageXOffset;
-  center_y = offsetTop + text.offsetHeight / 2 - window.pageYOffset;
+  center_x = offsetLeft + text.offsetWidth / 2;
+  center_y = offsetTop + text.offsetHeight / 2;
 });
 
 function position() {
