@@ -644,6 +644,7 @@ function rotate(e) {
     radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
     degree = radians * (180 / Math.PI) * -1;
     inputRotate.value = degree;
+    inputTextRotate.value = Math.round(degree);
     setTranslate(currentX, currentY, draggableText);
   }
 }
