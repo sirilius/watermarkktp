@@ -50,6 +50,13 @@ module.exports = function (eleventyConfig) {
     "src/_includes/css/app.css": "./css/app.css",
   });
 
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", new Date().getTime());
+    return `${urlPart}?${params}`;
+  });
+
   return {
     dir: {
       input: "src",
