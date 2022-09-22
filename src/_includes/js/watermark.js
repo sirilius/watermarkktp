@@ -317,6 +317,9 @@ document.addEventListener("touchstart", rotateStart, false);
 document.addEventListener("touchmove", rotate, false);
 document.addEventListener("touchend", rotateEnd, false);
 
+window.addEventListener("mousemove", updatePosition, false);
+window.addEventListener("touchmove", updatePosition, false);
+
 // draggable file event listener
 window.addEventListener("dragenter", function () {
   showDropZone();
@@ -653,12 +656,6 @@ function rotateEnd() {
   activeRotate = false;
 }
 
-window.addEventListener("mousemove", () => {
-  position();
-  center_x = offsetLeft + text.offsetWidth / 2;
-  center_y = offsetTop + text.offsetHeight / 2;
-});
-
 function position() {
   initialTransform = draggableText.style.transform;
   draggableText.style.transform = "none";
@@ -667,4 +664,10 @@ function position() {
   offsetTop = text.getBoundingClientRect().top;
   offsetLeft = text.getBoundingClientRect().left;
   draggableText.style.transform = initialTransform;
+}
+
+function updatePosition() {
+  position();
+  center_x = offsetLeft + text.offsetWidth / 2;
+  center_y = offsetTop + text.offsetHeight / 2;
 }
