@@ -443,21 +443,47 @@ function drag(e) {
       currentX = e.clientX - initialX;
       currentY = e.clientY - initialY;
     }
+
+    // top constraint
     if (
-      currentX < `-${output.offsetWidth / 2 - draggableText.offsetWidth / 2}`
+      currentY - draggableText.getBoundingClientRect().height / 2 <
+      -output.offsetHeight / 2
     ) {
-      currentX = `-${output.offsetWidth / 2 - draggableText.offsetWidth / 2}`;
+      currentY =
+        (output.offsetHeight / 2 -
+          draggableText.getBoundingClientRect().height / 2) *
+        -1;
     }
-    if (currentX > output.offsetWidth / 2 - draggableText.offsetWidth / 2) {
-      currentX = output.offsetWidth / 2 - draggableText.offsetWidth / 2;
-    }
+
+    // right constraint
     if (
-      currentY < `-${output.offsetHeight / 2 - draggableText.offsetHeight / 2}`
+      currentX + draggableText.getBoundingClientRect().width / 2 >
+      output.offsetWidth / 2
     ) {
-      currentY = `-${output.offsetHeight / 2 - draggableText.offsetHeight / 2}`;
+      currentX =
+        output.offsetWidth / 2 -
+        draggableText.getBoundingClientRect().width / 2;
     }
-    if (currentY > output.offsetHeight / 2 - draggableText.offsetHeight / 2) {
-      currentY = output.offsetHeight / 2 - draggableText.offsetHeight / 2;
+
+    // bottom constraint
+    if (
+      currentY + draggableText.getBoundingClientRect().height / 2 >
+      output.offsetHeight / 2
+    ) {
+      currentY =
+        output.offsetHeight / 2 -
+        draggableText.getBoundingClientRect().height / 2;
+    }
+
+    // left constraint
+    if (
+      currentX - draggableText.getBoundingClientRect().width / 2 <
+      -output.offsetWidth / 2
+    ) {
+      currentX =
+        (output.offsetWidth / 2 -
+          draggableText.getBoundingClientRect().width / 2) *
+        -1;
     }
 
     xOffset = currentX;
