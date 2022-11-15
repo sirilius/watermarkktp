@@ -2,6 +2,7 @@ let src = "";
 let editable = false;
 let textValue = "";
 let reader = new FileReader();
+let fileName = "";
 
 let active = false;
 let currentX = 0;
@@ -93,8 +94,8 @@ inputFile.addEventListener("change", function (e) {
     return;
   }
 
-  const filename = this.value.split("\\").pop();
-  inputFile.nextElementSibling.innerHTML = `<span id="file-name">${filename}</span>`;
+  fileName = this.value.split("\\").pop();
+  inputFile.nextElementSibling.innerHTML = `<span id="file-name">${fileName}</span>`;
 
   dropBox.classList.add("hidden");
   canvasWrapper.classList.remove("relative");
@@ -289,7 +290,7 @@ downloadButton.addEventListener("click", function () {
     }).then(function (canvas) {
       var anchorTag = document.createElement("a");
       document.body.appendChild(anchorTag);
-      anchorTag.download = "watermark.png";
+      anchorTag.download = `${fileName.replace(/\.[^/.]+$/, "")}-watermark.png`;
       anchorTag.href = canvas.toDataURL();
       anchorTag.target = "_blank";
       anchorTag.click();
@@ -368,7 +369,8 @@ function dropHandler(ev) {
         const file = item.getAsFile();
 
         if (file.type.includes("image/")) {
-          inputFile.nextElementSibling.innerHTML = `<span id="file-name">${file.name}</span>`;
+          fileName = file.name
+          inputFile.nextElementSibling.innerHTML = `<span id="file-name">${fileName}</span>`;
           reader.readAsDataURL(file);
           dropBox.classList.add("hidden");
           canvasWrapper.classList.remove("relative");
