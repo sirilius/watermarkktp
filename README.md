@@ -21,7 +21,7 @@ Kunjungi https://watermarkktp.com/cara-pakai/ untuk membaca dokumentasi lengkapn
 
 # Instalasi
 
-Jika Anda ingin menjalankan Watermark KTP secara lokal, ikuti langkah-langkah berikut:
+Untuk menjalankan Watermark KTP secara lokal, ikuti langkah-langkah berikut:
 
 1. Pastikan Anda memiliki **Node.js** (versi 12 atau lebih baru) dan **npm** (Node Package Manager) diinstal di sistem Anda.
 2. Clone repositori ini ke dalam sistem lokal Anda:
@@ -74,7 +74,7 @@ Jika anda tertarik untuk berkontribusi pada Watermark KTP, silakan membaca [_con
 
 # Donasi
 
-Jika Anda merasa terbantu dengan penggunaan Watermark KTP dan ingin mendukung pengembangan lebih lanjut, Anda dapat memberikan donasi sebagai bentuk apresiasi. Donasi Anda akan sangat berarti dalam pemeliharaan, pembaruan, dan peningkatan alat ini.
+Apabila Anda merasa terbantu dengan penggunaan Watermark KTP dan ingin mendukung pengembangan lebih lanjut, Anda dapat memberikan donasi sebagai bentuk apresiasi. Donasi Anda akan sangat berarti dalam pemeliharaan, pembaruan, dan peningkatan alat ini.
 
 Untuk melakukan donasi, silakan kunjungi halaman Saweria berikut:
 
