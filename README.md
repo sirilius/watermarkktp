@@ -1,5 +1,5 @@
 <h1 align="center">Watermark KTP</h1>
-<p align="center">Sebuah alat sederhana untuk menambahkan watermark pada scan KTP.</p>
+<p align="center">A simple tool to add watermark to scanned ID cards (KTP).</p>
 
 <div align="center">
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/sirilius/watermarkktp">
@@ -7,75 +7,81 @@
     <img alt="GitHub" src="https://img.shields.io/github/license/sirilius/watermarkktp">
 </div>
 
-# Cara Pakai
+# Usage
 
-Kunjungi https://watermarkktp.com/cara-pakai/ untuk membaca dokumentasi lengkapnya.
+Visit https://watermarkktp.com/cara-pakai/ to read the complete documentation.
 
 # Dependencies
 
-- [Node.js](https://nodejs.org/): Back-end JavaScript runtime environment
-- [npm](https://www.npmjs.com/): Digunakan untuk mengelola dan menginstal _project's dependencies_.
-- [Eleventy](https://www.11ty.dev/): Static site generator yang digunakan untuk membangun Watermark KTP.
-- [Prettier](https://prettier.io/): Alat untuk memastikan kode mengikuti _formatting standards_ dan _consistent code writing_.
-- [Tailwind](https://tailwindcss.com/): Framework styling yang digunakan untuk mengatur tampilan laman.
+- [Node.js](https://nodejs.org/): Backend JavaScript runtime environment
+- [npm](https://www.npmjs.com/): Used to manage and install the project's dependencies.
+- [Eleventy](https://www.11ty.dev/): Static site generator used to build Watermark KTP.
+- [Prettier](https://prettier.io/): Tool to ensure code follows formatting standards and consistent code writing.
+- [Tailwind](https://tailwindcss.com/): Styling framework used to manage the page layout.
 
-# Instalasi
+# Installation
 
-Untuk menjalankan Watermark KTP secara lokal, ikuti langkah-langkah berikut:
+To run Watermark KTP locally, follow these steps:
 
-1. Pastikan Anda memiliki **Node.js** (versi 12 atau lebih baru) dan **npm** (Node Package Manager) diinstal di sistem Anda.
-2. Clone repositori ini ke dalam sistem lokal Anda:
+1. Make sure you have **Node.js** (version 12 or newer) and **npm** (Node Package Manager) installed on your system.
+2. Clone this repository to your local system:
    ```sh
    git clone https://github.com/sirilius/watermarkktp.git
    ```
-3. Masuk ke direktori project:
+3. Navigate to the project directory:
    ```sh
    cd watermarkktp
    ```
-4. Instal dependensi project dengan menjalankan perintah berikut:
+4. Install project dependencies by running the following command:
    ```sh
    npm install
    ```
-5. Bangun project assets, termasuk pengaturan Eleventy dan Tailwind CSS, dengan menjalankan perintah berikut:
+5. Build the project assets, including Eleventy and Tailwind CSS configurations, by running the following command:
    ```sh
    npm run build
    ```
-6. Jalankan project secara lokal dengan perintah:
+6. Run the project locally with the command:
    ```sh
    npm run dev
    ```
 
-Ini akan memulai server pengembangan lokal menggunakan Eleventy. Anda dapat mengakses Watermark KTP di browser melalui URL http://localhost:8080/.
+This will start a local development server using Eleventy. You can access Watermark KTP in your browser at http://localhost:8080/.
 
-# Fitur
+# Features
 
-- Easy-to-use interface: Watermark KTP menyediakan _user-friendly interface_, memungkinkan pengguna dapat dengan cepat dan mudah menambahkan watermark pada scan KTP.
-- Watermark customization: Pengguna dapat menyesuaikan watermark dengan memilih _font_, posisi, ukuran, warna, rotasi, dan transparansi.
-- Reset watermark: Pengguna dapat mengatur ulang pengaturan watermark ke pengaturan awal dengan satu klik.
-- Draggable watermark: Pengguna dapat _drag & drop_ watermark pada lokasi yang diinginkan di dalam scan KTP.
-- Preset: Memudahkan pengguna dengan pembuatan watermark otomatis hanya dengan satu klik.
-- Draggable image: Pengguna dapat menambahkan scan KTP dengan _drag & drop_ file gambar ke alat ini.
-- Download image: Pengguna dapat menyimpan scan KTP yang telah ditambahi watermark dalam format PNG.
+- Easy-to-use interface: Watermark KTP provides a user-friendly interface, allowing users to quickly and easily add a watermark to scanned ID cards.
+- Watermark customization: Users can customize the watermark by selecting the font, position, size, color, rotation, and transparency.
+- Reset watermark: Users can reset the watermark settings to the default with a single click.
+- Draggable watermark: Users can drag and drop the watermark to the desired location within the scanned ID card.
+- Presets: Simplifies the process for users with automatic watermark creation in just one click.
+- Draggable image: Users can add an ID card scan by dragging and dropping the image file into the tool.
+- Download image: Users can save the watermark-applied ID card scan as a PNG image.
 
-# Kebijakan Privasi
+# Privacy Policy
 
-Kami sangat menjaga privasi data pribadi pengguna Watermark KTP. Berikut adalah beberapa poin penting dalam kebijakan privasi kami:
+We highly value the privacy of users' personal data in Watermark KTP. Here are some important points from our privacy policy:
 
-- Watermark KTP tidak pernah menjual, menyalahgunakan, atau memanfaatkan data KTP siapa pun.
-- Watermark KTP adalah alat sederhana untuk menambahkan teks (watermark) pada hasil scan KTP sebagai penandaan dan upaya pengamanan data pribadi. Kami tidak pernah mengirimkan gambar yang ditaruh pengguna keluar dari peramban pengguna.
-- Semua proses yang dilakukan di Watermark KTP sepenuhnya dilakukan di sisi klien (sisi Anda). Kami tidak pernah mengirimkan berkas yang ditaruh pengguna keluar dari peramban pengguna.
-- Kami berkomitmen menyediakan alat yang aman dan mudah digunakan bagi masyarakat. Watermark KTP adalah salah satu langkah kami dalam meningkatkan kesadaran tentang keamanan data pribadi di dunia digital.
+- Watermark KTP never sells, misuses, or exploits anyone's ID card data.
+- Watermark KTP is a simple tool to add text (watermark) to ID card scans as a means of marking and securing personal data. We never send users' uploaded images out of their browser.
+- All processing in Watermark KTP is entirely done on the client-side (your side). We never send any files uploaded by users out of their browser.
+- We are committed to providing secure and user
 
-Jika Anda memiliki pertanyaan mengenai privasi di Watermark KTP, silakan hubungi kami dengan mengirim pesan melalui Twitter: [@SiriliusKevin](https://twitter.com/SiriliusKevin)
+-friendly tools for the community. Watermark KTP is one of our steps towards raising awareness of personal data security in the digital world.
 
-# Kontribusi
+If you have any questions regarding privacy in Watermark KTP, please contact us by sending a message via Twitter: [@SiriliusKevin](https://twitter.com/SiriliusKevin)
 
-Jika anda tertarik untuk berkontribusi pada Watermark KTP, silakan membaca [_contributing guidelines_](./.github/CONTRIBUTING.md) untuk panduan dan langkah-langkah yang harus diikuti.
+# Contributing
 
-# Donasi
+If you are interested in contributing to Watermark KTP, please read the [contributing guidelines](./.github/CONTRIBUTING.md) for guidelines and steps to follow.
 
-Apabila Anda merasa terbantu dengan penggunaan Watermark KTP dan ingin mendukung pengembangan lebih lanjut, Anda dapat memberikan donasi sebagai bentuk apresiasi. Donasi Anda akan sangat berarti dalam pemeliharaan, pembaruan, dan peningkatan alat ini.
+# Translations
 
-Untuk melakukan donasi, silakan kunjungi halaman Saweria berikut:
+- [Indonesian / Bahasa Indonesia](README-ID.md)
+
+# Donations
+
+If you find Watermark KTP useful and would like to support further development, you can make a donation as a token of appreciation. Your donation will be greatly appreciated and contribute to the maintenance, updates, and improvements of this tool.
+
+To make a donation, please visit the following Saweria page:
 
 - https://saweria.co/sirilius
