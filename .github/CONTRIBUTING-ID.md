@@ -1,8 +1,8 @@
-# Contributing
+# Berkontribusi
 
 Terima kasih atas minat Anda untuk berkontribusi pada Watermark KTP! Kami menghargai dukungan dan usaha Anda dalam membuat alat ini lebih baik. Sebelum memulai, harap membaca panduan kontribusi ini dengan seksama.
 
-# Getting Started
+# Memulai Kontribusi
 
 Untuk mulai berkontribusi ke proyek ini, ikuti langkah-langkah berikut:
 
@@ -76,7 +76,7 @@ Untuk menghindari situasi di mana Anda menghabiskan waktu dan usaha dalam membua
 
 Jika Anda mengalami masalah, seperti _merge conflict_, atau tidak tahu bagaimana cara membuka _pull request_, Anda dapat mengikuti [tutorial _pull request_ GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) untuk mempelajari cara menyelesaikan _merge conflict_ dan masalah lainnya. Setelah PR Anda digabungkan, Anda akan tercantum sebagai kontributor dalam [contributor chart](https://github.com/sirilius/watermarkktp/graphs/contributors).
 
-# Contributor
+# Kontributor
 
 <a href="https://github.com/sirilius/watermarkktp/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=sirilius/watermarkktp" />
