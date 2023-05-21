@@ -11,10 +11,10 @@
 
 Kunjungi https://watermarkktp.com/cara-pakai/ untuk membaca dokumentasi lengkapnya.
 
-# Dependencies
+# Dependensi
 
 - [Node.js](https://nodejs.org/): Back-end JavaScript runtime environment
-- [npm](https://www.npmjs.com/): Digunakan untuk mengelola dan menginstal _project's dependencies_.
+- [npm](https://www.npmjs.com/): Digunakan untuk mengelola dan menginstal dependensi.
 - [Eleventy](https://www.11ty.dev/): Static site generator yang digunakan untuk membangun Watermark KTP.
 - [Prettier](https://prettier.io/): Alat untuk memastikan kode mengikuti _formatting standards_ dan _consistent code writing_.
 - [Tailwind](https://tailwindcss.com/): Framework styling yang digunakan untuk mengatur tampilan laman.
