@@ -1,83 +1,87 @@
 # Contributing
 
-Terima kasih atas minat Anda untuk berkontribusi pada Watermark KTP! Kami menghargai dukungan dan usaha Anda dalam membuat alat ini lebih baik. Sebelum memulai, harap membaca panduan kontribusi ini dengan seksama.
+Thank you for your interest in contributing to Watermark KTP! We appreciate your support and effort in making this tool better. Before getting started, please read this contributing guide carefully.
 
 # Getting Started
 
-Untuk mulai berkontribusi ke proyek ini, ikuti langkah-langkah berikut:
+To start contributing to this project, follow the steps below:
 
-1. Pastikan Anda memiliki lingkungan pengembangan yang memenuhi persyaratan berikut:
-   - Node.js (versi 12 atau lebih baru)
-   - npm (Node Package Manager) atau Yarn
-2. Fork repositori ini ke akun GitHub Anda.
-3. Clone repositori yang telah Anda fork ke dalam sistem lokal Anda:
-
-   ```sh
-   git clone https://github.com/usernameAnda/watermarkktp.git
-   ```
-
-4. Masuk ke direktori proyek:
+1. Make sure you have the following development environment requirements:
+   - Node.js (version 12 or higher)
+   - npm (Node Package Manager) or Yarn
+2. Fork this repository to your GitHub account.
+3. Clone the forked repository to your local system:
 
    ```sh
-   cd watermark-ktp
+   git clone https://github.com/yourusername/watermarkktp.git
    ```
 
-5. Instal dependensi proyek dengan menjalankan perintah berikut:
+4. Navigate to the project directory:
+
+   ```sh
+   cd watermarkktp
+   ```
+
+5. Install the project dependencies by running the following command:
 
    ```sh
    npm install
    ```
 
-6. Bangun project assets, termasuk pengaturan Eleventy dan Tailwind CSS, dengan menjalankan perintah berikut:
+6. Build project assets, including Eleventy and Tailwind CSS configurations, by running the following command:
 
    ```sh
    npm run build
    ```
 
-7. Buat branch baru untuk pekerjaan Anda:
+7. Create a new branch for your work:
 
    ```sh
-   git checkout -b nama-branch
+   git checkout -b branch-name
    ```
 
-8. Mulailah membuat perubahan yang diinginkan dan implementasikan fitur baru sesuai kebutuhan.
+8. Start making the desired changes and implement new features as needed.
 
-9. Jalankan proyek secara lokal untuk menguji perubahan Anda:
+9. Run the project locally to test your changes:
 
    ```sh
    npm run dev
    ```
 
-   Ini akan memulai server pengembangan lokal menggunakan Eleventy. Anda dapat mengakses Watermark KTP di browser melalui URL http://localhost:8080
+   This will start a local development server using Eleventy. You can access Watermark KTP in your browser via the URL http://localhost:8080.
 
-10. Setelah selesai, tambahkan perubahan yang telah Anda lakukan ke staging area dengan perintah berikut:
+10. Once you're done, add the changes you made to the staging area with the following command:
 
     ```sh
     git add .
     ```
 
-11. Setelah Anda melakukan perubahan, buat commit dengan pesan deskriptif:
+11. After making your changes, create a commit with a descriptive message:
 
     ```sh
-    git commit -m "Deskripsi singkat tentang perubahan"
+    git commit -m "Brief description of the changes"
     ```
 
-12. Push commit ke branch yang Anda buat di repositori GitHub Anda:
+12. Push the commit to your branch in your GitHub repository:
 
     ```sh
-    git push origin nama-branch
+    git push origin branch-name
     ```
 
-13. Buat pull request ke repositori utama (https://github.com/sirilius/watermarkktp) menggunakan _interface_ GitHub.
+13. Create a pull request to the main repository (https://github.com/sirilius/watermarkktp) using the GitHub interface.
 
 # Pull Request
 
-Untuk menghindari situasi di mana Anda menghabiskan waktu dan usaha dalam membuat _pull request_ yang kemudian ditolak, kami menyarankan untuk **membuka _issue_ terlebih dahulu**. Dengan membuka _issue_, Anda dapat berdiskusi dengan kami untuk memastikan bahwa perubahan yang Anda rencanakan sesuai dengan tujuan project ini dan sejalan dengan arah pengembangan yang diinginkan.
+To avoid situations where you spend time and effort creating a pull request that is later rejected, we recommend **opening an issue first**. By opening an issue, you can discuss with us to ensure that the changes you plan to make align with the goals of this project and are in line with the desired development direction.
 
-Jika Anda mengalami masalah, seperti _merge conflict_, atau tidak tahu bagaimana cara membuka _pull request_, Anda dapat mengikuti [tutorial _pull request_ GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) untuk mempelajari cara menyelesaikan _merge conflict_ dan masalah lainnya. Setelah PR Anda digabungkan, Anda akan tercantum sebagai kontributor dalam [contributor chart](https://github.com/sirilius/watermarkktp/graphs/contributors).
+If you encounter any issues, such as merge conflicts, or don't know how to create a pull request, you can follow the [GitHub pull request tutorial](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) to learn how to resolve merge conflicts and other issues. Once your PR is merged, you will be listed as a contributor in the [contributor chart](https://github.com/sirilius/watermarkktp/graphs/contributors).
 
 # Contributor
 
 <a href="https://github.com/sirilius/watermarkktp/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=sirilius/watermarkktp" />
 </a>
+
+# Translation
+
+- [Indonesian / Bahasa Indonesia](CONTRIBUTING-ID.md)
