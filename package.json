@@ -10,7 +10,7 @@
     "format": "prettier --write '**/*.{js,css,html,md}'",
     "tailwind:dev": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
     "tailwind:prod": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css",
-    "dev": "concurrently \"npm run tailwind:dev\" \"npm run serve\""
+    "dev": "concurrently 'npm run tailwind:dev' 'npm run serve'"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1",
