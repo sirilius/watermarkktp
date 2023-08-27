@@ -28,12 +28,28 @@
           ></span>
         </button>
       </div>
+      
       <nav class="hidden lg:flex space-x-10">
         {% set navPages = collections.all | eleventyNavigation %}
         {%- for entry in navPages %}
-        <a href="{{ entry.url | url }}" class="text-base font-medium text-gray-500 hover:text-gray-900" {% if entry.url == page.url %} style="color: #111827"{% endif %}>{{ entry.title }}</a>
+          <a
+            href="{{ entry.url | url }}"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            {% if entry.url == page.url %} style="color: #111827"{% endif %}
+          >
+            {{ entry.title }}
+          </a>
         {%- endfor %}
+
+        <a href="https://github.com/sirilius/watermarkktp" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          GitHub
+        </a>
+
+        <a href="https://twitter.com/SiriliusKevin" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Twitter
+        </a>
       </nav>
+
       <div class="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
         <a
           href="https://saweria.co/sirilius"
