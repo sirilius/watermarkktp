@@ -28,18 +28,44 @@
           ></span>
         </button>
       </div>
+      
       <nav class="hidden lg:flex space-x-10">
         {% set navPages = collections.all | eleventyNavigation %}
         {%- for entry in navPages %}
-        <a href="{{ entry.url | url }}" class="text-base font-medium text-gray-500 hover:text-gray-900" {% if entry.url == page.url %} style="color: #111827"{% endif %}>{{ entry.title }}</a>
+          <a
+            href="{{ entry.url | url }}"
+            class="text-base font-medium text-gray-500 hover:text-gray-900"
+            {% if entry.url == page.url %} style="color: #111827"{% endif %}
+          >
+            {{ entry.title }}
+          </a>
         {%- endfor %}
+
+        <a
+          href="https://github.com/sirilius/watermarkktp"
+          class="text-base font-medium text-gray-500 hover:text-gray-900"
+          data-umami-event="top-menu-GitHub"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://twitter.com/SiriliusKevin"
+          class="text-base font-medium text-gray-500 hover:text-gray-900"
+          data-umami-event="top-menu-Twitter"
+        >
+          Twitter
+        </a>
       </nav>
+
       <div class="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
         <a
           href="https://saweria.co/sirilius"
           target="_blank"
           class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg text-base font-medium text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
-          >Support Me
+          data-umami-event="top-menu-Saweria"
+        >
+          Support Me
         </a>
       </div>
     </div>
@@ -125,8 +151,30 @@
             </a>
 
             <a
+              href="/pers"
+              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M12 3a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zm0-2a5 5 0 0 1 5 5v4a5 5 0 0 1-10 0V6a5 5 0 0 1 5-5zM3.055 11H5.07a7.002 7.002 0 0 0 13.858 0h2.016A9.004 9.004 0 0 1 13 18.945V23h-2v-4.055A9.004 9.004 0 0 1 3.055 11z"
+                  fill="black"
+                />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Pers
+              </span>
+            </a>
+
+            <a
               href="https://github.com/sirilius/watermarkktp"
               class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+              data-umami-event="mobile-menu-GitHub"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,6 +196,7 @@
             <a
               href="https://twitter.com/SiriliusKevin"
               class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+              data-umami-event="mobile-menu-Twitter"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -165,27 +214,6 @@
                 Twitter
               </span>
             </a>
-
-            <a
-              href="/pers"
-              class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-              >
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path
-                  d="M12 3a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zm0-2a5 5 0 0 1 5 5v4a5 5 0 0 1-10 0V6a5 5 0 0 1 5-5zM3.055 11H5.07a7.002 7.002 0 0 0 13.858 0h2.016A9.004 9.004 0 0 1 13 18.945V23h-2v-4.055A9.004 9.004 0 0 1 3.055 11z"
-                  fill="black"
-                />
-              </svg>
-              <span class="ml-3 text-base font-medium text-gray-900">
-                Pers
-              </span>
-            </a>
           </nav>
         </div>
       </div>
@@ -194,6 +222,7 @@
           href="https://saweria.co/sirilius"
           target="_blank"
           class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
+          data-umami-event="mobile-menu-Saweria"
         >
           Support Me
         </a>
