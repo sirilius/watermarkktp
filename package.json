@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "clean-css": "^5.2.4",
+    "cssnano": "^6.0.1",
     "html-minifier": "^4.0.0",
     "terser": "^5.12.0"
   },
