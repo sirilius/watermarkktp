@@ -1,0 +1,67 @@
+[[redirects]]
+  from = "https://watermarkktp.netlify.app/*"
+  to = "https://watermarkktp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tanda-tangan.html"
+  to = "/tanda-tangan/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cara-pakai.html"
+  to = "/cara-pakai/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privasi.html"
+  to = "/privasi/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pers.html"
+  to = "/pers/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
