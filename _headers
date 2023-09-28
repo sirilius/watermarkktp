@@ -20,6 +20,5 @@
 /img/*
   ! Cache-Control
   ! X-Frame-Options
-  ! X-Robots-Tag
   ! X-XSS-Protection
   Cache-Control: public, max-age=31536000, immutable
