@@ -8,9 +8,6 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="canonical" href="https://watermarkktp.com" />
-    <link rel="icon" href="/img/logo-watermarkktp.svg" />
-
     {%- set subtitle %}{{ newstitle or title }}{% endset %}
 		{%- set subtitleText %}{{ title }}{% if subtitle and subtitle != "Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP" %} - Watermark KTP{% endif %}{% endset %}
     <title>{{ subtitleText }}</title>
@@ -20,7 +17,7 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta property="og:title" content="Watermark KTP" />
     <meta property="og:locale" content="id" />
     <meta property="og:description" content="{{ subtitleText }}" />
-    <meta property="og:url" content="https://watermarkktp.com/" />
+    <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
     <meta property="og:site_name" content="Watermark KTP" />
     <meta property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
 
@@ -29,6 +26,10 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta property="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
     <meta property="twitter:title" content="Watermark KTP" />
     <meta name="twitter:creator" content="@SiriliusKevin" />
+
+    <link rel="canonical" href="https://watermarkktp.com{{ page.url }}" />
+    <link rel="icon" href="/img/logo-watermarkktp.svg" />
+    <link rel="stylesheet" href="{{ '/css/app.css' | url | bust }}" />
 
     <!--meta structured data-->
     <script type="application/ld+json">
@@ -47,8 +48,6 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
         "@context": "https://schema.org"
       }
     </script>
-
-    <link rel="stylesheet" href="{{ '/css/app.css' | url | bust }}" />
 
     <script async src="https://api-scout.vercel.app/app" data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"></script>
   </head>
