@@ -15,10 +15,6 @@ a {
   border-radius: 0.375rem;
 }
 
-.adsbygoogle[data-ad-status="filled"] .placeholder {
-  display: none !important;
-}
-
 @media (min-width: 1208px) {
   #as-seen-in {
     margin-top: 0;
