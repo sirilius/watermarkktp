@@ -15,6 +15,10 @@ a {
   border-radius: 0.375rem;
 }
 
+.adsbygoogle #aswift_1_host {
+  @apply z-20;
+}
+
 @media (min-width: 1208px) {
   #as-seen-in {
     margin-top: 0;
