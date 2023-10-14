@@ -5,7 +5,11 @@
     >
       <div class="flex justify-start text-2xl font-bold">
         <a href="/">
-          Watermark KTP
+          {%- if page.url == "/" or page.url == "/tanda-tangan/" %}
+            <h1>Watermark KTP</h1>
+          {% else %}
+            <h2>Watermark KTP</h2>
+          {% endif %}
         </a>
       </div>
       <div class="-mr-2 -my-2 lg:hidden">
