@@ -53,6 +53,9 @@ module.exports = function (eleventyConfig) {
     "static/ads.txt": "./ads.txt",
   });
   eleventyConfig.addPassthroughCopy({
+    "static/robots.txt": "./robots.txt",
+  });
+  eleventyConfig.addPassthroughCopy({
     "src/_includes/css/app.css": "./css/app.css",
   });
 
