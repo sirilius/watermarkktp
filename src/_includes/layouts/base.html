@@ -1,6 +1,7 @@
 ---
 title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
 ---
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -8,8 +9,10 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {%- set subtitle %}{{ newstitle or title }}{% endset %}
-		{%- set subtitleText %}{{ title }}{% if subtitle and subtitle != "Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP" %} - Watermark KTP{% endif %}{% endset %}
+    {%- set subtitle %}{{ newstitle or title }}{% endset %} {%- set subtitleText
+    %}{{ title }}{% if subtitle and subtitle != "Watermark KTP - Solusi Aman,
+    Praktis, dan Gratis untuk Watermark KTP" %} - Watermark KTP{% endif %}{%
+    endset %}
     <title>{{ subtitleText }}</title>
     <meta name="description" content="{{ subtitleText }}" />
 
@@ -19,11 +22,17 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta property="og:description" content="{{ subtitleText }}" />
     <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
     <meta property="og:site_name" content="Watermark KTP" />
-    <meta property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta
+      property="og:image"
+      content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"
+    />
 
     <!--meta twitter graph-->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta
+      property="twitter:image"
+      content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"
+    />
     <meta property="twitter:title" content="Watermark KTP" />
     <meta name="twitter:creator" content="@SiriliusKevin" />
 
@@ -49,20 +58,36 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
       }
     </script>
 
-    <script async src="https://api-scout.vercel.app/app" data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"></script>
+    <script
+      async
+      src="https://api-scout.vercel.app/app"
+      data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"
+    ></script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7675288227309864"
-     crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7675288227309864"
+      crossorigin="anonymous"
+    ></script>
     <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
+      // Function to load AdSense script for all ad elements
+      function loadAdSenseScript() {
+        // Find all elements with the class "adsbygoogle"
+        const adElements = document.querySelectorAll(".adsbygoogle");
+
+        // For each ad element, initialize AdSense
+        adElements.forEach(function (element) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        });
+      }
+
+      // Load the AdSense script when the document is fully loaded
+      window.onload = loadAdSenseScript;
     </script>
   </head>
 
   <body class="px-6 max-w-7xl mx-auto">
-    {% include "components/header.njk" %}
-
-    {{ content | safe }}
-
-    {% include "components/footer.njk" %}
+    {% include "components/header.html" %} {{ content | safe }} {% include
+    "components/footer.html" %}
   </body>
 </html>
