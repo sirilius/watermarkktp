@@ -1,17 +1,35 @@
-// HTML minification
 const htmlmin = require("html-minifier");
-
-// CSS minification
 const CleanCSS = require("clean-css");
-
-// JS minification
 const { minify } = require("terser");
-
-// Navigation
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const eleventyWebcPlugin = require("@11ty/eleventy-plugin-webc");
+const eleventyImage = require("@11ty/eleventy-img");
+const { eleventyImagePlugin } = eleventyImage;
+
+const shortcodes = {
+  image: async function (filepath, alt, widths, classes, sizes) {
+    let options = {
+      formats: ["avif", "webp", "png"],
+      widths: widths || [null],
+      urlPath: "/img/",
+      outputDir: "_site/img/",
+    };
+
+    let stats = await eleventyImage(filepath, options);
+
+    return eleventyImage.generateHTML(stats, {
+      alt,
+      loading: "lazy",
+      decoding: "async",
+      sizes: sizes || "(min-width: 22em) 30vw, 100vw",
+      class: classes,
+    });
+  },
+};
 
 // Start Eleventy Configuration
 module.exports = function (eleventyConfig) {
+  // HTML minification
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
@@ -25,10 +43,20 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // CSS minification
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
 
+  // Cache buster
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", new Date().getTime());
+    return `${urlPart}?${params}`;
+  });
+
+  // JS minification
   eleventyConfig.addNunjucksAsyncFilter(
     "jsmin",
     async function (code, callback) {
@@ -43,8 +71,31 @@ module.exports = function (eleventyConfig) {
     },
   );
 
+  // Navigation
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  // WebC
+  eleventyConfig.addPlugin(eleventyWebcPlugin, {
+    components: [
+      // Add as a global WebC component
+      "npm:@11ty/eleventy-img/*.webc",
+    ],
+  });
+
+  // Image plugin
+  eleventyConfig.addPlugin(eleventyImagePlugin, {
+    // options via https://www.11ty.dev/docs/plugins/image/#usage
+    formats: ["avif", "webp", "jpeg"],
+
+    urlPath: "/img/",
+
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+    },
+  });
+
+  // Static files
   eleventyConfig.addPassthroughCopy("_headers");
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/img");
@@ -59,12 +110,9 @@ module.exports = function (eleventyConfig) {
     "src/_includes/css/app.css": "./css/app.css",
   });
 
-  eleventyConfig.addFilter("bust", (url) => {
-    const [urlPart, paramPart] = url.split("?");
-    const params = new URLSearchParams(paramPart || "");
-    params.set("v", new Date().getTime());
-    return `${urlPart}?${params}`;
-  });
+  eleventyConfig.addShortcode("image", shortcodes.image);
+
+  eleventyConfig.addLayoutAlias("base", "layouts/base.html");
 
   return {
     dir: {
