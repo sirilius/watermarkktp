@@ -1,0 +1,73 @@
+---
+title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> {%- set subtitle %}{{ title }}{% endset %}
+    {%- set subtitle %}{{ title }}{% endset %}
+    {%- set subtitleText %}{{ title }}
+    {% if subtitle and subtitle != "Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP" %}
+      - Watermark KTP{% endif %}
+    {% endset %}
+    <title>{{ subtitleText }}</title>
+    <meta
+    name="description" content="{{ subtitleText }}"/> <!--meta open graph-->
+    <meta property="og:title" content="Watermark KTP"/>
+    <meta property="og:locale" content="id"/>
+    <meta property="og:description" content="{{ subtitleText }}"/>
+    <meta property="og:url" content="https://watermarkktp.com{{ page.url }}"/>
+    <meta property="og:site_name" content="Watermark KTP"/>
+    <meta
+    property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"/> <!--meta twitter graph-->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"/>
+    <meta property="twitter:title" content="Watermark KTP"/>
+    <meta name="twitter:creator" content="@SiriliusKevin"/>
+
+    <link rel="canonical" href="https://watermarkktp.com{{ page.url }}"/>
+    <link rel="icon" href="/img/logo-watermarkktp.svg"/>
+    <link
+    rel="stylesheet" href="{{ '/css/app.css' | url | bust }}"/>
+
+    <!--meta structured data-->
+    <script type="application/ld+json">
+      { "headline": "Watermark KTP", "description": "Solusi Aman, Praktis, dan Gratis untuk Watermark KTP", "url":
+      "https://watermarkktp.com/", "@type": "WebSite", "image": { "height": 900, "width": 1600, "url":
+      "https://watermarkktp-og.vercel.app/{{ 'Solusi Aman, Praktis, dan Gratis untuk Watermark KTP' | urlencode }}
+      ", "@type": "imageObject" }, "name": "Watermark KTP", "@context": "https://schema.org" }
+    </script>
+
+    <script async src="https://api-scout.vercel.app/app" data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"></script>
+
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7675288227309864"
+      crossorigin="anonymous"></script>
+    <script>
+      // Function to load AdSense script for all ad elements
+      function loadAdSenseScript() {
+        // Find all elements with the class "adsbygoogle"
+        const adElements = document.querySelectorAll(".adsbygoogle");
+
+        // For each ad element, initialize AdSense
+        adElements.forEach(function (element) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        });
+      }
+
+      // Load the AdSense script when the document is fully loaded
+      window.onload = loadAdSenseScript;
+    </script>
+  </head>
+
+  <body class="px-6 max-w-7xl mx-auto">
+    {% include "components/header.njk" %}
+    {{ content | safe }}
+    {% include
+    "components/footer.njk" %}
+  </body>
+</html>
