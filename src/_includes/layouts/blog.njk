@@ -23,5 +23,20 @@ layout: base
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="fill-orange-500" d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"></path></svg>
       <p class="text-base md:text-lg">Berlangganan Feed</p>
     </a>
+
+    <div id="disqus_thread" class="px-2 py-8 md:p-8 border-2 border-gray-300 mt-8 rounded-lg"></div>
   </footer>
 </div>
+
+<script>
+  var disqus_config = function () {
+    this.page.url = "https://watermarkktp.com{{ page.url }}";
+    this.page.identifier = "{{ title }}";
+  };
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://watermarkktp.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
