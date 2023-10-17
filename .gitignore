@@ -1,7 +1,15 @@
-_site
-node_modules
+# Generic
 package-lock.json
+node_modules/
+.env
+.log
+.cache
 yarn.lock
+**/.DS_Store
+
+# App-specific
+_site/
 src/_includes/css/app.css
+
 # Local Netlify folder
 .netlify

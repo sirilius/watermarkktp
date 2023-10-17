@@ -1,9 +1,9 @@
 ---
-layout: layouts/base.njk
+layout: base
 permalink: /
 ---
 
-<div class="mt-6 mb-28 flex flex-wrap justify-center items-start">
+<div class="mt-6 mb-8 flex flex-wrap justify-center items-start">
   <div
     class="mr-0 lg:mr-6 mb-6 p-4 w-full lg:w-80 rounded-xl border border-gray-200 shadow"
   >
@@ -21,7 +21,6 @@ permalink: /
         Pilih Gambar
       </label>
     </div>
-
     <div class="mb-4">
       <label
         for="input-watermark"
@@ -33,8 +32,8 @@ permalink: /
         <textarea
           id="input-watermark"
           rows="3"
-          class="shadow-sm outline outline-1 outline-gray-300 focus:outline-2 focus:outline-blue-500 mt-1 p-2 block w-full sm:text-sm text-gray-500 rounded-md"
-          placeholder="Verifikasi, 10-10-2021 "
+          class="shadow-sm outline outline-1 outline-gray-300 focus:outline-2 focus:outline-blue-500 mt-1 p-2 block w-full sm:text-sm rounded-md"
+          placeholder="Verifikasi, 10-10-2021"
         ></textarea>
         <label
           for="automatic-wm"
@@ -47,7 +46,7 @@ permalink: /
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4 absolute hidden peer-checked:block text-white"
-            viewBox="0 0 20 20"
+            viewbox="0 0 20 20"
             fill="currentColor"
           >
             <path
@@ -60,7 +59,6 @@ permalink: /
         </label>
       </div>
     </div>
-
     <div class="mb-4">
       <label for="select-font" class="block text-sm font-medium text-gray-700">
         Font
@@ -78,7 +76,6 @@ permalink: /
         </select>
       </div>
     </div>
-
     <div class="mb-4">
       <label
         for="select-position"
@@ -103,7 +100,6 @@ permalink: /
         </select>
       </div>
     </div>
-
     <div class="mb-4">
       <label
         for="select-font-size"
@@ -124,7 +120,6 @@ permalink: /
         </select>
       </div>
     </div>
-
     <div class="mb-4">
       <label for="colorPicker" class="block text-sm font-medium text-gray-700"
         >Warna</label
@@ -135,7 +130,6 @@ permalink: /
           id="colorPicker"
           class="shadow-sm outline outline-1 outline-gray-300 focus:outline-2 focus:outline-blue-500 mt-1 mr-2 block w-12 h-9 bg-white rounded-md"
         />
-
         <input
           id="text-colorPicker"
           value="#000000"
@@ -144,7 +138,6 @@ permalink: /
         />
       </div>
     </div>
-
     <div class="mb-4">
       <label for="rotate" class="block text-sm font-medium text-gray-700">
         Rotasi
@@ -170,7 +163,6 @@ permalink: /
         />
       </div>
     </div>
-
     <div class="mb-4">
       <label for="opacity" class="block text-sm font-medium text-gray-700">
         Transparansi
@@ -196,7 +188,6 @@ permalink: /
         />
       </div>
     </div>
-
     <div class="flex">
       <button
         id="reset"
@@ -205,37 +196,39 @@ permalink: /
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5 mr-1 group-hover:-rotate-180 duration-300"
-          viewBox="0 0 20 20"
+          viewbox="0 0 20 20"
           fill="currentColor"
         >
           <path
             fill-rule="evenodd"
-            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0
+              01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2
+              0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
             clip-rule="evenodd"
           />
         </svg>
         Reset
       </button>
-
-      <a class="contents" id="download" download="watermark.png"
-        ><button
+      <a class="contents" id="download" download="watermark.png">
+        <button
           class="p-2 w-1/2 flex items-center justify-center bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat rounded-lg group font-medium text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5 mr-1 group-hover:translate-y-[2px] duration-200"
-            viewBox="0 0 20 20"
+            viewbox="0 0 20 20"
             fill="currentColor"
           >
             <path
               fill-rule="evenodd"
-              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112
+                0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
               clip-rule="evenodd"
             />
           </svg>
           Download
-        </button></a
-      >
+        </button>
+      </a>
     </div>
   </div>
   <div
@@ -247,11 +240,12 @@ permalink: /
       <label
         class="w-full flex flex-col justify-center items-center border-4 border-dashed rounded-lg text-gray-400 font-medium text-xl cursor-pointer"
         for="inputFile"
-        ><svg
+      >
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-12 w-12 mb-2"
           fill="none"
-          viewBox="0 0 24 24"
+          viewbox="0 0 24 24"
           stroke="currentColor"
           stroke-width="2"
         >
@@ -261,10 +255,9 @@ permalink: /
             d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
           />
         </svg>
-        <span class="hidden sm:block">Tarik Gambarmu Ke Sini</span></label
-      >
+        <span class="hidden sm:block">Tarik Gambarmu Ke Sini</span>
+      </label>
     </div>
-
     <div
       id="output"
       class="flex border border-gray-200 shadow rounded-xl w-full aspect-[800/550] overflow-hidden lg:w-[800px] touch-none"
@@ -295,7 +288,7 @@ permalink: /
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              viewBox="0 0 24 24"
+              viewbox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
               id="rotateBtn-icon"
@@ -304,21 +297,23 @@ permalink: /
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25
+                  8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
               />
             </svg>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="absolute bottom-0 -mb-72 md:-mb-32">
+    <div class="absolute bottom-0 -mb-72 md:-mb-32 hidden md:block">
       {% include "components/ads.html" %}
     </div>
   </div>
 </div>
 
-<div id="as-seen-in" class="mb-16 flex items-center flex-col mt-80 md:mt-40">
+<div class="block md:hidden">{% include "components/ads-mobile.html" %}</div>
+
+<div id="as-seen-in" class="mb-16 flex items-center flex-col mt-16 md:mt-40">
   <h2 class="text-center text-2xl font-bold mb-8">As Seen In</h2>
   <div class="grid grid-cols-2 sm:grid-cols-4 items-center">
     <a
@@ -333,7 +328,6 @@ permalink: /
         class="w-36 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://www.kompas.com/tren/read/2021/11/19/181500765/remaja-14-tahun-ini-buat-aplikasi-watermark-ktp-"
       target="_blank"
@@ -346,7 +340,6 @@ permalink: /
         class="w-36 mt-2 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://www.youtube.com/watch?v=eliNihJWAG4"
       target="_blank"
@@ -359,7 +352,6 @@ permalink: /
         class="w-32 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://www.cnnindonesia.com/teknologi/20211014125330-185-707721/cara-agar-foto-ektp-tidak-disalahgunakan"
       target="_blank"
@@ -372,7 +364,6 @@ permalink: /
         class="w-36 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
       target="_blank"
@@ -385,7 +376,6 @@ permalink: /
         class="w-36 bg-black px-6 py-2 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://id.techinasia.com/kevin-ciptakan-aplikasi-watermark-ktp"
       target="_blank"
@@ -398,7 +388,6 @@ permalink: /
         class="w-36 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://www.brilio.net/sosok/sirilius-kevin-sosok-14-tahun-di-balik-pencetus-watermark-ktp-211119e.html"
       target="_blank"
@@ -411,7 +400,6 @@ permalink: /
         class="w-36 hover:opacity-80 duration-300"
       />
     </a>
-
     <a
       href="https://www.jawapos.com/features/26/11/2021/sirilius-kevin-belum-punya-ktp-tapi-turut-bantu-lindungi-ktp/"
       target="_blank"
@@ -426,16 +414,15 @@ permalink: /
     </a>
   </div>
 </div>
-
 <div
-  class="flex flex-col sm:flex-row justify-center items-center mb-28 space-x-0 sm:space-x-8 space-y-8 sm:space-y-0"
+  class="flex flex-col sm:flex-row justify-center items-center mb-16 space-x-0 sm:space-x-8 space-y-8 sm:space-y-0"
 >
-  <a class="flex items-center" href="/pers/"
-    ><svg
+  <a class="flex items-center" href="/pers/">
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       class="h-6 w-6 mr-1"
       fill="none"
-      viewBox="0 0 24 24"
+      viewbox="0 0 24 24"
       stroke="currentColor"
       stroke-width="2"
     >
@@ -447,188 +434,37 @@ permalink: /
     </svg>
     <span class="border-b-2 border-b-violet-500"
       >Podcast Tentang Watermark KTP</span
-    ></a
-  >
-
+    >
+  </a>
   <a
     class="flex items-center"
     href="https://twitter.com/SiriliusKevin"
     data-umami-event="asi-Twitter"
-    ><svg
+  >
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       class="mr-1"
-      viewBox="0 0 24 24"
+      viewbox="0 0 24 24"
       width="24"
       height="24"
     >
       <path fill="none" d="M0 0h24v24H0z" />
       <path
-        d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
+        d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598
+          3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942
+          7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175
+          2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054
+          3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
         fill="rgba(0,0,0,1)"
       />
     </svg>
     <span class="border-b-2 border-b-sky-400"
       >Ikuti @SiriliusKevin di Twitter</span
-    ></a
-  >
+    >
+  </a>
 </div>
 
-<div class="flex flex-col items-center mb-28">
-  <h2 class="text-2xl text-center font-bold mb-12">Tanggapan Orang-Orang</h2>
-  <div class="flex flex-col lg:flex-row lg:space-x-4 md:px-8">
-    <div
-      class="border border-gray-200 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 h-min"
-    >
-      <a
-        class="flex mb-4"
-        href="https://twitter.com/arsenalskitchen/status/1546643994716778496"
-        data-umami-event="testi-Twitter @arsenalskitchen"
-      >
-        <img
-          src="/img/testi-pp-arsenalskitchen.jpg"
-          alt="@arsenalskitchen profile photo"
-          class="rounded-full w-12 mr-2" />
-
-        <div class="flex justify-between w-full">
-          <div>
-            <p class="font-medium">arsenal's kitchen</p>
-            <p class="text-gray-500">@arsenalskitchen</p>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
-              fill="rgb(56 189 248)"
-            />
-          </svg></div
-      ></a>
-      <p>
-        Watermark KTP memang
-        <span class="bg-violet-600 text-white py-0.5 px-1"
-          >sangat berguna,</span
-        >
-        salah satunya untuk
-        <span class="bg-violet-600 text-white py-0.5 px-1">
-          memerangi pinjol laknat.</span
-        >
-      </p>
-    </div>
-
-    <div
-      class="border border-gray-200 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 mt-6 lg:mt-0 h-min"
-    >
-      <a
-        class="flex mb-4"
-        href="https://twitter.com/secgron/status/1447231684139573255"
-        data-umami-event="testi-Twitter @secgron"
-      >
-        <img 
-          src="/img/testi-pp-teguh.jpg" 
-          alt="@secgron profile photo" 
-          class="rounded-full w-12 mr-2" 
-        />
-
-        <div class="flex justify-between w-full">
-          <div>
-            <p class="font-medium">Teguh Aprianto</p>
-            <p class="text-gray-500">@secgron</p>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
-              fill="rgb(56 189 248)"
-            />
-          </svg></div
-      ></a>
-
-      <p>
-        Buat yg nanya aman atau engga,
-        <span class="bg-violet-600 text-white py-0.5 px-1">
-          semua proses dilakukan dari sisi client.</span
-        >
-        Artinya tidak ada perpindahan file yg kamu upload ke sisi server.
-        Semuanya tetap berada di perangkat yg kamu gunakan.
-      </p>
-    </div>
-
-    <div
-      class="border border-gray-200 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 mt-6 lg:mt-0 h-min"
-    >
-      <a
-        class="flex mb-4"
-        href="https://twitter.com/fransallen/status/1546407297681063936"
-        data-umami-event="testi-Twitter @fransallen"
-      >
-        <img 
-          src="/img/testi-pp-frans.jpg"
-          alt="@fransallen profile photo"
-          class="rounded-full w-12 mr-2" 
-        />
-
-        <div class="flex justify-between w-full">
-          <div>
-            <p class="font-medium">Frans Allen</p>
-            <p class="text-gray-500">@fransallen</p>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-          >
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path
-              d="M15.3 5.55a2.9 2.9 0 0 0-2.9 2.847l-.028 1.575a.6.6 0 0 1-.68.583l-1.561-.212c-2.054-.28-4.022-1.226-5.91-2.799-.598 3.31.57 5.603 3.383 7.372l1.747 1.098a.6.6 0 0 1 .034.993L7.793 18.17c.947.059 1.846.017 2.592-.131 4.718-.942 7.855-4.492 7.855-10.348 0-.478-1.012-2.141-2.94-2.141zm-4.9 2.81a4.9 4.9 0 0 1 8.385-3.355c.711-.005 1.316.175 2.669-.645-.335 1.64-.5 2.352-1.214 3.331 0 7.642-4.697 11.358-9.463 12.309-3.268.652-8.02-.419-9.382-1.841.694-.054 3.514-.357 5.144-1.55C5.16 15.7-.329 12.47 3.278 3.786c1.693 1.977 3.41 3.323 5.15 4.037 1.158.475 1.442.465 1.973.538z"
-              fill="rgb(56 189 248)"
-            />
-          </svg></div
-      ></a>
-
-      <p>
-        Watermark KTP adalah solusi berbasis web yang
-        <span class="bg-violet-600 text-white py-0.5 px-1"
-          >aman dan praktis</span
-        >
-        untuk memberi penandaan pada hasil scan KTP.
-      </p>
-    </div>
-  </div>
-
-  <div class="px-0 max-w-3xl">
-    <div class="mt-12 flex flex-col items-center px-0 lg:px-4 py-4 h-min">
-      <p class="text-2xl text-center mb-4">
-        "Watermark KTP bikinan Kevin benar-benar membantu. Setidaknya untuk kita
-        bisa
-        <span class="text-black py-1 px-1 bg-[#bce954]"
-          >mencegah penyalahgunaan data di KTP.</span
-        >"
-      </p>
-      <div class="text-xl">
-        <a
-          href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
-          class="text-gray-600 hover:text-gray-900"
-          data-umami-event="testi-Mojok"
-        >
-          <img
-            src="/img/logo-mojok.png"
-            alt="Logo Mojok.co"
-            class="w-36 bg-black px-6 py-2 hover:opacity-80 duration-300"
-        /></a>
-      </div>
-    </div>
-  </div>
-</div>
+{% include "components/testimonials.html" %}
 
 <div class="flex flex-col items-center max-w-4xl m-auto">
   <h2 class="text-2xl text-center font-bold mb-12">
@@ -640,11 +476,11 @@ permalink: /
         class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
       >
         <span class="font-medium text-left">Apa itu Watermark KTP?</span>
-        <span
-          ><svg
+        <span>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewbox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
             class="w-6 h-6"
@@ -657,7 +493,6 @@ permalink: /
           </svg>
         </span>
       </button>
-
       <div class="mt-2 panel hidden">
         <p class="text-gray-600">
           Watermark KTP adalah sebuah alat sederhana untuk menambahkan watermark
@@ -667,17 +502,16 @@ permalink: /
         </p>
       </div>
     </div>
-
     <div>
       <button
         class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
       >
         <span class="font-medium text-left">Apa itu watermark?</span>
-        <span
-          ><svg
+        <span>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewbox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
             class="w-6 h-6"
@@ -690,7 +524,6 @@ permalink: /
           </svg>
         </span>
       </button>
-
       <div class="mt-2 panel hidden">
         <p class="text-gray-600">
           Watermark adalah gambar atau teks yang biasanya ditempatkan pada foto
@@ -702,7 +535,6 @@ permalink: /
         </p>
       </div>
     </div>
-
     <div>
       <button
         class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
@@ -710,11 +542,11 @@ permalink: /
         <span class="font-medium text-left"
           >Apakah Watermark KTP diperlukan?</span
         >
-        <span
-          ><svg
+        <span>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewbox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
             class="w-6 h-6"
@@ -727,7 +559,6 @@ permalink: /
           </svg>
         </span>
       </button>
-
       <div class="mt-2 panel hidden">
         <p class="text-gray-600">
           Watermark KTP diperlukan karena merupakan langkah penting dalam
@@ -739,17 +570,16 @@ permalink: /
         </p>
       </div>
     </div>
-
     <div>
       <button
         class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
       >
         <span class="font-medium text-left">Apakah Watermark KTP aman?</span>
-        <span
-          ><svg
+        <span>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewbox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
             class="w-6 h-6"
@@ -762,7 +592,6 @@ permalink: /
           </svg>
         </span>
       </button>
-
       <div class="mt-2 panel hidden">
         <p class="text-gray-600">
           Semua proses yang dilakukan di alat Watermark KTP 100% dilakukan di
@@ -774,7 +603,6 @@ permalink: /
         </p>
       </div>
     </div>
-
     <div>
       <button
         class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
@@ -782,11 +610,11 @@ permalink: /
         <span class="font-medium text-left"
           >Bagaimana cara memakai Watermark KTP?</span
         >
-        <span
-          ><svg
+        <span>
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewbox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
             class="w-6 h-6"
@@ -799,7 +627,6 @@ permalink: /
           </svg>
         </span>
       </button>
-
       <div class="mt-2 panel hidden">
         <p class="text-gray-600 text-left">
           Anda dapat membaca panduan penggunaan Watermark KTP di halaman
@@ -809,9 +636,7 @@ permalink: /
     </div>
   </div>
 </div>
-
 <img id="bg" src="/img/bg-white.png" class="hidden" />
-
 <div
   class="fixed justify-center items-center top-0 bottom-0 right-0 left-0 bg-gray-700/60 hidden z-50 w-full h-full text-5xl text-white font-bold"
   id="drop-overlay"

@@ -15,6 +15,11 @@ a {
   border-radius: 0.375rem;
 }
 
+.adv::before {
+  content: "Advertisement";
+  @apply flex absolute z-10 text-sm text-gray-500 items-center justify-center w-full h-full;
+}
+
 .adsbygoogle[data-ad-status="filled"] {
   z-index: 20;
 }
