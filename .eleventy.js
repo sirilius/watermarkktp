@@ -99,12 +99,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_headers");
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/img");
-  eleventyConfig.addPassthroughCopy("static");
   eleventyConfig.addPassthroughCopy({
-    "static/ads.txt": "./ads.txt",
+    "src/ads.txt": "./ads.txt",
   });
   eleventyConfig.addPassthroughCopy({
-    "static/robots.txt": "./robots.txt",
+    "src/robots.txt": "./robots.txt",
   });
   eleventyConfig.addPassthroughCopy({
     "src/_includes/css/app.css": "./css/app.css",
