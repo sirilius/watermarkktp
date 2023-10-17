@@ -112,7 +112,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("image", shortcodes.image);
 
-  eleventyConfig.addLayoutAlias("base", "layouts/base.html");
+  eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
 
   return {
     dir: {
