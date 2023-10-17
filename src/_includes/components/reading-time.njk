@@ -1,0 +1,10 @@
+{% set regExpCode = r/<pre class=(.|\n)*?<\/pre>/gm %}
+{% set fixedContent = content | replace(regExpCode, "") | striptags %}
+{% set wordCount = fixedContent | wordcount %}
+{% set readingRate = 225 %}
+{% set readingTime = (wordCount/readingRate) | round %}
+{% if readingTime < 1 %}
+  {% set readingTime = 1 %}
+{% endif %}
+
+Waktu baca: {{ readingTime }} minute{% if readingTime > 1 %}s{% endif %} &bull; {{ wordCount | numCommas }} kata

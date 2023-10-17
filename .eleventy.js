@@ -5,6 +5,8 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const eleventyWebcPlugin = require("@11ty/eleventy-plugin-webc");
 const eleventyImage = require("@11ty/eleventy-img");
 const { eleventyImagePlugin } = eleventyImage;
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { DateTime } = require("luxon");
 
 const shortcodes = {
   image: async function (filepath, alt, widths, classes, sizes) {
@@ -48,14 +50,6 @@ module.exports = function (eleventyConfig) {
     return new CleanCSS({}).minify(code).styles;
   });
 
-  // Cache buster
-  eleventyConfig.addFilter("bust", (url) => {
-    const [urlPart, paramPart] = url.split("?");
-    const params = new URLSearchParams(paramPart || "");
-    params.set("v", new Date().getTime());
-    return `${urlPart}?${params}`;
-  });
-
   // JS minification
   eleventyConfig.addNunjucksAsyncFilter(
     "jsmin",
@@ -70,6 +64,30 @@ module.exports = function (eleventyConfig) {
       }
     },
   );
+
+  // Cache buster
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", new Date().getTime());
+    return `${urlPart}?${params}`;
+  });
+
+  eleventyConfig.addFilter("postDate", (dateObj, format = "dd LLLL yyyy") => {
+    if (typeof dateObj === "string") {
+      return DateTime.fromISO(dateObj).setLocale("id").toFormat(format);
+    } else if (typeof dateObj === "number") {
+      dateObj = new Date(dateObj);
+    }
+    return DateTime.fromJSDate(dateObj).setLocale("id").toFormat(format);
+  });
+
+  eleventyConfig.addFilter("numCommas", function (value) {
+    return value.toLocaleString();
+  });
+
+  // RSS
+  eleventyConfig.addPlugin(pluginRss);
 
   // Navigation
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
@@ -112,6 +130,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("image", shortcodes.image);
 
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
+  eleventyConfig.addLayoutAlias("blog", "layouts/blog.njk");
+
+  // Create a custom collection for blog posts
+  eleventyConfig.addCollection("blogPosts", function (collection) {
+    return collection.getFilteredByGlob("./src/blog/**/*.md");
+  });
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_alias: "excerpt",
+    excerpt_separator: "<!-- excerpt -->",
+  });
 
   return {
     dir: {
