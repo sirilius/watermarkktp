@@ -3,7 +3,7 @@ layout: base
 permalink: /
 ---
 
-<div class="mt-6 mb-28 flex flex-wrap justify-center items-start">
+<div class="mt-6 mb-8 flex flex-wrap justify-center items-start">
   <div
     class="mr-0 lg:mr-6 mb-6 p-4 w-full lg:w-80 rounded-xl border border-gray-200 shadow"
   >
@@ -305,12 +305,15 @@ permalink: /
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 -mb-72 md:-mb-32">
+    <div class="absolute bottom-0 -mb-72 md:-mb-32 hidden md:block">
       {% include "components/ads.html" %}
     </div>
   </div>
 </div>
-<div id="as-seen-in" class="mb-16 flex items-center flex-col mt-80 md:mt-40">
+
+<div class="block md:hidden">{% include "components/ads-mobile.html" %}</div>
+
+<div id="as-seen-in" class="mb-16 flex items-center flex-col mt-16 md:mt-40">
   <h2 class="text-center text-2xl font-bold mb-8">As Seen In</h2>
   <div class="grid grid-cols-2 sm:grid-cols-4 items-center">
     <a
@@ -412,7 +415,7 @@ permalink: /
   </div>
 </div>
 <div
-  class="flex flex-col sm:flex-row justify-center items-center mb-28 space-x-0 sm:space-x-8 space-y-8 sm:space-y-0"
+  class="flex flex-col sm:flex-row justify-center items-center mb-16 space-x-0 sm:space-x-8 space-y-8 sm:space-y-0"
 >
   <a class="flex items-center" href="/pers/">
     <svg
