@@ -6,7 +6,7 @@ node_modules/
 .cache
 yarn.lock
 **/.DS_Store
-bun.lockdb
+bun.lockb
 
 # App-specific
 _site/
