@@ -1,1 +1,91 @@
 google.com, pub-7675288227309864, DIRECT, f08c47fec0942fa0
+
+disqus.com, 2551153, DIRECT
+amxrtb.com, 105199574, DIRECT
+appnexus.com, 12290, RESELLER
+indexexchange.com, 191503, RESELLER, 50b1c356f2c5c8fc
+pubmatic.com, 158355, RESELLER, 5d62403b186f2ace
+yahoo.com, 49648, RESELLER
+triplelift.com, 12507, RESELLER, 6c33edb13117fd86
+lijit.com, 260380, RESELLER, fafdf38b16bf6b2b
+sovrn.com, 260380, RESELLER, fafdf38b16bf6b2b
+admanmedia.com, 1069, DIRECT
+smartadserver.com, 3713, RESELLER
+pubmatic.com, 158481, RESELLER, 5d62403b186f2ace
+yahoo.com, 59674, RESELLER, e1a5b5b6e3255540
+rubiconproject.com, 14558, RESELLER, 0bfd66d529a55807
+aps.amazon.com,31d3a4c9-a8a6-4ae0-a5ae-d3b0de43284c,DIRECT
+pubmatic.com,157150,RESELLER,5d62403b186f2ace
+pubmatic.com,160006,RESELLER,5d62403b186f2ace
+pubmatic.com,160096,RESELLER,5d62403b186f2ace
+sharethrough.com,7144eb80,RESELLER,d53b998a7bd4ecd2
+districtm.io,100962,RESELLER,3fd707be9c4527c3
+smartadserver.com,4125,RESELLER,060d053dcf45cbf3
+rubiconproject.com,18020,RESELLER,0bfd66d529a55807
+sovrn.com,375328,RESELLER,fafdf38b16bf6b2b
+lijit.com,375328,RESELLER,fafdf38b16bf6b2b
+smaato.com,1100044650,RESELLER,07bcf65f187117b4
+indexexchange.com,192410,RESELLER,50b1c356f2c5c8fc
+themediagrid.com,JTQKMP,RESELLER,35d5010d7789b49d
+risecodes.com,63832beef8189a00015cb6d3,RESELLER
+aniview.com, 616704c962b31624e671e171, RESELLER, 78b21b97965ec3f8
+advertising.com, 23089, RESELLER
+appnexus.com, 12637, RESELLER, f5ab79cb980f11d1
+google.com, pub-3565385483761681, DIRECT, f08c47fec0942fa0
+pubmatic.com, 161335, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 13918, RESELLER, 0bfd66d529a55807
+criteo.com, B-060574, DIRECT, 9fac4a4a87c2a44f
+themediagrid.com, T49HZW, DIRECT, 35d5010d7789b49d
+explorads.com, 191296, DIRECT
+nativiser.com, 3fe94a002317b5f9259f82690aeea4cd32095, RESELLER
+similarrate.com, 7f6ffaa6bb0b408017b62254211691b532093, RESELLER
+google.com, pub-6650322601660058, RESELLER, f08c47fec0942fa0
+madopi.media,159857, DIRECT 
+rubiconproject.com, 24228, RESELLER, 0bfd66d529a55807
+xandr.com,13117, RESELLER
+google.com, pub-9231669983002423, RESELLER, f08c47fec0942fa0
+google.com, pub-1782014328826919, RESELLER, f08c47fec0942fa0
+rubiconproject.com, 13380, RESELLER, 0bfd66d529a55807
+mediafuse.com, 604, DIRECT
+appnexus.com, 9538, RESELLER
+yahoo.com, 57872, RESELLER
+rubiconproject.com, 24434, RESELLER, 0bfd66d529a55807
+video.unrulymedia.com, 2997140015, RESELLER
+media.net, 8CUO2I9ST, RESELLER
+minutemedia.com,01gcrv9grwe9, RESELLER
+pubmatic.com, 161683, RESELLER, 5d62403b186f2ace
+appnexus.com, 8381, RESELLER
+triplelift.com, 6030, RESELLER, 6c33edb13117fd86
+33across.com, 0013300001jlr99AAA, RESELLER, bbea06d9c4d2853c
+openx.com, 540780517, RESELLER, 6a698e2ec38604c6
+yahoo.com, 59407, RESELLER, e1a5b5b6e3255540
+indexexchange.com, 196326, RESELLER
+onetag.com, 5cd7fb62fac7ec9, DIRECT
+openx.com, 537133236, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 158685, RESELLER, 5d62403b186f2ace
+contextweb.com,562894,RESELLER,89ff185a4c4e857c
+sharethrough.com, vqSnJqKh, DIRECT, d53b998a7bd4ecd2
+pubmatic.com, 156557, RESELLER
+rubiconproject.com, 18694, RESELLER, 0bfd66d529a55807
+openx.com, 540274407, RESELLER, 6a698e2ec38604c6
+yahoo.com, 59531, RESELLER, e1a5b5b6e3255540
+smartadserver.com, 4342, RESELLER
+smartadserver.com, 4012, RESELLER
+sonobi.com, 296bf9795d, DIRECT, d1a215d9eb5aee9e
+sonobi.com, 05fbc758ee, DIRECT, d1a215d9eb5aee9e
+contextweb.com, 560606, RESELLER, 89ff185a4c4e857c
+lijit.com, 279534, DIRECT, fafdf38b16bf6b2b
+lijit.com, 279534-eb, DIRECT, fafdf38b16bf6b2b
+taboola.com,1467972,DIRECT,c228e6794e811952
+appnexus.com, 2797, DIRECT
+yahoo.com, 56704, RESELLER
+taboola.com,1003147,DIRECT,c228e6794e811952
+smaato.com, 1100047487, RESELLER, 07bcf65f187117b4
+sonobi.com, 9a1db44c9c, RESELLER, d1a215d9eb5aee9e
+spotx.tv,71451,RESELLER
+spotxchange.com, 71451, RESELLER
+synacor.com, 82376, RESELLER, e108f11b2cdf7d5b
+yahoo.com, 59189, RESELLER
+aniview.com, 621cca388ba47d78a102e506, RESELLER, 78b21b97965ec3f8
+beachfront.com, 13749, RESELLER, e2541279e8e2ca4d
+emxdgt.com, 1643, RESELLER, 1e1d41537f7cad7f
