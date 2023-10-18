@@ -26,7 +26,7 @@ Untuk menambahkan watermark pada scan KTP, Anda akan memerlukan alat sederhana. 
 [Watermark KTP](https://watermarkktp.com/) adalah alat berbasis web yang memudahkan Anda menambahkan watermark ke scan KTP Anda. Dengan antarmuka yang ramah pengguna, alat ini memungkinkan Anda untuk menambahkan teks watermark yang mencantumkan tanggal dan tujuan pemindaian KTP, seperti "Verifikasi e-wallet, [tanggal pemindaian]". Langkah-langkahnya sangat sederhana, yaitu:
 
 1. Kunjungi [Watermark KTP](https://watermarkktp.com/).
-2. Unggah scan KTP Anda. Jangan khawatir, semua pemrosesan gambar dilakukan di dalam peramban Anda (pelajari selengkapnya di halaman [Privasi](/privasi/) kami.
+2. Unggah scan KTP Anda. Jangan khawatir, semua pemrosesan gambar dilakukan di dalam peramban Anda (pelajari selengkapnya di halaman [Privasi](/privasi/) kami).
 3. Tambahkan teks watermark sesuai keperluan.
 4. Atur transparansi dan ukuran teks sesuai preferensi Anda.
 5. Unduh hasilnya dan simpan dengan aman.
