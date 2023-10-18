@@ -8,19 +8,23 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {%- set subtitle %}{{ title }}{% endset %} {%- set subtitleText %}{{ title
+    {%- set subtitle %}{{ title }}{% endset %}
+    {%- set subtitleText %}{{ title
     }}{% if subtitle and subtitle != "Watermark KTP - Solusi Aman, Praktis, dan
     Gratis untuk Watermark KTP" %} - Watermark KTP{% endif %}{% endset %}
 
     <title>{{ subtitleText }}</title>
 
-    <meta name="description" content="{{ subtitleText }}" />
+    {%- set subdescription %}{{ description }}{% endset %}
+    {%- set subdescriptionText %}{{ description }}{% if not subdescription or subdescription == "" %}{{ subtitleText }}{% endif %}{% endset %}
+
+    <meta name="description" content="{{ subdescriptionText }}" />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Watermark KTP" />
     <meta property="og:site_name" content="Watermark KTP" />
-    <meta property="og:description" content="{{ subtitleText }}" />
+    <meta property="og:description" content="{{ subdescriptionText }}" />
     <meta property="og:locale" content="id" />
     <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
     <meta property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
@@ -29,7 +33,7 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Watermark KTP" />
-    <meta name="twitter:description" content="{{ subtitleText }}" />
+    <meta name="twitter:description" content="{{ subdescriptionText }}" />
     <meta name="twitter:site" content="@WatermarkKTP" />
     <meta name="twitter:creator" content="@SiriliusKevin" />
     <meta name="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
