@@ -1,7 +1,13 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,njk,js}"],
   theme: {
+    fontFamily: {
+      sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
+      serif: [...defaultTheme.fontFamily.serif],
+    },
     extend: {
       height: {
         518: "518px",
@@ -20,5 +26,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
