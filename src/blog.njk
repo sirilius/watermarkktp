@@ -1,0 +1,44 @@
+---
+layout: base
+title: Blog
+description: Temukan artikel menarik seputar keamanan data pribadi. Lindungi data KTP dengan Watermark KTP.
+eleventyNavigation:
+  key: Blog
+  order: 3
+---
+
+{% include "components/ads.html" %}
+{% include "components/ads-mobile.html" %}
+
+<div class="text-center space-y-4 pt-16">
+  <h1 class="text-5xl text-center font-semibold">Blog</h1>
+  <h2 class="text-gray-700">Beragam artikel informatif dan menarik seputar keamanan data pribadi dan layanan Watermark KTP.</h2>
+</div>
+
+<div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-16">
+  {% for post in collections.blogPosts | reverse %}
+    <a href="{{ post.url }}" class="max-w-sm mx-auto group hover:shadow-lg bg-gray-100 rounded-lg border border-gray-300">
+      {% image "./src/img/" + post.data.image, "Ilustrasi untuk " + post.data.title, [400, 200], "object-cover w-full rounded-t-lg h-44" %}
+
+      <div class="p-6 space-y-2 text-sm">
+        <h3 class="text-2xl tracking-tight font-bold">{{ post.data.title }}</h3>
+        <div class="flex space-x-3">
+          <div class="flex items-center space-x-1 text-gray-700">
+            <i class="inline w-4 h-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                <path
+                  class="fill-gray-700"
+                  d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772
+                    2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z"></path>
+              </svg>
+            </i>
+            <time datetime="{{ post.data.date }}" itemProp="datePublished">{{ post.data.date | postDate }}</time>
+          </div>
+        </div>
+        <p class="text-base text-gray-700">
+          {{ post.data.excerpt }}
+        </p>
+      </div>
+    </a>
+  {% endfor %}
+</div>
