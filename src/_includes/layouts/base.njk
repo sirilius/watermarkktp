@@ -16,25 +16,24 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
 
     <meta name="description" content="{{ subtitleText }}" />
 
-    <!-- meta open graph -->
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Watermark KTP" />
-    <meta property="og:locale" content="id" />
-    <meta property="og:description" content="{{ subtitleText }}" />
-    <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
     <meta property="og:site_name" content="Watermark KTP" />
-    <meta
-      property="og:image"
-      content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"
-    />
+    <meta property="og:description" content="{{ subtitleText }}" />
+    <meta property="og:locale" content="id" />
+    <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
+    <meta property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta name="author" content="Sirilius Kevin" />
 
-    <!-- meta twitter graph -->
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:image"
-      content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}"
-    />
-    <meta property="twitter:title" content="Watermark KTP" />
+    <meta name="twitter:title" content="Watermark KTP" />
+    <meta name="twitter:description" content="{{ subtitleText }}" />
+    <meta name="twitter:site" content="@WatermarkKTP" />
     <meta name="twitter:creator" content="@SiriliusKevin" />
+    <meta name="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta property="twitter:url" content="https://watermarkktp.com{{ page.url }}" />
 
     <link rel="canonical" href="https://watermarkktp.com{{ page.url }}" />
     <link rel="icon" href="/img/logo-watermarkktp.svg" />
@@ -44,13 +43,14 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     />
     <link rel="stylesheet" href="{{ '/css/app.css' | url | bust }}" />
 
-    <!-- meta structured data -->
+    <!-- JSON-LD for Schema.org -->
     <script type="application/ld+json">
       {
+        "@context": "https://schema.org"
+        "@type": "WebSite",
         "headline": "Watermark KTP",
         "description": "Solusi Aman, Praktis, dan Gratis untuk Watermark KTP",
         "url": "https://watermarkktp.com/",
-        "@type": "WebSite",
         "image": {
           "height": 900,
           "width": 1600,
@@ -58,7 +58,6 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
           "@type": "imageObject"
         },
         "name": "Watermark KTP",
-        "@context": "https://schema.org"
       }
     </script>
 
