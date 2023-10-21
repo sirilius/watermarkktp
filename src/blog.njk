@@ -18,7 +18,12 @@ eleventyNavigation:
 <div class="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pt-16">
   {% for post in collections.blogPosts | reverse %}
     <a href="{{ post.url }}" class="max-w-sm mx-auto group hover:shadow-lg bg-gray-100 rounded-lg border border-gray-300">
-      {% image "./src/img/" + post.data.image, "Ilustrasi untuk " + post.data.title, [400, 400], "object-cover w-full rounded-t-lg h-64" %}
+      {% if post.data.image.url %}
+        {%- set imageAlt %}{{ post.data.image.caption }}{% endset %}
+        {%- set imageAltText %}{{ post.data.image.caption }}{% if not imageAlt or imageAlt == "" %}{{ "Ilustrasi untuk " + post.data.title }}{% endif %}{% endset %}
+
+        {% image "./src/img/" + post.data.image.url, imageAltText, [400, 400], "object-cover w-full rounded-t-lg h-64" %}
+      {% endif %}
 
       <div class="p-6 space-y-2 text-sm">
         <h3 class="text-2xl tracking-tight font-bold">{{ post.data.title }}</h3>

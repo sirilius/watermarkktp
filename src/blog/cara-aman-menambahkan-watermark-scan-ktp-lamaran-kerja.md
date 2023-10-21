@@ -4,7 +4,10 @@ title: Cara Aman Menambahkan Watermark pada Scan KTP untuk Lamaran Kerja
 description: Belajar menambahkan watermark pada scan KTP untuk lamaran kerja, menjaga profesionalisme dan keamanan data pribadi Anda. Panduan lengkap!
 descriptionShort: Ingin menambahkan watermark pada scan KTP untuk lamaran pekerjaan? Berikut caranya.
 date: 2023-10-20
-image: ilustrasi-pekerja-memegang-ktp.jpg
+image:
+  url: ilustrasi-pekerja-memegang-ktp.jpg
+  caption: Gambar gaya anime pekerja Indonesia memegang kartu identitas mereka.
+  by: Bing Image Creator
 ---
 
 Ketika Anda sedang mencari pekerjaan dan harus mengirimkan dokumen-dokumen penting, seperti scan Kartu Tanda Penduduk (KTP), satu hal yang perlu Anda pertimbangkan adalah keamanan.
