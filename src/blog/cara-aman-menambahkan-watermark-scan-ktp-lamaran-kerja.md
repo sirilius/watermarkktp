@@ -24,7 +24,7 @@ Langkah pertama adalah memastikan Anda memiliki scan KTP dengan kualitas tinggi.
 
 Anda akan memerlukan software edit foto untuk menambahkan watermark pada scan KTP. Sejumlah pilihan populer seperti Adobe Photoshop dan GIMP bisa sangat efektif, tetapi jika Anda mencari opsi yang lebih sederhana dan mudah digunakan, kami merekomendasikan [Watermark KTP](https://watermarkktp.com).
 
-Watermark KTP adalah alat berbasis web yang dirancang khusus untuk menambahkan watermark pada scan KTP dan dokumen serupa. Dengan antarmuka yang intuitif, Anda dapat dengan cepat menambahkan teks watermark, mengatur opacity, dan menyimpan dokumen dalam format PNG tanpa usaha yang repot.
+Watermark KTP adalah alat berbasis web yang dirancang khusus untuk menambahkan watermark pada scan KTP dan dokumen serupa. Dengan antarmuka yang intuitif, Anda dapat dengan cepat menambahkan teks watermark, mengatur opacity, dan menyimpan dokumen tanpa usaha yang repot.
 
 [Watermark KTP](https://watermarkktp.com/) memungkinkan Anda untuk mencapai hasil profesional dengan mudah, menjadikannya pilihan yang sangat berguna terutama jika Anda tidak memiliki pengalaman dalam software edit foto yang rumit dan memiliki terlalu banyak fitur. Cobalah alat ini untuk menciptakan lamaran kerja yang aman dan menarik!
 
