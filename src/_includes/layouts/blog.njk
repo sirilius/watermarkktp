@@ -18,7 +18,7 @@ layout: base
     </div>
   </header>
 
-  <article class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto">
+  <article class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-h3:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto">
     {% if image.url %}
     <div class="featured-image">
       {%- set imageAlt %}{{ image.caption }}{% endset %}
@@ -43,10 +43,35 @@ layout: base
 
   {% include "components/tiktok-promo-video.html" %}
 
-  <footer class="pt-8 max-w-2xl mx-auto">
-    <a href="/blog/feed.xml" class="inline-flex items-center space-x-2">
+  <footer class="pt-4 max-w-2xl mx-auto">
+    <div>
+      <h3 class="font-bold text-xl md:text-2xl">Pos Menarik Lainnya:</h3>
+
+      {% set previousPost = collections.blogPosts | getPreviousCollectionItem %}
+      {% set nextPost = collections.blogPosts | getNextCollectionItem %}
+
+      <ul class="mt-4 space-y-4 text-sm md:text-base list-disc ml-4">
+        {% if previousPost %}
+          <li>
+            <a class="border-b border-black" rel="prev" href="{{ previousPost.url }}">
+              Sebelumnya: {{ previousPost.data.title }}
+            </a>
+          </li>
+        {% endif %}
+
+        {% if nextPost %}
+          <li>
+            <a class="border-b border-black" rel="next" href="{{ nextPost.url }}">
+              Selanjutnya: {{ nextPost.data.title }}
+            </a>
+          </li>
+        {% endif %}
+        </ul>
+    </div>
+
+    <a href="/blog/feed.xml" class="inline-flex items-center space-x-2 mt-8">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="fill-orange-500" d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"></path></svg>
-      <p class="text-base md:text-lg">Berlangganan Feed</p>
+      <p class="text-sm md:text-base">Berlangganan Feed</p>
     </a>
 
     <div class="text-xs">
