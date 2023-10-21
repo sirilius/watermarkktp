@@ -28,6 +28,17 @@ a {
   z-index: 20;
 }
 
+.featured-image figcaption {
+  @apply text-xs;
+}
+
+.featured-image figcaption::before {
+  @apply bg-red-600 rounded-full inline-block h-2 w-2 relative align-middle;
+  content: "";
+  top: -1px;
+  margin-right: 6px;
+}
+
 @media (min-width: 1208px) {
   #as-seen-in {
     margin-top: 0;

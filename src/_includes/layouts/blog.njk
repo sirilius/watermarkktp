@@ -19,7 +19,24 @@ layout: base
   </header>
 
   <article class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto">
-    {% image "./src/img/" + image, "Ilustrasi untuk " + title, [720, 720], "w-full h-4/6 rounded-lg" %}
+    {% if image.url %}
+    <div class="featured-image">
+      {%- set imageAlt %}{{ image.caption }}{% endset %}
+      {%- set imageAltText %}{{ image.caption }}{% if not imageAlt or imageAlt == "" %}{{ "Ilustrasi untuk " + title }}{% endif %}{% endset %}
+
+      {% image "./src/img/" + image.url, imageAltText, [720, 720], "w-full h-4/6 rounded-lg" %}
+
+      {% if image.caption %}
+      <figcaption class="font-sans">
+        {{ image.caption }}
+
+        {% if image.by %}
+        | Gambar oleh {{ image.by }}
+        {% endif %}
+      </figcaption>
+      {% endif %}
+    </div>
+    {% endif %}
 
     {{ content | safe }}
   </article>

@@ -4,7 +4,10 @@ title: Cara Mengamankan Scan KTP dengan Watermark KTP
 description: Temukan cara aman dan praktis untuk melindungi scan KTP Anda dengan menggunakan layanan Watermark KTP. Lindungi informasi pribadi Anda dengan mudah.
 descriptionShort: Ingin mengamankan data pribadi Anda dengan mudah dan aman? Berikut caranya.
 date: 2023-10-17
-image: ilustrasi-ktp-indonesia.jpg
+image:
+  url: ilustrasi-ktp-indonesia.jpg
+  caption: Gambar gaya anime memperlihatkan tangan memegang kartu dengan bendera Indonesia.
+  by: Bing Image Creator
 ---
 
 Kartu Tanda Penduduk (KTP) adalah salah satu dokumen identitas paling penting dalam kehidupan kita. Namun, dengan semakin canggihnya teknologi dan perkembangan internet, risiko penyalahgunaan informasi pribadi semakin meningkat.
