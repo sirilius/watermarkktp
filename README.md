@@ -1,5 +1,5 @@
 <h1 align="center">Watermark KTP</h1>
-<p align="center">A simple tool to add watermark to scanned ID cards (KTP).</p>
+<p align="center">Watermark KTP is a free and secure web-based tool that allows you to add a watermark to your scanned KTP (Indonesian ID card). The watermark added is in the form of text that contains the date and purpose of the KTP scan. For example, "E-wallet verification, 10-10-2021". This tool is useful in preventing data misuse and fraud.</p>
 
 <div align="center">
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/sirilius/watermarkktp">
