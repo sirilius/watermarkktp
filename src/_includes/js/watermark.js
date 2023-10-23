@@ -98,7 +98,6 @@ inputFile.addEventListener("change", function (e) {
   inputFile.nextElementSibling.innerHTML = `<span id="file-name">${fileName}</span>`;
 
   dropBox.classList.add("hidden");
-  canvasWrapper.classList.remove("relative");
 
   editable = true;
 
@@ -369,11 +368,10 @@ function dropHandler(ev) {
         const file = item.getAsFile();
 
         if (file.type.includes("image/")) {
-          fileName = file.name
+          fileName = file.name;
           inputFile.nextElementSibling.innerHTML = `<span id="file-name">${fileName}</span>`;
           reader.readAsDataURL(file);
           dropBox.classList.add("hidden");
-          canvasWrapper.classList.remove("relative");
         } else {
           alert("Format gambar yang Anda masukan salah");
         }
