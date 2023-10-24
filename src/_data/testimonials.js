@@ -18,7 +18,7 @@ const testimonials = [
     twitter: "@fransallen",
     url: "https://twitter.com/fransallen/status/1546407297681063936",
     content:
-      'Watermark KTP adalah solusi berbasis web yang<span class="bg-violet-600 text-white py-0.5 px-1">aman dan praktis</span> untuk memberi penandaan pada hasil scan KTP.',
+      'Watermark KTP adalah solusi berbasis web yang <span class="bg-violet-600 text-white py-0.5 px-1">aman dan praktis</span> untuk memberi penandaan pada hasil scan KTP.',
   },
 ];
 

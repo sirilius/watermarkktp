@@ -7,7 +7,7 @@ layout: base
 
 <div class="single">
   <header class="text-center max-w-7xl mx-auto pt-16 space-y-8">
-    <h1 class="tracking-tight font-bold text-3xl md:text-5xl">{{ title }}</h1>
+    <h1 class="tracking-tight md:leading-tight font-bold text-3xl md:text-5xl">{{ title }}</h1>
     {% if descriptionShort %}
     <h2 class="tracking-tight text-xl md:text-2xl ">{{ descriptionShort }}</h2>
     {% endif %}
@@ -31,7 +31,7 @@ layout: base
         {{ image.caption }}
 
         {% if image.by %}
-        | Gambar oleh {{ image.by }}
+        | Gambar dibuat dengan {{ image.by }}
         {% endif %}
       </figcaption>
       {% endif %}
