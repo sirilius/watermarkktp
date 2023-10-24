@@ -1,0 +1,37 @@
+<div class="flex flex-col items-center max-w-4xl m-auto">
+  <h2 class="text-2xl text-center font-bold mb-12">
+    Pertanyaan Yang Sering Diajukan
+  </h2>
+  <div class="w-full space-y-6">
+    {% for faq in faqs %}
+    <div>
+      <button
+        class="flex justify-between w-full border-t border-gray-300 pt-6 accordion"
+      >
+        <span class="font-medium text-left">{{ faq.question }}</span>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewbox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6v12m6-6H6"
+            />
+          </svg>
+        </span>
+      </button>
+      <div class="mt-2 panel hidden">
+        <p class="text-gray-600">
+          {{ faq.answer | safe }}
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
