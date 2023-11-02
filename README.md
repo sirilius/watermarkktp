@@ -64,9 +64,7 @@ We highly value the privacy of users' personal data in Watermark KTP. Here are s
 - Watermark KTP never sells, misuses, or exploits anyone's ID card data.
 - Watermark KTP is a simple tool to add text (watermark) to ID card scans as a means of marking and securing personal data. We never send users' uploaded images out of their browser.
 - All processing in Watermark KTP is entirely done on the client-side (your side). We never send any files uploaded by users out of their browser.
-- We are committed to providing secure and user
-
--friendly tools for the community. Watermark KTP is one of our steps towards raising awareness of personal data security in the digital world.
+- We are committed to providing secure and user friendly tools for the community. Watermark KTP is one of our steps towards raising awareness of personal data security in the digital world.
 
 If you have any questions regarding privacy in Watermark KTP, please contact us by sending a message via Twitter: [@SiriliusKevin](https://twitter.com/SiriliusKevin)
 
