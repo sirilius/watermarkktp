@@ -39,6 +39,10 @@ a {
   margin-right: 6px;
 }
 
+.adsbygoogle.adsbygoogle-noablate {
+  @apply z-40 !important;
+}
+
 @media (min-width: 1208px) {
   #as-seen-in {
     margin-top: 0;
