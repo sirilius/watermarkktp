@@ -1,0 +1,95 @@
+<div id="dialog" class="relative z-[1000001] hidden">
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center p-4 text-center">
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl lg:max-w-2xl"
+      >
+        <div class="bg-white px-4 py-8 sm:p-8">
+          <div class="flex flex-col sm:flex-row items-center space-x-4">
+            <div>
+              {% image "./src/img/anime-donation-dialog.jpg", "Karakter
+              laki-laki bergaya anime sedang bermain komputer", [400, 400],
+              "w-[250px] sm:w-[400px]" %}
+            </div>
+            <div>
+              <div class="absolute right-4 top-4">
+                <svg
+                  id="close-dialog"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6 cursor-pointer"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+              <div class="prose prose-h2:mb-4 prose-h2:tracking-tight max-w-sm">
+                <h2>Dukung Pengembangan Watermark KTP</h2>
+                <p>
+                  Satu donasi kecil dari Anda dapat membantu kami menjaga situs
+                  Watermark KTP tetap tersedia gratis untuk semua.
+                </p>
+              </div>
+              <div class="pt-6 space-y-6 flex flex-wrap">
+                <a
+                  href="https://saweria.co/sirilius"
+                  target="_blank"
+                  class="px-4 py-2 border border-transparent rounded-md text-base font-medium text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
+                  data-umami-event="mobile-menu-Saweria"
+                >
+                  Donasi Sekarang
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const dialog = document.getElementById("dialog");
+
+  // Function to show the dialog after 30 seconds
+  function showDialogAfterDelay() {
+    setTimeout(() => {
+      if (dialog) {
+        dialog.style.display = "block";
+      }
+    }, 3000); // 30 seconds (30,000 milliseconds)
+  }
+
+  // Function to close the dialog and set a cookie
+  function closeDialogAndSetCookie() {
+    if (dialog) {
+      // Hide the dialog
+      dialog.style.display = "none";
+
+      // Set a cookie that expires in 1 day
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1); // 1 day
+      const cookieOptions = `expires=${expiryDate.toUTCString()}; path=/`;
+      document.cookie = "wmktp_dialog_show=true; " + cookieOptions;
+    }
+  }
+
+  // Add click event listener to close button
+  const closeIcon = document.getElementById("close-dialog");
+  if (closeIcon) {
+    closeIcon.addEventListener("click", closeDialogAndSetCookie);
+  }
+
+  // Check if the wmktp_dialog_show cookie exists; if not, show the dialog after 30 seconds
+  if (document.cookie.indexOf("wmktp_dialog_show=true") === -1) {
+    showDialogAfterDelay();
+  }
+</script>
