@@ -67,6 +67,7 @@
     setTimeout(() => {
       if (dialog) {
         dialog.style.display = "block";
+        document.body.classList.add("overflow-hidden");
       }
     }, 30000); // 30 seconds (30,000 milliseconds)
   }
@@ -82,6 +83,7 @@
       expiryDate.setDate(expiryDate.getDate() + 1); // 1 day
       const cookieOptions = `expires=${expiryDate.toUTCString()}; path=/`;
       document.cookie = "wmktp_dialog_show=true; " + cookieOptions;
+      document.body.classList.remove("overflow-hidden");
     }
   }
 
