@@ -17,6 +17,15 @@
     </a>
   </nav>
 
+  <div class="flex sm:justify-center text-center">
+    <div
+      id="watermarkktpStatus"
+      class="w-[200px] h-[30px] flex justify-center items-center"
+    >
+      Loading status...
+    </div>
+  </div>
+
   <div class="flex space-x-12 items-center">
     <a href="https://github.com/sirilius/watermarkktp">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -75,3 +84,17 @@
 {% include "js/faq.js" %}
 {% endset %}
 <script>{{ js | jsmin | safe }}</script>
+
+<script>
+  window.addEventListener("load", function () {
+    const watermarkktpStatus = document.createElement("iframe");
+    watermarkktpStatus.src = "https://status.watermarkktp.com/badge";
+    watermarkktpStatus.width = "185";
+    watermarkktpStatus.height = "30";
+    watermarkktpStatus.frameBorder = "0";
+    watermarkktpStatus.scrolling = "no";
+    watermarkktpStatus.classList.add("text-center");
+    watermarkktpStatus.loading = "lazy";
+    document.getElementById("watermarkktpStatus").replaceWith(watermarkktpStatus);
+  });
+</script>
