@@ -296,6 +296,9 @@ downloadButton.addEventListener("click", function () {
     });
     textWrapper.classList.add("outline");
     rotateButton.classList.remove("hidden");
+    if (typeof umami !== "undefined") {
+      umami.track("watermark-download-button");
+    }
   }
 });
 

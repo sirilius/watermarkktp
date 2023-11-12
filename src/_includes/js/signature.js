@@ -65,6 +65,9 @@ saveButton.addEventListener("click", function () {
   const image = signaturePad.toDataURL();
 
   saveButton.setAttribute("href", image);
+  if (typeof umami !== "undefined") {
+    umami.track("tanda-tangan-download-button");
+  }
 });
 
 cancelButton.addEventListener("click", function () {
