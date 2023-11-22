@@ -76,6 +76,10 @@ If you are interested in contributing to Watermark KTP, please read the [contrib
 
 - [Indonesian / Bahasa Indonesia](README-ID.md)
 
+# License
+
+Watermark KTP is licensed under the [MIT License](https://github.com/sirilius/watermarkktp/blob/main/LICENSE). See `LICENSE` for more information.
+
 # Donations
 
 If you find Watermark KTP useful and would like to support further development, you can make a donation as a token of appreciation. Your donation will be greatly appreciated and contribute to the maintenance, updates, and improvements of this tool.
