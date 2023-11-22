@@ -76,6 +76,10 @@ Jika anda tertarik untuk berkontribusi pada Watermark KTP, silakan membaca [_con
 
 - [English](README.md)
 
+# Lisensi
+
+Watermark KTP dilisensikan di bawah [Lisensi MIT](https://github.com/sirilius/watermarkktp/blob/main/LICENSE). Lihat `LICENSE` untuk informasi lebih lanjut.
+
 # Donasi
 
 Apabila Anda merasa terbantu dengan penggunaan Watermark KTP dan ingin mendukung pengembangan lebih lanjut, Anda dapat memberikan donasi sebagai bentuk apresiasi. Donasi Anda akan sangat berarti dalam pemeliharaan, pembaruan, dan peningkatan alat ini.
