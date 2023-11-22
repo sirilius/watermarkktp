@@ -31,6 +31,9 @@ const shortcodes = {
 
 // Start Eleventy Configuration
 module.exports = function (eleventyConfig) {
+  // Add a shortcode to return the current year
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
   // HTML minification
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
