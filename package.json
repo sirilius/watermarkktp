@@ -1,9 +1,10 @@
 {
   "private": true,
   "name": "watermarkktp",
-  "description": "A simple tool to add watermark to KTP scan",
+  "description": "A simple tool to add watermark to KTP scan.",
   "author": "Sirilius Kevin",
   "license": "MIT",
+  "homepage": "https://watermarkktp.com",
   "scripts": {
     "build": "npm run tailwind:prod && npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
