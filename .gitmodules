@@ -1,0 +1,3 @@
+[submodule "src/blog"]
+	path = src/blog
+	url = git@github.com:sirilius/watermarkktp-blog.git
