@@ -6,7 +6,7 @@
   "license": "MIT",
   "homepage": "https://watermarkktp.com",
   "scripts": {
-    "build": "update-submodule && npm run tailwind:prod && npx @11ty/eleventy",
+    "build": "npm run update-submodule && npm run tailwind:prod && npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "format": "prettier --write '**/*.{js,css,html,md}'",
     "tailwind:dev": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
