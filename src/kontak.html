@@ -1,0 +1,146 @@
+---
+layout: base
+title: Kontak
+description: Memiliki pertanyaan, ingin bekerja sama, atau hanya ingin menyapa? Hubungi kami melalui halaman kontak ini.
+---
+
+<div class="max-w-xl m-auto">
+  <h1 class="pt-16 text-5xl text-center font-semibold">Hubungi Kami</h1>
+  <h2 class="text-center text-gray-700 mt-4">
+    Memiliki pertanyaan, ingin bekerja sama, atau hanya ingin menyapa? Hubungi
+    kami melalui formulir di bawah ini.
+  </h2>
+
+  <div class="pt-16">
+    <form
+      id="form"
+      class="space-y-8"
+      action="https://formspree.io/f/xgejjaol"
+      method="POST"
+    >
+      <div>
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+          >Nama</label
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+          placeholder="Nama Anda"
+          required
+        />
+      </div>
+      <div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+          placeholder="kevin@example.com"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="subject"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Subyek</label
+        >
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+          placeholder="Masukan subyek di sini"
+          required
+        />
+      </div>
+      <div class="sm:col-span-2">
+        <label
+          for="message"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Pesan</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+          placeholder="Tulis pesan di sini..."
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        id="form-button"
+        class="py-3 px-5 text-sm font-medium text-center rounded-lg text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
+      >
+        Send message
+        <i class="ri-send-plane-2-line ml-1"></i>
+      </button>
+
+      <div id="form-status"></div>
+    </form>
+  </div>
+
+  <script>
+    var form = document.getElementById("form");
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            status.innerHTML = `
+              <div class="p-2 rounded-lg bg-green-100 ring-2 ring-green-400">
+                <p id="form-status" class="flex items-center">
+                  <i class="ri-checkbox-circle-line text-xl text-green-500 mr-2"></i>
+                  Pesan telah terkirim. Kami akan merespon secepatnya!
+                </p>
+              </div>
+            `;
+            form.reset();
+          } else {
+            response.json().then((data) => {
+              if (Object.hasOwn(data, "errors")) {
+                status.innerHTML = data["errors"]
+                  .map((error) => error["message"])
+                  .join(", ");
+              } else {
+                status.innerHTML = `
+                  <div class="p-2 rounded-lg bg-red-100 ring-2 ring-red-400">
+                    <p id="form-status" class="flex items-center">
+                      <i class="ri-close-circle-line text-xl text-red-500 mr-2"></i>
+                      Oops! Terjadi kesalahan saat mengirim formulir, coba beberapa saat lagi.
+                    </p>
+                  </div>
+                `;
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          status.innerHTML = `
+            <div class="p-2 rounded-lg bg-red-100 ring-2 ring-red-400">
+              <p id="form-status" class="flex items-center">
+                <i class="ri-close-circle-line text-xl text-red-500 mr-2"></i>
+                Oops! Terjadi kesalahan saat mengirim formulir, coba beberapa saat lagi.
+              </p>
+            </div>
+          `;
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
+  </script>
+</div>
