@@ -136,6 +136,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
   eleventyConfig.addLayoutAlias("blog", "layouts/blog.njk");
+  eleventyConfig.addLayoutAlias("embed", "layouts/embed.njk");
 
   // Create a custom collection for blog posts
   eleventyConfig.addCollection("blogPosts", function (collection) {

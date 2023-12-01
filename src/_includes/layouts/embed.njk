@@ -1,0 +1,98 @@
+---
+title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
+---
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {%- set subtitle %}{{ title }}{% endset %}
+    {%- set subtitleText %}{{ title
+    }}{% if subtitle and subtitle != "Watermark KTP - Solusi Aman, Praktis, dan
+    Gratis untuk Watermark KTP" %} - Watermark KTP{% endif %}{% endset %}
+
+    <title>{{ subtitleText }}</title>
+
+    {%- set subdescription %}{{ description }}{% endset %}
+    {%- set subdescriptionText %}{{ description }}{% if not subdescription or subdescription == "" %}{{ subtitleText }}{% endif %}{% endset %}
+
+    <meta name="description" content="{{ subdescriptionText }}" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Watermark KTP" />
+    <meta property="og:site_name" content="Watermark KTP" />
+    <meta property="og:description" content="{{ subdescriptionText }}" />
+    <meta property="og:locale" content="id" />
+    <meta property="og:url" content="https://watermarkktp.com{{ page.url }}" />
+    <meta property="og:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta name="author" content="Sirilius Kevin" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Watermark KTP" />
+    <meta name="twitter:description" content="{{ subdescriptionText }}" />
+    <meta name="twitter:site" content="@WatermarkKTP" />
+    <meta name="twitter:creator" content="@SiriliusKevin" />
+    <meta name="twitter:image" content="https://watermarkktp-og.vercel.app/{{ subtitle | urlencode }}" />
+    <meta property="twitter:url" content="https://watermarkktp.com{{ page.url }}" />
+
+    <link rel="canonical" href="https://watermarkktp.com{{ page.url }}" />
+    <link rel="icon" href="/img/logo-watermarkktp.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
+    />
+    <link rel="stylesheet" href="{{ '/css/app.css' | url | bust }}" />
+
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml" title="Watermark KTP Blog" href="/blog/feed.xml" />
+
+    <!-- JSON-LD for Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "headline": "Watermark KTP",
+        "description": "Solusi Aman, Praktis, dan Gratis untuk Watermark KTP",
+        "url": "https://watermarkktp.com/",
+        "image": {
+          "height": 900,
+          "width": 1600,
+          "url": "https://watermarkktp-og.vercel.app/{{ 'Solusi Aman, Praktis, dan Gratis untuk Watermark KTP' | urlencode }}",
+          "@type": "imageObject"
+        },
+        "name": "Watermark KTP"
+      }
+    </script>
+
+    <script
+      async
+      src="https://api-watermarkktp.vercel.app/app"
+      data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"
+    ></script>
+
+    <link href="https://unpkg.com/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">  
+  </head>
+
+  <body>
+    <div class="px-6 max-w-7xl mx-auto">
+      {{ content | safe }}
+    </div>
+  </body>
+  <footer>
+    {%- set js %}
+        {% if page.url == "/embed/" %}
+            {% include "js/watermark.js" %}
+            {% include "js/html2canvas.js" %}
+        {% endif %}
+        {% if page.url == "/embed-tanda-tangan/" %}
+            {% include "js/signature_pad.js" %}
+            {% include "js/signature.js" %}
+        {% endif %}
+    {% endset %}
+    <script>{{ js | jsmin | safe }}</script>
+  </footer>
+</html>
