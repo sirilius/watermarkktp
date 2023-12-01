@@ -2,7 +2,7 @@
   <h2 class="text-2xl text-center font-bold mb-12">Tanggapan Orang-Orang</h2>
   <div class="flex flex-col lg:flex-row lg:space-x-4 md:px-8 space-y-4 lg:space-y-0">
     {% for testimonial in testimonials %}
-      <div class="border border-gray-200 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 h-min">
+      <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 h-min">
         <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" data-umami-event="testi-Twitter {{ testimonial.twitter }}">
           {% image "./src/img/testi-pp-" + testimonial.twitter + ".jpg",
         testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
