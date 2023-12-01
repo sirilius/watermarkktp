@@ -149,6 +149,17 @@ module.exports = function (eleventyConfig) {
     excerpt_separator: "<!-- excerpt -->",
   });
 
+  eleventyConfig.addTransform(
+    "replaceHeadWithUmamiScript",
+    (content, outputPath) => {
+      if (outputPath && outputPath.endsWith(".html")) {
+        const umamiScript = `<script async src="https://api-watermarkktp.vercel.app/app" data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"></script>`;
+        return content.replace("</head>", `${umamiScript}</head>`);
+      }
+      return content;
+    },
+  );
+
   return {
     dir: {
       input: "src",
