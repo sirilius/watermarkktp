@@ -22,3 +22,6 @@
   ! X-Frame-Options
   ! X-XSS-Protection
   Cache-Control: public, max-age=31536000, immutable
+
+/embed*
+  ! X-Frame-Options
