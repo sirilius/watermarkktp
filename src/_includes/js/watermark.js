@@ -700,3 +700,17 @@ function updatePosition() {
   center_x = offsetLeft + text.offsetWidth / 2;
   center_y = offsetTop + text.offsetHeight / 2;
 }
+
+window.addEventListener("load", function () {
+  // Check if umami is undefined before adding the script
+  if (typeof umami === "undefined") {
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://api-watermarkktp.vercel.app/app";
+    script.setAttribute(
+      "data-website-id",
+      "f8256656-afe4-4cde-8eb8-431b17454524",
+    );
+    document.head.appendChild(script);
+  }
+});
