@@ -74,13 +74,13 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
       data-website-id="f8256656-afe4-4cde-8eb8-431b17454524"
     ></script>
 
-    <link href="https://unpkg.com/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">  
+    <link href="https://unpkg.com/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">  
   </head>
 
   <body>
     {% include "components/info.html" %}
+    {% include "components/header.njk" %}
     <div class="px-6 max-w-7xl mx-auto">
-      {% include "components/header.njk" %}
       {{ content | safe }}
     </div>
     {% include "components/footer.njk" %}
