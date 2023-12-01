@@ -8,7 +8,7 @@
     { name: "Dokumentasi", 
       content: [
         {name: "Cara Pakai", link: "/cara-pakai/"},
-        {name: "Watermark KTP Blog", link: "/blog/"}
+        {name: "Blog", link: "/blog/"}
       ] 
     },
     { name: "Tentang", 
@@ -28,23 +28,33 @@
   
 <footer class="mt-16 border-t-2 border-gray-200 bg-gray-100">
   <div
-    class="flex justify-between flex-col lg:flex-row lg:space-y-0 max-w-6xl mx-auto py-12 px-6 lg:px-8"
+    class="flex justify-between flex-col lg:flex-row space-y-8 lg:space-y-0 max-w-6xl mx-auto py-12 px-6 lg:px-8"
   >
-    <div class="lg:w-2/6">
-      <div class="text-sm text-center lg:text-left space-y-2 mb-4">
+    <div class="lg:w-2/6 space-y-4">
+      <div class="text-sm text-center lg:text-left space-y-2">
         <div class="text-2xl font-bold">Watermark KTP</div>
-        <p class="max-w-xl mx-auto">
+        <p class="max-w-xl mx-auto text-gray-700">
           Solusi terbaik, praktis, dan aman untuk menambahkan watermark ke scan
           KTP. Dibuat oleh Sirilius Kevin sebagai sarana pengamanan data
           pribadi.
         </p>
       </div>
+
+      <div class="flex justify-center lg:justify-normal text-center lg:text-left">
+        <div
+          id="watermarkktpStatus"
+          class="w-[200px] h-[30px] flex justify-center lg:justify-normal items-center"
+        >
+          Loading status...
+        </div>
+      </div>
+
       <div class="flex justify-center lg:justify-start mb-12 lg:mb-0 space-x-4 text-2xl">
         <a href="https://github.com/sirilius/watermarkktp" target="_blank" data-umami-event="footer-link-GitHub">
           <i class="ri-github-fill"></i>
         </a>
         <a href="https://x.com/siriliuskevin" target="_blank" data-umami-event="footer-link-Twitter">
-          <i class="ri-twitter-x-fill"></i>
+          <i class="ri-twitter-x-fill text-[21px]"></i>
         </a>
       </div>
     </div>
@@ -73,29 +83,20 @@
     </div>
   </div>
 
-  <div class="flex justify-center text-center">
+  <div
+    class="w-full flex items-center flex-col text-gray-500 text-sm space-y-2 pt-8 pb-9 border-t-2 border-gray-200"
+  >
     <div
-      id="watermarkktpStatus"
-      class="w-[200px] h-[30px] flex justify-center items-center"
+    class="lg:space-x-10 flex items-center lg:justify-center space-y-3 lg:space-y-0 flex-col lg:flex-row mb-2"
     >
-      Loading status...
+      <a href="/privacy/" class="text-sm text-gray-500 hover:text-gray-900">
+        Privacy Policy
+      </a>
+      <a href="/terms/" class="text-sm text-gray-500 hover:text-gray-900">
+        Terms of Service
+      </a>
     </div>
-  </div>
 
-  <div
-    class="lg:space-x-10 flex items-center lg:justify-center space-y-3 lg:space-y-0 flex-col lg:flex-row mt-2"
-  >
-    <a href="/privacy/" class="text-sm text-gray-500 hover:text-gray-900">
-      Privacy Policy
-    </a>
-    <a href="/terms/" class="text-sm text-gray-500 hover:text-gray-900">
-      Terms of Service
-    </a>
-  </div>
-
-  <div
-    class="w-full flex items-center flex-col text-gray-500 text-sm space-y-2 pt-8 pb-9 border-t-2 border-gray-200 mt-12"
-  >
     <p>
       Dirilis di bawah
       <a
