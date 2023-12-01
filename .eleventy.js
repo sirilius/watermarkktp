@@ -121,6 +121,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/blog/pretty-atom-feed-v3.xsl");
   eleventyConfig.addPassthroughCopy({
     "src/ads.txt": "./ads.txt",
