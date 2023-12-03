@@ -67,6 +67,9 @@
       // Hide the dialog
       dialog.classList.add("hidden");
 
+      // Send an event to Umami
+      umami.track("close-dialog-donation");
+
       // Set a cookie that expires in 1 day
       const expiryDate = new Date();
       expiryDate.setDate(expiryDate.getDate() + 1); // 1 day
