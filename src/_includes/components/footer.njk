@@ -25,6 +25,10 @@
       ]
     }
   ] %}
+
+{% if page.url != "/404.html" %}
+  {% include "components/cta.html" %}
+{% endif %}
   
 <footer class="mt-16 border-t-2 border-gray-200 bg-gray-100">
   <div
