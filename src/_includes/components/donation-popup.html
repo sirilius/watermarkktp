@@ -73,9 +73,6 @@
       const cookieOptions = `expires=${expiryDate.toUTCString()}; path=/`;
       document.cookie = "wmktp_dialog_show=true; " + cookieOptions;
       document.body.classList.remove("overflow-hidden");
-
-      // Send an event to Umami
-      umami.track("close-dialog-donation");
     }
   }
 
