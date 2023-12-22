@@ -1,24 +1,75 @@
 <div class="flex flex-col items-center mt-16">
   <h2 class="text-2xl text-center font-bold mb-12">Tanggapan Orang-Orang</h2>
-  <div class="flex flex-col lg:flex-row lg:space-x-4 md:px-8 space-y-4 lg:space-y-0">
-    {% for testimonial in testimonials %}
-      <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 mx-auto lg:w-full flex flex-col p-4 h-min">
-        <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" data-umami-event="testi-Twitter {{ testimonial.twitter }}">
-          {% image "./src/img/testi-pp-" + testimonial.twitter + ".jpg",
-        testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
+  <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
+    <div class="space-y-4">
+      {% for testimonial in testimonials.colOne %}
+        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
+            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.username }}">
+                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
+                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
 
-          <div class="flex justify-between w-full">
-            <div>
-              <p class="font-semibold">{{ testimonial.name }}</p>
-              <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
-            </div>
-            <i class="ri-twitter-x-line text-2xl"></i>
-          </div>
-        </a>
+                <div class="flex justify-between w-full">
+                    <div>
+                        <p class="font-semibold">{{ testimonial.name }}</p>
+                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
+                    </div>
+                    <i class="ri-{{ testimonial.icon }} text-2xl"></i>
+                </div>
+            </a>
 
-        <p>{{ testimonial.content | safe }}</p>
-      </div>
+            <p>{{ testimonial.content | safe }}</p>
+        </div>
     {% endfor %}
+    </div>
+
+    <div class="space-y-4">
+      {% for testimonial in testimonials.colTwo %}
+        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
+            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.name }}">
+                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
+                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
+
+                <div class="flex justify-between w-full">
+                    <div>
+                        <p class="font-semibold">{{ testimonial.name }}</p>
+                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
+                    </div>
+                    <i class="ri-{{ testimonial.icon }} text-2xl"></i>
+                </div>
+            </a>
+
+            <p>{{ testimonial.content | safe }}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="space-y-4">
+      {% for testimonial in testimonials.colThree %}
+        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
+            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.name }}">
+                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
+                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
+
+                <div class="flex justify-between w-full">
+                    <div>
+                        <p class="font-semibold">{{ testimonial.name }}</p>
+                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
+                    </div>
+                    <i 
+                      class="
+                      ri-{{ testimonial.icon }} 
+                      {% if testimonial.icon == 'youtube-fill' %}
+                       text-[#FF0000] text-3xl 
+                      {% endif %}
+                      text-2xl"
+                    ></i>
+                </div>
+            </a>
+
+            <p>{{ testimonial.content | safe }}</p>
+        </div>
+    {% endfor %}
+    </div>
   </div>
 
   <div class="px-0 max-w-3xl">
