@@ -18,15 +18,14 @@ const testimonials = [
       '1. Buka https://watermarkktp.com <br> 2. Disconnect Internet <br> 3. Tetep bisa edit & download foto <br><br> Dari percobaan ini membuktikan:<br><span class="bg-violet-600 text-white py-0.5 px-1">- Gambar tidak diupload</span><br><span class="bg-violet-600 text-white py-0.5 px-1">- Semua proses berjalan di browser masing2 pengguna</span>',
   },
   {
-    name: "𝕃𝕦𝕗𝕗𝕪𝕞𝕒𝕥𝕔𝕙𝕒 🍵",
-    username: "@luffymatcha",
-    profession: "Netizen",
-    url: "https://x.com/luffymatcha/status/1447124951211778052",
+    name: "Azharie Muhammad",
+    username: "@azharieazharou",
+    profession: "Software Engineer",
+    url: "https://x.com/azharieazharou/status/1447406774596763652 ",
     icon: "twitter-x-line",
     content:
-      'Berarti sebetulnya <span class="bg-violet-600 text-white py-0.5 px-1"> untuk keperluan general bisa, ga cuma KTP aja.</span>',
+      'Project open source yang coba  <span class="bg-violet-600 text-white py-0.5 px-1">menyelesaikan masalah besar penyalahgunaan data KTP.</span>',
   },
-
   {
     name: "Adi",
     username: "@adinugrhoo",
@@ -55,15 +54,32 @@ const testimonials = [
       'Watermark KTP adalah solusi berbasis web yang <span class="bg-violet-600 text-white py-0.5 px-1">aman dan praktis</span> untuk memberi penandaan pada hasil scan KTP.',
   },
   {
-    name: "Azharie Muhammad",
-    username: "@azharieazharou",
-    profession: "Software Engineer",
-    url: "https://x.com/azharieazharou/status/1447406774596763652 ",
+    name: "Dean",
+    username: "@dean",
+    profession: "Cyber Security Analyst",
+    url: "https://x.com/Dynbnyy/status/1447237372333027334",
     icon: "twitter-x-line",
     content:
-      'Project open source yang coba  <span class="bg-violet-600 text-white py-0.5 px-1">menyelesaikan masalah besar penyalahgunaan data KTP.</span>',
+      '<span class="bg-violet-600 text-white py-0.5 px-1">Gila keren banget ini</span>, you will be big in future!',
   },
-
+  {
+    name: "Taufiq Muhammadi",
+    username: "@taufiqmuhammadi",
+    profession: "Software Engineer",
+    url: "https://x.com/waruboy/status/1448621936750186499",
+    icon: "twitter-x-line",
+    content:
+      'Wah <span class="bg-violet-600 text-white py-0.5 px-1">berguna banget ni</span>',
+  },
+  {
+    name: "𝕃𝕦𝕗𝕗𝕪𝕞𝕒𝕥𝕔𝕙𝕒 🍵",
+    username: "@luffymatcha",
+    profession: "Netizen",
+    url: "https://x.com/luffymatcha/status/1447124951211778052",
+    icon: "twitter-x-line",
+    content:
+      'Berarti sebetulnya <span class="bg-violet-600 text-white py-0.5 px-1"> untuk keperluan general bisa, ga cuma KTP aja.</span>',
+  },
   {
     name: "Vasto Lorde",
     username: "@vastolorde",
