@@ -107,7 +107,7 @@ const testimonials = [
     url: "https://www.youtube.com/watch?v=eliNihJWAG4&lc=UgzQqQHSzLchaUMUG9x4AaABAg",
     icon: "youtube-fill",
     content:
-      '3 Kata Untuk Mas Kevin: <span class="bg-violet-600 text-white py-0.5 px-1">Genius, Peduli, Bermanfaat.</span>',
+      '14 tahun belum punya KTP tapi udah <span class="bg-violet-600 text-white py-0.5 px-1">peduli banget sama isu-isu kriminal melalui KTP 👍🏼</span>',
   },
   {
     name: "Faisal",
