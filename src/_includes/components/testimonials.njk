@@ -1,88 +1,52 @@
 <div class="flex flex-col items-center mt-16">
   <h2 class="text-2xl text-center font-bold mb-12">Tanggapan Orang-Orang</h2>
-  <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
-    <div class="space-y-4">
-      {% for testimonial in testimonials.colOne %}
-        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
-            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.username }}">
-                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
-                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
 
-                <div class="flex justify-between w-full">
-                    <div>
-                        <p class="font-semibold">{{ testimonial.name }}</p>
-                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
-                    </div>
-                    <i class="ri-{{ testimonial.icon }} text-2xl"></i>
-                </div>
-            </a>
+  <div class="md:columns-2 lg:columns-3 gap-4 space-y-4">
+    {% for testimonial in testimonials %}
+    <div
+      class="border border-gray-300 rounded-xl shadow flex flex-col p-4 break-inside-avoid"
+    >
+      <a
+        class="flex items-center mb-4 space-x-2"
+        href="{{ testimonial.url }}"
+        target="_blank"
+        data-umami-event="testi-Twitter {{ testimonial.username }}"
+      >
+        {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
+        testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2"
+        %}
 
-            <p>{{ testimonial.content | safe }}</p>
+        <div class="flex justify-between w-full">
+          <div>
+            <p class="font-semibold">{{ testimonial.name }}</p>
+            <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
+          </div>
+          <i
+            class="ri-{{ testimonial.icon }} {% if testimonial.icon == 'youtube-fill' %} text-[#FF0000] text-3xl {% endif %} text-2xl"
+          ></i>
         </div>
-    {% endfor %}
+      </a>
+
+      <p>{{ testimonial.content | safe }}</p>
     </div>
-
-    <div class="space-y-4">
-      {% for testimonial in testimonials.colTwo %}
-        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
-            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.name }}">
-                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
-                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
-
-                <div class="flex justify-between w-full">
-                    <div>
-                        <p class="font-semibold">{{ testimonial.name }}</p>
-                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
-                    </div>
-                    <i class="ri-{{ testimonial.icon }} text-2xl"></i>
-                </div>
-            </a>
-
-            <p>{{ testimonial.content | safe }}</p>
-        </div>
     {% endfor %}
-    </div>
-
-    <div class="space-y-4">
-      {% for testimonial in testimonials.colThree %}
-        <div class="border border-gray-300 rounded-xl shadow w-72 sm:w-96 flex flex-col p-4 h-min">
-            <a class="flex items-center mb-4 space-x-2" href="{{ testimonial.url }}" target="_blank" data-umami-event="testi-Twitter {{ testimonial.name }}">
-                {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
-                testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2" %}
-
-                <div class="flex justify-between w-full">
-                    <div>
-                        <p class="font-semibold">{{ testimonial.name }}</p>
-                        <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
-                    </div>
-                    <i 
-                      class="
-                      ri-{{ testimonial.icon }} 
-                      {% if testimonial.icon == 'youtube-fill' %}
-                       text-[#FF0000] text-3xl 
-                      {% endif %}
-                      text-2xl"
-                    ></i>
-                </div>
-            </a>
-
-            <p>{{ testimonial.content | safe }}</p>
-        </div>
-    {% endfor %}
-    </div>
   </div>
 
   <div class="px-0 max-w-3xl">
     <div class="mt-12 flex flex-col items-center px-0 lg:px-4 py-4 h-min">
       <p class="text-2xl text-center mb-4">
-        "Watermark KTP bikinan Kevin benar-benar membantu. Setidaknya untuk kita bisa
-        <span class="text-black py-1 px-1 bg-[#bce954]">mencegah penyalahgunaan data di KTP.</span>"
+        "Watermark KTP bikinan Kevin benar-benar membantu. Setidaknya untuk kita
+        bisa
+        <span class="text-black py-1 px-1 bg-[#bce954]"
+          >mencegah penyalahgunaan data di KTP.</span
+        >"
       </p>
       <div class="text-xl">
         <a
           href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
           class="text-gray-600 hover:text-gray-900"
-          data-umami-event="testi-Mojok">
+          data-umami-event="testi-Mojok"
+        >
           {% image "./src/img/logo-mojok.png", "Logo Mojok.co", [163, 60], "w-36
           bg-black px-6 py-2 hover:opacity-80 duration-300" %}
         </a>
