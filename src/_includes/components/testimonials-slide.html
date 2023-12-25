@@ -1,0 +1,121 @@
+<div class="flex items-center flex-col mt-16">
+  <div class="overflow-hidden w-full md:w-[600px] lg:w-[700px]">
+    <div
+      class="flex transition-transform duration-300"
+      id="testimonialContainer"
+      style="width: 300%"
+    >
+      {% for testimonial in testimonialsSlide %}
+      <div class="px-0 max-w-3xl w-full md:w-[600px] lg:w-[700px]">
+        <div class="flex flex-col items-center px-0 lg:px-4 py-4 h-min">
+          <p class="text-xl md:text-2xl text-center mb-4">
+            "{{ testimonial.content | safe }}"
+          </p>
+          <div>
+            <a
+              href="{{ testimonial.url }}"
+              target="_blank"
+              class="flex flex-col md:flex-row items-center text-base text-gray-600 hover:text-gray-900"
+              data-umami-event="testi-slider-{{ testimonial.umami }}"
+            >
+              {% image "./src/img/" + testimonial.image, "Logo Mojok.co", [32,
+              32], "w-8 rounded-full hover:opacity-80 duration-300" %}
+              <div class="px-2 font-semibold text-gray-900">
+                {{ testimonial.name }}
+              </div>
+              <div class="pl-2 md:border-l-2 border-gray-300">
+                {{ testimonial.profession }}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    <button
+      onclick="prevTestimonial()"
+      class="bg-gray-800 text-white px-4 py-2 rounded-xl"
+    >
+      <i class="ri-arrow-left-line text-lg"></i>
+    </button>
+    <button
+      onclick="nextTestimonial()"
+      class="bg-gray-800 text-white px-4 py-2 rounded-xl"
+    >
+      <i class="ri-arrow-right-line text-lg"></i>
+    </button>
+  </div>
+</div>
+
+<script>
+  let currentIndex = 0;
+  let autoSlideInterval;
+  const container = document.getElementById("testimonialContainer");
+  let testimonials;
+
+  function generateTestimonials() {
+    // Generate testimonials dynamically and append them to the container
+
+    // After generating the testimonials, get the testimonial elements
+    testimonials = Array.from(container.children);
+
+    // Duplicate the first and last testimonials and add them to the start and end of the container
+    container.prepend(testimonials[testimonials.length - 1].cloneNode(true));
+    container.append(testimonials[0].cloneNode(true));
+
+    // Update the testimonial elements to include the duplicates
+    testimonials = Array.from(container.children);
+
+    // Update the width of the container to fit all testimonials including the duplicates
+    container.style.width = `${testimonials.length * 100}%`;
+
+    // Show the first original testimonial (not the duplicate)
+    showTestimonial((currentIndex = 1));
+  }
+
+  function showTestimonial(index, instant) {
+    container.style.transition = instant ? "none" : "";
+    container.style.transform = `translateX(-${
+      index * (100 / testimonials.length)
+    }%)`;
+  }
+
+  function startAutoSlide() {
+    // Clear the existing interval
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+    }
+
+    // Start a new interval
+    autoSlideInterval = setInterval(() => {
+      nextTestimonial();
+    }, 5000); // 5 seconds interval
+  }
+
+  function nextTestimonial() {
+    showTestimonial(++currentIndex);
+    if (currentIndex === testimonials.length - 1) {
+      setTimeout(() => showTestimonial((currentIndex = 1), true), 300);
+    }
+    startAutoSlide();
+  }
+
+  function prevTestimonial() {
+    showTestimonial(--currentIndex);
+    if (currentIndex === 0) {
+      setTimeout(
+        () => showTestimonial((currentIndex = testimonials.length - 2), true),
+        300,
+      );
+    }
+    startAutoSlide();
+  }
+
+  // Start the automatic sliding of testimonials when the page loads
+  startAutoSlide();
+
+  // Generate testimonials when the page loads
+  generateTestimonials();
+</script>
