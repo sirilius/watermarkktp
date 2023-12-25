@@ -10,7 +10,7 @@
         class="flex items-center mb-4 space-x-2"
         href="{{ testimonial.url }}"
         target="_blank"
-        data-umami-event="testi-Twitter {{ testimonial.username }}"
+        data-umami-event="testi-Twitter-{{ testimonial.username }}"
       >
         {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
         testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2"
