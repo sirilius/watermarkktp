@@ -17,29 +17,58 @@ layout: base
       <p class="text-sm tracking-tighter text-gray-900">{% include "components/reading-time.njk" %}</p>
     </div>
   </header>
+  
+  <div>
+    <div
+      class="fixed sm:sticky bottom-4 sm:top-8 -translate-y-1/2 max-w-4xl mx-auto z-10"
+    >
+      <div class="fixed bottom-4 md:top-8 flex flex-col sm:space-y-2">
+        {% for socialMedia in share %}
+        <a
+          id="{{ socialMedia.name }}ShareButton"
+          target="_blank"
+          class="{{ socialMedia.bg }} hidden sm:block text-white px-4 py-2 rounded cursor-pointer"
+          data-umami-event="share-article-{{ socialMedia.name }}"
+        >
+          <i class="{{ socialMedia.icon }} text-2xl"></i>
+        </a>
+        {% endfor %}
 
-  <article class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-h3:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto">
-    {% if image.url %}
-    <div class="featured-image">
-      {%- set imageAlt %}{{ image.caption }}{% endset %}
-      {%- set imageAltText %}{{ image.caption }}{% if not imageAlt or imageAlt == "" %}{{ "Ilustrasi untuk " + title }}{% endif %}{% endset %}
-
-      {% image "./src/img/" + image.url, imageAltText, [720, 720], "w-full h-4/6 rounded-lg" %}
-
-      {% if image.caption %}
-      <figcaption class="font-sans">
-        {{ image.caption }}
-
-        {% if image.by %}
-        | Gambar dibuat dengan {{ image.by }}
-        {% endif %}
-      </figcaption>
-      {% endif %}
+        <button
+          id="shareMore"
+          class="bg-blue-500 text-white px-4 py-2 rounded"
+          data-umami-event="share-article-api"
+        >
+          <i class="ri-share-line text-2xl"></i>
+        </button>
+      </div>
     </div>
-    {% endif %}
 
-    {{ content | safe }}
-  </article>
+    <article
+      class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-h3:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto"
+    >
+      {% if image.url %}
+      <div class="featured-image">
+        {%- set imageAlt %}{{ image.caption }}{% endset %}
+        {%- set imageAltText %}{{ image.caption }}{% if not imageAlt or imageAlt == "" %}{{ "Ilustrasi untuk " + title }}{% endif %}{% endset %}
+
+        {% image "./src/img/" + image.url, imageAltText, [720, 720], "w-full h-4/6 rounded-lg" %}
+
+        {% if image.caption %}
+        <figcaption class="font-sans">
+          {{ image.caption }}
+
+          {% if image.by %}
+          | Gambar dibuat dengan {{ image.by }}
+          {% endif %}
+        </figcaption>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {{ content | safe }}
+    </article>
+  </div>
 
   {% include "components/tiktok-promo-video.html" %}
 
@@ -130,4 +159,88 @@ layout: base
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
+
+  var message = encodeURIComponent(
+      'Baca artikel "{{ title }}" di Watermark KTP Blog\n\ \n\https://watermarkktp.com{{ page.url }}'
+  );
+
+  // Function to open social media with a predefined message
+  function shareOnSocialMedia(platform) {
+    var href;
+
+    switch (platform) {
+      case "whatsapp":
+        // Check if the user is on a mobile device
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        href = isMobile
+          ? "https://wa.me/?text=" + message
+          : "https://web.whatsapp.com/send?text=" + message;
+        break;
+      case "facebook":
+        href =
+          "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwatermarkktp.com{{ page.url }}";
+        break;
+      case "twitter":
+        href = "https://twitter.com/intent/tweet?text=" + message;
+        break;
+      case "telegram":
+        href =
+          "https://t.me/share/url?url=https%3A%2F%2Fwatermarkktp.com{{ page.url }}" +
+          "&text=" +
+          message;
+        break;
+      case "linkedin":
+        href =
+          "https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fwatermarkktp.com{{ page.url }}" +
+          "&title=" +
+          message;
+        break;
+    }
+
+    // Set the href attribute of the corresponding element
+    document.getElementById(platform + "ShareButton").href = href;
+  }
+
+  // Add click event listeners to the social media buttons
+  document
+    .getElementById("whatsappShareButton")
+    .addEventListener("click", function () {
+      shareOnSocialMedia("whatsapp");
+    });
+  document
+    .getElementById("facebookShareButton")
+    .addEventListener("click", function () {
+      shareOnSocialMedia("facebook");
+    });
+  document
+    .getElementById("twitterShareButton")
+    .addEventListener("click", function () {
+      shareOnSocialMedia("twitter");
+    });
+  document
+    .getElementById("linkedinShareButton")
+    .addEventListener("click", function () {
+      shareOnSocialMedia("linkedin");
+    });
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    if (!navigator.share) {
+      const shareMoreButton = document.getElementById('shareMore');
+      if (shareMoreButton) {
+        shareMoreButton.classList.add('hidden');
+      }
+    }
+  });
+
+  document
+    .getElementById("shareMore")
+    .addEventListener("click", (e) => { 
+      if (navigator.share) {
+        navigator.share({
+            title: '{{ title }}',
+            text: decodeURIComponent(message),
+          })
+          .catch((error) => console.log('Error sharing', error));
+      }
+    });
 </script>
