@@ -7,68 +7,70 @@ layout: base
 
 <div class="single">
   <header class="text-center max-w-7xl mx-auto pt-16 space-y-8">
-    <h1 class="tracking-tight md:leading-tight font-bold text-3xl md:text-5xl">{{ title }}</h1>
+    <h1 class="tracking-tight md:leading-tight font-bold text-3xl md:text-5xl">
+      {{ title }}
+    </h1>
     {% if descriptionShort %}
-    <h2 class="tracking-tight text-xl md:text-2xl ">{{ descriptionShort }}</h2>
+      <h2 class="tracking-tight text-xl md:text-2xl">{{ descriptionShort }}</h2>
     {% endif %}
-    
+
     <div>
       <p class="text-xl font-bold">{{ date | postDate }}</p>
-      <p class="text-sm tracking-tighter text-gray-900">{% include "components/reading-time.njk" %}</p>
+      <p class="text-sm tracking-tighter text-gray-900">
+        {% include "components/reading-time.njk" %}
+      </p>
     </div>
   </header>
-  
-  <div>
-    <div
-      class="fixed sm:sticky bottom-4 sm:top-8 -translate-y-1/2 max-w-4xl mx-auto z-10"
-    >
-      <div class="fixed bottom-4 md:top-8 flex flex-col sm:space-y-2">
-        {% for socialMedia in share %}
-        <a
-          id="{{ socialMedia.name }}ShareButton"
-          target="_blank"
-          class="{{ socialMedia.bg }} hidden sm:block text-white px-4 py-2 rounded cursor-pointer"
-          data-umami-event="share-article-{{ socialMedia.name }}"
-        >
-          <i class="{{ socialMedia.icon }} text-2xl"></i>
-        </a>
-        {% endfor %}
 
-        <button
-          id="shareMore"
-          class="bg-blue-500 text-white px-4 py-2 rounded"
-          data-umami-event="share-article-api"
-        >
-          <i class="ri-share-line text-2xl"></i>
-        </button>
+  <article
+    class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-h3:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl pt-8 leading-8 md:tracking-wide"
+  >
+    {% if image.url %}
+      <div class="featured-image max-w-2xl mx-auto">
+        {%- set imageAlt %} {{ image.caption }} {% endset %} 
+        {%- set imageAltText %} {{ image.caption }}
+        {% if not imageAlt or imageAlt == "" %} {{ "Ilustrasi
+        untuk " + title }} {% endif %} {% endset %} 
+        {% image "./src/img/" + image.url, imageAltText, [720, 720], "w-full h-4/6 rounded-lg" %} 
+        {% if image.caption %}
+          <figcaption class="font-sans">
+            {{ image.caption }} 
+              {% if image.by %} | Gambar dibuat dengan {{ image.by }}
+            {% endif %}
+          </figcaption>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div
+      class="hidden sm:block static lg:sticky top-8 lg:-translate-y-1/2 max-w-4xl mx-auto z-10 sm:mt-8 lg:mt-0"
+    >
+      <div class="static lg:fixed top-8 flex sm:justify-center lg:justify-normal lg:flex-col sm:space-x-2 lg:space-x-0 lg:space-y-2 not-prose">
+        {% for socialMedia in share %}
+          <a
+            id="{{ socialMedia.name }}ShareButton"
+            target="_blank"
+            class="{{ socialMedia.bg }} px-4 py-2 rounded cursor-pointer"
+            data-umami-event="share-article-{{ socialMedia.name }}"
+          >
+            <i class="{{ socialMedia.icon }} text-2xl text-white"></i>
+          </a>
+        {% endfor %}
       </div>
     </div>
 
-    <article
-      class="prose-sm md:prose-lg prose-h2:font-sans prose-h2:font-bold prose-h2:tracking-tight prose-h2:text-black prose-h3:text-black prose-ul:list-disc prose-ol:list-decimal prose-a:text-blue-600 prose-a:border-b prose-a:border-blue-500 text-gray-900 font-serif text-base md:text-xl leading-8 md:tracking-wide pt-8 max-w-2xl mx-auto"
-    >
-      {% if image.url %}
-      <div class="featured-image">
-        {%- set imageAlt %}{{ image.caption }}{% endset %}
-        {%- set imageAltText %}{{ image.caption }}{% if not imageAlt or imageAlt == "" %}{{ "Ilustrasi untuk " + title }}{% endif %}{% endset %}
+    <div class="block sm:hidden fixed bottom-6 z-10">
+      <button
+        id="shareMore"
+        class="bg-blue-500 text-white px-4 py-2 rounded"
+        data-umami-event="share-article-api"
+      >
+        <i class="ri-share-line text-2xl"></i>
+      </button>
+    </div>
 
-        {% image "./src/img/" + image.url, imageAltText, [720, 720], "w-full h-4/6 rounded-lg" %}
-
-        {% if image.caption %}
-        <figcaption class="font-sans">
-          {{ image.caption }}
-
-          {% if image.by %}
-          | Gambar dibuat dengan {{ image.by }}
-          {% endif %}
-        </figcaption>
-        {% endif %}
-      </div>
-      {% endif %}
-
-      {{ content | safe }}
-    </article>
-  </div>
+    <div class="max-w-2xl mx-auto">{{ content | safe }}</div>
+  </article>
 
   {% include "components/tiktok-promo-video.html" %}
 
@@ -81,25 +83,37 @@ layout: base
 
       <ul class="mt-4 space-y-4 text-sm md:text-base list-disc ml-4">
         {% if previousPost %}
-          <li>
-            <a class="border-b border-black" rel="prev" href="{{ previousPost.url }}">
-              Sebelumnya: {{ previousPost.data.title }}
-            </a>
-          </li>
+        <li>
+          <a
+            class="border-b border-black"
+            rel="prev"
+            href="{{ previousPost.url }}"
+          >
+            Sebelumnya: {{ previousPost.data.title }}
+          </a>
+        </li>
+        {% endif %} {% if nextPost %}
+        <li>
+          <a class="border-b border-black" rel="next" href="{{ nextPost.url }}">
+            Selanjutnya: {{ nextPost.data.title }}
+          </a>
+        </li>
         {% endif %}
-
-        {% if nextPost %}
-          <li>
-            <a class="border-b border-black" rel="next" href="{{ nextPost.url }}">
-              Selanjutnya: {{ nextPost.data.title }}
-            </a>
-          </li>
-        {% endif %}
-        </ul>
+      </ul>
     </div>
 
     <a href="/blog/feed.xml" class="inline-flex items-center space-x-2 mt-8">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="fill-orange-500" d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"></path></svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+      >
+        <path
+          class="fill-orange-500"
+          d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
+        ></path>
+      </svg>
       <p class="text-sm md:text-base">Berlangganan Feed</p>
     </a>
 
@@ -114,8 +128,8 @@ layout: base
           rel="cc:attributionURL"
           href="{{ url }}"
           class="text-blue-600"
-        >{{ title }}</a>"
-        oleh
+          >{{ title }}</a
+        >" oleh
         <a
           rel="cc:attributionURL dct:creator"
           property="cc:attributionName"
@@ -132,18 +146,41 @@ layout: base
         >
           CC BY 4.0
 
-          <svg class="inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M9 8C10.1045 8 11.1049 8.44836 11.829 9.17297L10.4153 10.5865C10.0533 10.2241 9.55298 10 9 10 7.89502 10 7 10.895 7 12 7 13.105 7.89502 14 9 14 9.55249 14 10.0525 13.7762 10.4144 13.4144L11.828 14.828C11.104 15.552 10.104 16 9 16 6.79199 16 5 14.208 5 12 5 9.79199 6.79199 8 9 8ZM18.829 9.17297C18.1049 8.44836 17.1045 8 16 8 13.792 8 12 9.79199 12 12 12 14.208 13.792 16 16 16 17.104 16 18.104 15.552 18.828 14.828L17.4144 13.4144C17.0525 13.7762 16.5525 14 16 14 14.895 14 14 13.105 14 12 14 10.895 14.895 10 16 10 16.553 10 17.0533 10.2241 17.4153 10.5865L18.829 9.17297ZM2 12C2 6.47717 6.47717 2 12 2 17.5228 2 22 6.47717 22 12 22 17.5228 17.5228 22 12 22 6.47717 22 2 17.5228 2 12ZM12 4C7.58167 4 4 7.58167 4 12 4 16.4183 7.58167 20 12 20 16.4183 20 20 16.4183 20 12 20 7.58167 16.4183 4 12 4Z"></path></svg>
-          
-          <svg class="inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M14 7C14 8.10461 13.1046 9 12 9 10.8954 9 10 8.10461 10 7 10 5.89539 10.8954 5 12 5 13.1046 5 14 5.89539 14 7ZM15 11C15 10.4478 14.5522 10 14 10H10C9.44775 10 9 10.4478 9 11V15H10.5V19H13.5V15H15V11ZM12 2C6.47717 2 2 6.47717 2 12 2 17.5228 6.47717 22 12 22 17.5228 22 22 17.5228 22 12 22 6.47717 17.5228 2 12 2ZM4 12C4 7.58167 7.58167 4 12 4 16.4183 4 20 7.58167 20 12 20 16.4183 16.4183 20 12 20 7.58167 20 4 16.4183 4 12Z"></path></svg>
-          </a>.
+          <svg
+            class="inline"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path
+              d="M9 8C10.1045 8 11.1049 8.44836 11.829 9.17297L10.4153 10.5865C10.0533 10.2241 9.55298 10 9 10 7.89502 10 7 10.895 7 12 7 13.105 7.89502 14 9 14 9.55249 14 10.0525 13.7762 10.4144 13.4144L11.828 14.828C11.104 15.552 10.104 16 9 16 6.79199 16 5 14.208 5 12 5 9.79199 6.79199 8 9 8ZM18.829 9.17297C18.1049 8.44836 17.1045 8 16 8 13.792 8 12 9.79199 12 12 12 14.208 13.792 16 16 16 17.104 16 18.104 15.552 18.828 14.828L17.4144 13.4144C17.0525 13.7762 16.5525 14 16 14 14.895 14 14 13.105 14 12 14 10.895 14.895 10 16 10 16.553 10 17.0533 10.2241 17.4153 10.5865L18.829 9.17297ZM2 12C2 6.47717 6.47717 2 12 2 17.5228 2 22 6.47717 22 12 22 17.5228 17.5228 22 12 22 6.47717 22 2 17.5228 2 12ZM12 4C7.58167 4 4 7.58167 4 12 4 16.4183 7.58167 20 12 20 16.4183 20 20 16.4183 20 12 20 7.58167 16.4183 4 12 4Z"
+            ></path>
+          </svg>
 
-          Harap menyertakan atribusi apabila mengutip tulisan dan/atau mengambil gambar dari artikel ini.
+          <svg
+            class="inline"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+          >
+            <path
+              d="M14 7C14 8.10461 13.1046 9 12 9 10.8954 9 10 8.10461 10 7 10 5.89539 10.8954 5 12 5 13.1046 5 14 5.89539 14 7ZM15 11C15 10.4478 14.5522 10 14 10H10C9.44775 10 9 10.4478 9 11V15H10.5V19H13.5V15H15V11ZM12 2C6.47717 2 2 6.47717 2 12 2 17.5228 6.47717 22 12 22 17.5228 22 22 17.5228 22 12 22 6.47717 17.5228 2 12 2ZM4 12C4 7.58167 7.58167 4 12 4 16.4183 4 20 7.58167 20 12 20 16.4183 16.4183 20 12 20 7.58167 20 4 16.4183 4 12Z"
+            ></path>
+          </svg> </a
+        >. Harap menyertakan atribusi apabila mengutip tulisan dan/atau
+        mengambil gambar dari artikel ini.
       </p>
     </div>
 
-    <div id="disqus_thread" class="px-2 py-8 md:p-8 border-2 border-gray-300 mt-8 rounded-lg"></div>
+    <div
+      id="disqus_thread"
+      class="px-2 py-8 md:p-8 border-2 border-gray-300 mt-8 rounded-lg"
+    ></div>
   </footer>
 </div>
+
 
 
 {% include "components/testimonials-slide.html" %}
@@ -227,7 +264,7 @@ layout: base
     if (!navigator.share) {
       const shareMoreButton = document.getElementById('shareMore');
       if (shareMoreButton) {
-        shareMoreButton.classList.add('hidden');
+        shareMoreButton.classList.add('hiddens');
       }
     }
   });
@@ -241,6 +278,8 @@ layout: base
             text: decodeURIComponent(message),
           })
           .catch((error) => console.log('Error sharing', error));
+      } else {
+        console.log('Share API not supported')
       }
     });
 </script>
