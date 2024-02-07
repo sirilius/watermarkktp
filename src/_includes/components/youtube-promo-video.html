@@ -1,0 +1,47 @@
+<div id="video-wrap" class="mt-8 max-w-sm mx-auto">
+  <h3 class="font-bold text-3xl md:text-4xl py-4 text-center">
+    Kevin on TikTok
+  </h3>
+</div>
+<div
+  id="video"
+  class="max-w-sm mx-auto flex justify-center lg:fixed right-0 xl:right-16 bottom-0"
+>
+  <iframe
+    id="iframe"
+    width="180"
+    height="322"
+    src="https://www.youtube.com/embed/B9qqQyjdipc?autoplay=1&mute=1"
+    title="Web yang aku buat, viral!"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<script>
+  const videoWrap = document.querySelector("#video-wrap");
+  const video = document.querySelector("#video");
+  const videoClassList = video.classList;
+  const iframe = document.querySelector("#iframe");
+  const videoHeight = video.offsetHeight;
+
+  window.addEventListener("scroll", function () {
+    const { innerHeight, scrollY } = window;
+    const { scrollHeight } = document.documentElement;
+    const windowScrollBottom = scrollY + innerHeight;
+    const videoTop = videoWrap.offsetTop;
+
+    if (windowScrollBottom < videoTop) {
+      videoWrap.style.height = `${videoHeight}px`;
+      videoClassList.add("lg:fixed");
+      iframe.style.width = "180px";
+      iframe.style.height = "322px";
+    } else {
+      videoWrap.style.height = "auto";
+      videoClassList.remove("lg:fixed");
+      iframe.style.width = "380px";
+      iframe.style.height = "677px";
+    }
+  });
+</script>
