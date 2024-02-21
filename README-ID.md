@@ -84,6 +84,6 @@ Watermark KTP dilisensikan di bawah [Lisensi MIT](https://github.com/sirilius/wa
 
 Apabila Anda merasa terbantu dengan penggunaan Watermark KTP dan ingin mendukung pengembangan lebih lanjut, Anda dapat memberikan donasi sebagai bentuk apresiasi. Donasi Anda akan sangat berarti dalam pemeliharaan, pembaruan, dan peningkatan alat ini.
 
-Untuk melakukan donasi, silakan kunjungi halaman Saweria berikut:
+Untuk melakukan donasi, silakan kunjungi halaman donasi berikut:
 
-- https://saweria.co/sirilius
+- https://watermarkktp.com/donate/

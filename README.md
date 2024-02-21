@@ -84,6 +84,6 @@ Watermark KTP is licensed under the [MIT License](https://github.com/sirilius/wa
 
 If you find Watermark KTP useful and would like to support further development, you can make a donation as a token of appreciation. Your donation will be greatly appreciated and contribute to the maintenance, updates, and improvements of this tool.
 
-To make a donation, please visit the following Saweria page:
+To make a donation, please visit the following donation page:
 
-- https://saweria.co/sirilius
+- https://watermarkktp.com/donate/
