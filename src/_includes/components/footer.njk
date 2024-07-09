@@ -2,7 +2,7 @@
     { name: "Produk", 
       content: [
         {name: "Watermark KTP", link: "/"},
-        {name: "Tanda Tangan", link: "/tanda-tangan/"}
+        {name: "Tanda Tangan", link: "/ttd-online/"}
       ] 
     },
     { name: "Dokumentasi", 
@@ -131,7 +131,7 @@
     {% include "js/watermark.js" %}
     {% include "js/html2canvas.js" %}
   {% endif %}
-  {% if page.url == "/tanda-tangan/" %}
+  {% if page.url == "/ttd-online/" %}
     {% include "js/signature_pad.js" %}
     {% include "js/signature.js" %}
   {% endif %}
