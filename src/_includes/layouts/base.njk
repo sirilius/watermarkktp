@@ -40,7 +40,11 @@ title: Watermark KTP - Solusi Aman, Praktis, dan Gratis untuk Watermark KTP
     <meta property="twitter:url" content="https://watermarkktp.com{{ page.url }}" />
 
     <link rel="canonical" href="https://watermarkktp.com{{ page.url }}" />
-    <link rel="icon" href="/img/logo-watermarkktp.svg" />
+    {% if page.url == "/ttd-online/"%}
+      <link rel="icon" href="/img/logo-ttd-online.svg" />
+    {% else %}
+      <link rel="icon" href="/img/logo-watermarkktp.svg" />
+    {% endif %}
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap"
