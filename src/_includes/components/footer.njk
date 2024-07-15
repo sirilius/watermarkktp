@@ -37,7 +37,14 @@
   >
     <div class="lg:w-2/6 space-y-4">
       <div class="text-sm text-center lg:text-left space-y-2">
-        <div class="text-2xl font-bold">Watermark KTP</div>
+        <div class="flex items-center justify-center lg:justify-normal">
+          <img
+            src="/img/logo-watermarkktp.svg"
+            alt="Watermark KTP"
+            class="w-6 h-6 mr-1"
+          />
+          <span class="text-2xl font-bold">Watermark KTP</span>
+        </div>
         <p class="max-w-xl mx-auto text-gray-700">
           Solusi terbaik, praktis, dan aman untuk menambahkan watermark ke scan
           KTP. Dibuat oleh Sirilius Kevin sebagai sarana pengamanan data
@@ -144,7 +151,7 @@
     window.addEventListener("load", function () {
       const watermarkktpStatus = document.createElement("iframe");
       watermarkktpStatus.src = "https://status.watermarkktp.com/badge";
-      watermarkktpStatus.width = "185";
+      watermarkktpStatus.width = "200";
       watermarkktpStatus.height = "30";
       watermarkktpStatus.frameBorder = "0";
       watermarkktpStatus.scrolling = "no";
