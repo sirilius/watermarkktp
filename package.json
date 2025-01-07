@@ -1,18 +1,9 @@
 {
-  "private": true,
   "name": "watermarkktp",
-  "description": "A simple tool to add watermark to KTP scan.",
   "author": "Sirilius Kevin",
-  "license": "MIT",
-  "homepage": "https://watermarkktp.com",
-  "scripts": {
-    "build": "npm run update-submodule && npm run tailwind:prod && npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve",
-    "format": "prettier --write '**/*.{js,css,html,md}'",
-    "tailwind:dev": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
-    "tailwind:prod": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css",
-    "dev": "concurrently 'npm run tailwind:dev' 'npm run serve'",
-    "update-submodule": "git submodule update --recursive --remote"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirilius/watermarkktp.git"
   },
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
@@ -33,11 +24,21 @@
     "tailwindcss": "^3.1.4",
     "terser": "^5.12.0"
   },
-  "dependencies": {
-    "dotenv": "^16.4.7"
+  "description": "A simple tool to add watermark to KTP scan.",
+  "homepage": "https://watermarkktp.com",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "npm run update-submodule && npm run tailwind:prod && npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "format": "prettier --write '**/*.{js,css,html,md}'",
+    "tailwind:dev": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css --watch",
+    "tailwind:prod": "npx postcss src/_includes/css/tailwind.css --o src/_includes/css/app.css",
+    "dev": "concurrently 'npm run tailwind:dev' 'npm run serve'",
+    "update-submodule": "git submodule update --recursive --remote"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sirilius/watermarkktp.git"
+  "dependencies": {
+    "csrf": "^3.1.0",
+    "dotenv": "^16.4.7"
   }
 }

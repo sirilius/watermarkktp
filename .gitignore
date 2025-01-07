@@ -14,3 +14,6 @@ src/_includes/css/app.css
 
 # Local Netlify folder
 .netlify
+
+# local env files
+.env*.local
