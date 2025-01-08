@@ -169,7 +169,7 @@ module.exports = function (eleventyConfig) {
 
   console.log(
     "CSRF_SECRET:",
-    process.env.CSRF_SECRET ? "defined" : "undefined",
+    process.env.SUBMIT_API_URL ? "defined" : "undefined",
   );
 
   // Add global data for CSRF token
