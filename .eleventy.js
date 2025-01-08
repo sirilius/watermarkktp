@@ -167,6 +167,11 @@ module.exports = function (eleventyConfig) {
   // Add global data for environment variables
   eleventyConfig.addGlobalData("env", process.env);
 
+  console.log(
+    "CSRF_SECRET:",
+    process.env.CSRF_SECRET ? "defined" : "undefined",
+  );
+
   // Add global data for CSRF token
   eleventyConfig.addGlobalData("csrfToken", () =>
     tokens.create(process.env.CSRF_SECRET),
