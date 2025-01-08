@@ -1,3 +1,4 @@
+require("dotenv").config();
 const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 const { minify } = require("terser");
@@ -7,7 +8,6 @@ const eleventyImage = require("@11ty/eleventy-img");
 const { eleventyImagePlugin } = eleventyImage;
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { DateTime } = require("luxon");
-require("dotenv").config();
 const csrf = require("csrf");
 const tokens = new csrf();
 
