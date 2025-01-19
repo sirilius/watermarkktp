@@ -1,3 +1,4 @@
+require("dotenv").config();
 const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 const { minify } = require("terser");
@@ -7,6 +8,8 @@ const eleventyImage = require("@11ty/eleventy-img");
 const { eleventyImagePlugin } = eleventyImage;
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const { DateTime } = require("luxon");
+const csrf = require("csrf");
+const tokens = new csrf();
 
 const shortcodes = {
   image: async function (filepath, alt, widths, classes, sizes) {
@@ -159,6 +162,14 @@ module.exports = function (eleventyConfig) {
       }
       return content;
     },
+  );
+
+  // Add global data for environment variables
+  eleventyConfig.addGlobalData("env", process.env);
+
+  // Add global data for CSRF token
+  eleventyConfig.addGlobalData("csrfToken", () =>
+    tokens.create(process.env.CSRF_SECRET),
   );
 
   return {

@@ -1,0 +1,409 @@
+---
+layout: base
+title: Beriklan di Watermark KTP
+---
+
+<div class="space-y-16 px-6 max-w-7xl mx-auto">
+  <div class="max-w-2xl mx-auto">
+    <h1
+      class="pt-16 text-5xl text-center tracking-tight md:leading-tight font-bold"
+    >
+      Beriklan di Watermark KTP
+    </h1>
+    <h2 class="text-center text-gray-700">
+      Promosikan produk anda di halaman-halaman Watermark KTP
+    </h2>
+  </div>
+
+  <div class="flex justify-center">
+    <div class="flex flex-col items-center mr-8">
+      <h2
+        class="text-5xl text-center tracking-tight md:leading-tight font-bold text-blue-600"
+      >
+        15k+
+      </h2>
+      <span>Page Views per Bulan</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <h2
+        class="text-5xl text-center tracking-tight md:leading-tight font-bold text-blue-600"
+      >
+        9k+
+      </h2>
+      <span>Unique Visitor per Bulan</span>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-2xl text-center font-bold mb-8">
+      Kenapa beriklan di Watermark KTP?
+    </h2>
+
+    <article class="max-w-2xl mx-auto space-y-4">
+      <div class="space-y-2">
+        <ul class="list-disc text-gray-900 text-lg">
+          <li>Biaya iklan yang terjangkau</li>
+          <li>
+            Watermark KTP memiliki lalu lintas pengguna yang tinggi setiap hari,
+            memberikan peluang lebih besar bagi iklan Anda untuk dilihat
+          </li>
+          <li>
+            Unit iklan di-hosting secara langsung dan tidak terpengaruh oleh
+            pemblokir iklan
+          </li>
+          <li>Penempatan iklan dan harga dapat disesuaikan permintaan</li>
+          <li>Tanpa perantara, berinteraksi langsung dengan pengelola situs</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <div>
+    <h2 class="text-2xl text-center font-bold mb-8">Unit Iklan</h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 max-w-4xl mx-auto"
+    >
+      <a
+        href="#ad-form"
+        class="flex flex-col border border-gray-200 rounded-xl pricing-box"
+        data-plan="Leading"
+      >
+        {% image "./src/img/leading-banner.png", "Sirilius Kevin, 10 years old
+        is learning to code using a computer with Windows 7 OS.", [1718, 1080],
+        "rounded-t-xl w-full" %}
+        <div class="flex flex-1 flex-col p-4 space-y-2">
+          <h3 class="font-medium text-base">Leading Banner</h3>
+
+          <p class="text-gray-500">
+            Iklan yang berada di bawah header pada halaman cara pakai, blog, dan
+            seluruh artikel blog di Watermark KTP dengan ukuran 728x90 pixel
+          </p>
+
+          <div class="flex flex-1 flex-col justify-end">
+            <h3 class="font-medium text-base">Rp300.000/bulan</h3>
+          </div>
+        </div>
+      </a>
+
+      <a
+        href="#ad-form"
+        class="flex flex-col border border-gray-200 rounded-xl pricing-box"
+        data-plan="Watermark"
+      >
+        {% image "./src/img/under-canvas.png", "Sirilius Kevin, 10 years old is
+        learning to code using a computer with Windows 7 OS.", [1718, 1080],
+        "rounded-t-xl w-full" %}
+        <div class="flex flex-1 flex-col p-4 space-y-2">
+          <h3 class="font-medium text-base">Under Watermark Canvas</h3>
+
+          <p class="text-gray-500">
+            Iklan yang muncul di bawah kanvas pada halaman utama dengan ukuran
+            728x90 pixel
+          </p>
+
+          <div class="flex flex-1 flex-col justify-end">
+            <h3 class="font-medium text-base">Rp250.000/bulan</h3>
+          </div>
+        </div>
+      </a>
+
+      <a
+        href="#ad-form"
+        class="flex flex-col border border-gray-200 rounded-xl pricing-box"
+        data-plan="Signature"
+      >
+        {% image "./src/img/under-canvas-ttd.png", "Sirilius Kevin, 10 years old
+        is learning to code using a computer with Windows 7 OS.", [1718, 1080],
+        "rounded-t-xl w-full" %}
+        <div class="flex flex-1 flex-col p-4 space-y-2">
+          <h3 class="font-medium text-base">Under Signature Canvas</h3>
+
+          <p class="text-gray-500">
+            Iklan yang muncul di bawah kanvas pada halaman tanda tangan dengan
+            ukuran 728x90 pixel
+          </p>
+
+          <div class="flex flex-1 flex-col justify-end">
+            <h3 class="font-medium text-base">Rp250.000/bulan</h3>
+          </div>
+        </div>
+      </a>
+
+      <a
+        href="#ad-form"
+        class="flex flex-col border border-gray-200 rounded-xl pricing-box"
+        data-plan="Announcement"
+      >
+        {% image "./src/img/announcement-bar.png", "Sirilius Kevin, 10 years old
+        is learning to code using a computer with Windows 7 OS.", [1718, 1080],
+        "rounded-t-xl" %}
+        <div class="flex flex-1 flex-col p-4 space-y-2">
+          <h3 class="font-medium text-base">Header Announcement Bar</h3>
+
+          <p class="text-gray-500">
+            Sebuah teks pengumuman di atas header yang muncul di seluruh halaman
+            Watermark KTP dengan maksimal 70 karakter
+          </p>
+
+          <div class="flex flex-1 flex-col justify-end">
+            <h3 class="font-medium text-base">Rp100.000/bulan</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <form
+        id="ad-form"
+        class="pt-16 space-y-8"
+        action="{{ env.SUBMIT_API_URL }}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="csrfToken" value="{{ csrfToken }}" />
+        <div>
+          <label
+            for="clientName"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Nama</label
+          >
+          <input
+            type="text"
+            id="clientName"
+            name="clientName"
+            class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+            placeholder="Nama Perusahaan atau Nama Anda"
+            required
+          />
+        </div>
+        <div>
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+            placeholder="kevin@example.com"
+            required
+          />
+        </div>
+        <div>
+          <label for="url" class="block mb-2 text-sm font-medium text-gray-900"
+            >URL Iklan</label
+          >
+          <input
+            type="text"
+            id="url"
+            name="url"
+            class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+            placeholder="https://sirilius.com/produk"
+            required
+          />
+        </div>
+        <div class="sm:col-span-2">
+          <label
+            for="adPlacement"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Penempatan Iklan
+          </label>
+          <select
+            id="adPlacement"
+            name="adPlacement"
+            class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+            required
+          >
+            <option value="" selected disabled>Pilih Penempatan Iklan</option>
+            <option value="Leading">Leading Banner</option>
+            <option value="Watermark">Under Watermark Canvas</option>
+            <option value="Signature">Under Signature Canvas</option>
+            <option value="Announcement">Header Announcement Bar</option>
+          </select>
+        </div>
+        <div class="sm:col-span-2">
+          <label
+            for="adImage"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Gambar Iklan</label
+          >
+          <input
+            type="file"
+            id="adImage"
+            name="adImage"
+            accept="image/*"
+            required
+            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border file:border-solid file:border-gray-300 file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
+          />
+        </div>
+        <div class="sm:col-span-2">
+          <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Pesan</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            class="block w-full p-2.5 outline-none shadow-sm text-sm ring-1 focus:ring-2 rounded-lg bg-gray-50 ring-gray-300 text-gray-900 focus:ring-blue-500"
+            placeholder="Tulis pesan di sini..."
+            required
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          id="form-button"
+          data-umami-event="advertise-send-button"
+          class="py-3 px-5 text-sm font-medium text-center rounded-lg text-white bg-blue-500 text-blue shadow-3d-blue-button bg-gradient-to-b from-gradient-btn-from to-gradient-btn-to bg-no-repeat hover:opacity-80"
+        >
+          Kirim iklan
+          <i class="ri-send-plane-2-line ml-1"></i>
+        </button>
+
+        <div id="form-status"></div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <h2 class="text-2xl text-center font-bold mb-8">Kebijakan Iklan</h2>
+
+      <article class="max-w-2xl mx-auto space-y-4">
+        <div class="space-y-2">
+          <ul class="list-disc text-gray-900 text-lg">
+            <li>
+              Semua iklan harus mempromosikan produk dan layanan yang sah secara
+              hukum
+            </li>
+            <li>
+              Iklan yang mempromosikan aktivitas ilegal, produk terlarang, atau
+              layanan yang melanggar hukum tidak diperbolehkan
+            </li>
+            <li>
+              Iklan yang menampilkan konten seksual eksplisit, pornografi, atau
+              materi dewasa lainnya tidak diperkenankan
+            </li>
+            <li>
+              Iklan yang mempromosikan konten sensitif seperti kekerasan,
+              bahaya, atau materi yang mengganggu tidak akan ditoleransi
+            </li>
+            <li>
+              Pengiklan bertanggung jawab penuh atas konten dan klaim dalam
+              iklan mereka. Watermark KTP tidak bertanggung jawab atas kesalahan
+              atau klaim yang muncul dari iklan tersebut
+            </li>
+            <li>
+              Tidak ada pengembalian dana yang akan diberikan kecuali iklan
+              gagal ditampilkan karena kelalaian atau masalah teknis
+            </li>
+            <li>
+              Semua iklan akan diperiksa sebelum ditayangkan. Watermark KTP
+              berhak menolak iklan yang tidak sesuai dengan kebijakan
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const pricingBoxes = document.querySelectorAll(".pricing-box");
+    const adUnitSelect = document.getElementById("adPlacement");
+
+    pricingBoxes.forEach((box) => {
+      box.addEventListener("click", function () {
+        // Remove active class from all boxes
+        pricingBoxes.forEach((box) => box.classList.remove("active"));
+
+        // Add active class to the clicked box
+        this.classList.add("active");
+
+        // Get data attributes from the clicked box
+        const plan = this.getAttribute("data-plan");
+
+        // Update the select field
+        adUnitSelect.value = plan;
+
+        // Force the adUnitSelect to focus after a short delay
+
+        setTimeout(() => {
+          adUnitSelect.focus();
+        }, 100);
+      });
+    });
+  });
+
+  var form = document.getElementById("ad-form");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("form-status");
+    var data = new FormData(event.target);
+
+    try {
+      const response = await fetch(event.target.action, {
+        method: "POST",
+        body: data,
+        mode: "cors",
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (e) {
+        console.error("Error parsing JSON:", e);
+        responseData = null;
+      }
+      console.log("Response Data:", responseData);
+
+      if (response.ok) {
+        status.innerHTML = `
+          <div class="p-2 rounded-lg bg-green-100 ring-2 ring-green-400">
+            <p id="form-status" class="flex items-center">
+              <i class="ri-checkbox-circle-line text-xl text-green-500 mr-2"></i>
+              Iklan telah terkirim. Kami akan merespon secepatnya!
+            </p>
+          </div>
+        `;
+        form.reset();
+      } else {
+        if (responseData && responseData.errors) {
+          status.innerHTML = responseData.errors
+            .map((error) => error.message)
+            .join(", ");
+        } else {
+          status.innerHTML = `
+            <div class="p-2 rounded-lg bg-red-100 ring-2 ring-red-400">
+              <p id="form-status" class="flex items-center">
+                <i class="ri-close-circle-line text-xl text-red-500 mr-2"></i>
+                Oops! Terjadi kesalahan saat mengirim formulir, coba beberapa saat lagi.
+              </p>
+            </div>
+          `;
+        }
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      status.innerHTML = `
+        <div class="p-2 rounded-lg bg-red-100 ring-2 ring-red-400">
+          <p id="form-status" class="flex items-center">
+            <i class="ri-close-circle-line text-xl text-red-500 mr-2"></i>
+            Oops! Terjadi kesalahan saat mengirim formulir, coba beberapa saat lagi.
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  form.addEventListener("submit", handleSubmit);
+</script>
