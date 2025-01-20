@@ -67,7 +67,7 @@ eleventyNavigation:
       class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 max-w-4xl mx-auto"
     >
       <a
-        href="#ad-form"
+        href="#promosi-form"
         class="flex flex-col border border-gray-200 rounded-xl pricing-box"
         data-plan="Leading"
       >
@@ -89,7 +89,7 @@ eleventyNavigation:
       </a>
 
       <a
-        href="#ad-form"
+        href="#promosi-form"
         class="flex flex-col border border-gray-200 rounded-xl pricing-box"
         data-plan="Watermark"
       >
@@ -111,7 +111,7 @@ eleventyNavigation:
       </a>
 
       <a
-        href="#ad-form"
+        href="#promosi-form"
         class="flex flex-col border border-gray-200 rounded-xl pricing-box"
         data-plan="Signature"
       >
@@ -133,7 +133,7 @@ eleventyNavigation:
       </a>
 
       <a
-        href="#ad-form"
+        href="#promosi-form"
         class="flex flex-col border border-gray-200 rounded-xl pricing-box"
         data-plan="Announcement"
       >
@@ -157,7 +157,7 @@ eleventyNavigation:
 
     <div class="max-w-2xl mx-auto">
       <form
-        id="ad-form"
+        id="promosi-form"
         class="pt-16 space-y-8"
         action="{{ env.SUBMIT_API_URL }}"
         method="POST"
@@ -343,7 +343,7 @@ eleventyNavigation:
     });
   });
 
-  var form = document.getElementById("ad-form");
+  var form = document.getElementById("promosi-form");
 
   async function handleSubmit(event) {
     event.preventDefault();
