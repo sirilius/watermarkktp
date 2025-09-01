@@ -1,15 +1,32 @@
 <div class="text-center bg-gray-100">
   <div
-    class="w-full px-2 md:px-8 py-2 inline-block sm:inline-flex justify-center items-center space-x-1 font-medium text-gray-700"
+    id="promo-bar"
+    class="w-full px-2 md:px-8 py-2 inline-block sm:inline-flex justify-center items-center space-x-1 font-semibold"
   >
-    <i class="ri-megaphone-line inline text-blue-500"></i>
+    <i class="ri-megaphone-line inline"></i>
     <a
-      class="text-base text-center text-blue-500"
-      href="https://fotoaman.sirilius.com"
+      class="text-base text-center"
+      href="https://watermarkktp.com/promosi/"
       target="_blank"
-      data-umami-event="campaign-fotoaman"
+      data-umami-event="campaign-promotion"
     >
-      Hapus lokasi dan data pribadi lainnya dari foto Anda dengan FotoAman</a
-    >
+      Watermark KTP kini menerima pemasangan iklan. Klik di sini untuk info
+      lebih lanjut.
+    </a>
   </div>
 </div>
+
+<script>
+  (function () {
+    const colors = ["#e44c99", "#0f0e83", "#01aa13"];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const bar = document.getElementById("promo-bar");
+
+    // set text color for the whole bar
+    bar.style.color = color;
+
+    // ensure link inherits/uses same color
+    const link = bar.querySelector("a");
+    if (link) link.style.color = color;
+  })();
+</script>
