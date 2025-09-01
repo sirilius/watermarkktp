@@ -15,18 +15,3 @@
     </a>
   </div>
 </div>
-
-<script>
-  (function () {
-    const colors = ["#e44c99", "#0f0e83", "#01aa13"];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const bar = document.getElementById("promo-bar");
-
-    // set text color for the whole bar
-    bar.style.color = color;
-
-    // ensure link inherits/uses same color
-    const link = bar.querySelector("a");
-    if (link) link.style.color = color;
-  })();
-</script>

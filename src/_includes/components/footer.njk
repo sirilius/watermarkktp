@@ -146,6 +146,24 @@
   {% include "js/faq.js" %}
   {% endset %}
   <script>{{ js | jsmin | safe }}</script>
+
+
+<script>
+  const colors = ["#e471b4", "#0f0e83", "#176325"];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+
+  const chooseBtn = document.getElementById("choose-btn");
+  const promoBar = document.querySelector("#promo-bar");
+  if (chooseBtn) {
+    chooseBtn.style.backgroundColor = color;
+    chooseBtn.style.borderColor = color; // jika ingin ada border ikut berubah
+  }
+  if (promoBar) {
+    promoBar.style.color = color;
+    promoBar.style.color = color; // jika ingin ada border ikut berubah
+  }
+</script>
+
   
   <script>
     window.addEventListener("load", function () {
