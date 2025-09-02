@@ -4,7 +4,7 @@
 <div align="center">
     <img alt="GitHub forks" src="https://img.shields.io/github/forks/sirilius/watermarkktp">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/sirilius/watermarkktp">
-    <img alt="GitHub" src="https://img.shields.io/github/license/sirilius/watermarkktp">
+   <img alt="License" src="https://img.shields.io/badge/license-MIT%20(Registered%20at%20DJKI)-blue.svg">
 </div>
 
 # Usage
