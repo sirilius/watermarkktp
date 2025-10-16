@@ -1,4 +1,4 @@
-google.com, pub-7675288227309864, DIRECT, f08c47fec0942fa0
+google.com, pub-6623323467866497, DIRECT, f08c47fec0942fa0
 
 disqus.com, 2551153, DIRECT
 amxrtb.com, 105199574, DIRECT
