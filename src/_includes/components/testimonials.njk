@@ -1,24 +1,28 @@
-<div class="flex flex-col items-center mt-16">
-  <h2 class="text-2xl text-center font-bold mb-12">Tanggapan Orang-Orang</h2>
+<div class="flex flex-col items-center mt-20 md:mt-32">
+  <h2 class="text-3xl text-center font-bold mb-12 tracking-tight">
+    Tanggapan Orang-Orang
+  </h2>
 
-  <div class="md:columns-2 lg:columns-3 gap-4 space-y-4">
+  <!-- Testimonials Grid -->
+  <div class="md:columns-2 lg:columns-3 gap-6 space-y-6 w-full max-w-6xl px-4">
     {% for testimonial in testimonials %}
     <div
-      class="border border-gray-300 rounded-xl shadow flex flex-col p-4 break-inside-avoid"
+      class="border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 bg-white break-inside-avoid"
     >
       <a
-        class="flex items-center mb-4 space-x-2"
         href="{{ testimonial.url }}"
         target="_blank"
+        rel="noopener noreferrer"
         data-umami-event="testi-Twitter-{{ testimonial.username }}"
+        class="flex items-center mb-4 space-x-3"
       >
         {% image "./src/img/testi-pp-" + testimonial.username + ".jpg",
-        testimonial.name + " profile photo", [64, 64], "rounded-full w-12 mr-2"
-        %}
+        testimonial.name + " profile photo", [64, 64], "rounded-full w-12
+        object-cover" %}
 
-        <div class="flex justify-between w-full">
+        <div class="flex justify-between w-full items-center">
           <div>
-            <p class="font-semibold">{{ testimonial.name }}</p>
+            <p class="font-semibold text-gray-900">{{ testimonial.name }}</p>
             <p class="text-gray-500 text-xs">{{ testimonial.profession }}</p>
           </div>
           <i
@@ -27,33 +31,30 @@
         </div>
       </a>
 
-      <p>{{ testimonial.content | safe }}</p>
+      <p class="text-gray-700 leading-relaxed">
+        {{ testimonial.content | safe }}
+      </p>
     </div>
     {% endfor %}
   </div>
 
-  <div class="px-0 max-w-3xl">
-    <div class="mt-12 flex flex-col items-center px-0 lg:px-4 py-4 h-min">
-      <p class="text-2xl text-center mb-4">
-        "Watermark KTP bikinan Kevin benar-benar membantu. Setidaknya untuk kita
-        bisa
-        <span class="text-black py-1 px-1 bg-[#bce954]"
-          >mencegah penyalahgunaan data di KTP.</span
-        >"
-      </p>
-      <div class="text-xl">
-        <a
-          href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
-          class="text-gray-600 hover:text-gray-900"
-          data-umami-event="testi-Mojok"
-        >
-          {% image "./src/img/logo-mojok.png", "Logo Mojok.co", [163, 60], "w-36
-          bg-black px-6 py-2 hover:opacity-80 duration-300" %}
-        </a>
-      </div>
-    </div>
+  <!-- Highlighted Press Quote -->
+  <div class="max-w-3xl text-center mt-16 px-6">
+    <blockquote class="text-2xl italic text-gray-800 leading-relaxed mb-6">
+      “Watermark KTP bikinan Kevin benar-benar membantu. Setidaknya untuk kita
+      bisa
+      <span class="bg-[#bce954] text-black px-2 rounded-md">
+        mencegah penyalahgunaan data di KTP.
+      </span>”
+    </blockquote>
+    <a
+      href="https://mojok.co/konter/watermark-ktp-solusi-baru-memerangi-pinjol-laknat/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block hover:opacity-90 transition duration-300"
+      data-umami-event="testi-Mojok"
+    >
+      {% image "./src/img/logo-mojok.png", "Logo Mojok.co", [163, 60], "w-36 bg-black px-6 py-2 rounded-md" %}
+    </a>
   </div>
 </div>
-
-
-  {% include "components/use-case.njk" %}
